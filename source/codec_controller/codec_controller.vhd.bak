@@ -1,0 +1,158 @@
+-------------------------------------------------------------------------------
+-- Title      : codec_controller
+-- Project    : DTP2 Synthesizer Projekt
+-------------------------------------------------------------------------------
+-- File       : codec_controller.vhd
+-- Author     : <Heinzen> Marco Heinzen (heinzma2@students.zhaw.ch)
+-- Company    :ZHAW
+-- Created    : 2019-03-08
+-- Platform   : Windows 10
+-- Standard   : VHDL'08
+-------------------------------------------------------------------------------
+-- Description: controller Block for the audio codec
+-------------------------------------------------------------------------------
+-- Copyright (c) 2019
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date        Version  Author  	Description
+-- 2018-03-08  1.0     	Heinzen 	Created
+-- 2018-03-09  1.1      Heinzen 	comments added
+-------------------------------------------------------------------------------
+
+-- Library & Use Statements
+-------------------------------------------
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+use work.reg_table_pkg.all;
+
+-- Entity Declaration
+-------------------------------------------
+entity codec_controller is
+
+	PORT (
+		sw_sync_i	:	in std_logic_vector(2 downto 0);
+		initialize_i	:	in std_logic;
+		write_done_i	: 	in std_logic;
+		ack_error_i		:	in std_logic;
+		clk				:	in std_logic;
+		reset_n			: 	in std_logic;
+		write_o			:	out std_logic;
+		mute_o			:	out std_logic;
+		write_data_o	: 	out std_logic_vector(15 downto 0));
+
+END codec_controller;
+
+
+-- Architecture Declaration?
+-------------------------------------------
+ARCHITECTURE rtl OF codec_controller IS
+-- Types
+TYPE	codec_status	is	(idle, prepare, startWrite, waitAck);
+
+-- Signals
+SIGNAL currentStat		 :	codec_status;
+SIGNAL nextStat			 :	codec_status;
+SIGNAL count		   	 : 	unsigned(6 downto 0);
+SIGNAL nextcount	 	 : 	unsigned(6 downto 0);
+SIGNAL event_control       :	std_logic_vector(2 downto 0);
+SIGNAL next_event_control  :	std_logic_vector(2 downto 0);
+SIGNAL write_data_buffer : std_logic_vector(15 downto 0);
+SIGNAL next_write_data_buffer : std_logic_vector(15 downto 0);
+
+BEGIN
+
+
+	-- Process for FSM and count
+	clocked : PROCESS(clk, reset_n, nextStat)
+	BEGIN
+		-- Reset for Counter, Output and FSM , override with '0'
+		IF reset_n = '0' THEN
+			currentStat <= idle;
+			event_control <= (OTHERS => '0');
+			count <= (OTHERS => '0');
+			write_data_buffer <= (OTHERS => '0');
+		
+		-- on rising edge states are shifted and count is increased
+		ELSIF rising_edge(clk) THEN
+			currentStat <= nextStat;
+			count <= nextcount;
+			event_control <= next_event_control;
+			write_data_buffer <= next_write_data_buffer;
+		END IF;
+
+	END PROCESS clocked;
+
+	
+	-- Process for sending data to i2c master
+	sendparallel : PROCESS (ALL)
+	BEGIN
+	-- Default Statements
+	nextStat <= currentStat;
+	nextcount <= count;
+	next_event_control <= event_control;
+	next_write_data_buffer <= write_data_buffer;
+	write_o <= '0';
+
+	CASE currentStat IS
+	WHEN idle => -- default state
+		next_event_control <= event_ctrol_i;
+		IF initialize_i = '0' THEN -- change state to prepare if initialize_i signal is '1'
+			nextStat <= prepare;
+			CASE event_control IS -- set array entry to 9
+				WHEN "000" => nextcount <= to_unsigned(9,7);
+				WHEN "001" => nextcount <= to_unsigned(9,7);
+				WHEN "010" => nextcount <= to_unsigned(9,7);
+				WHEN "011" => nextcount <= to_unsigned(9,7);
+				WHEN "100" => nextcount <= to_unsigned(9,7);
+				WHEN OTHERS => nextStat <= idle;
+			END CASE;
+		END IF;
+
+	WHEN prepare =>
+		nextStat <= startWrite;
+		-- writing data in output register
+		CASE event_control IS	-- switch between different stored commands
+			WHEN "000" => next_write_data_buffer <= std_logic_vector(count) & C_W8731_ANALOG_BYPASS(to_integer(count));
+			WHEN "001" => next_write_data_buffer <= std_logic_vector(count) & C_W8731_ANALOG_MUTE_RIGHT(to_integer(count));
+			WHEN "010" => next_write_data_buffer <= std_logic_vector(count) & C_W8731_ANALOG_MUTE_LEFT(to_integer(count));
+			WHEN "011" => next_write_data_buffer <= std_logic_vector(count) & C_W8731_ANALOG_MUTE_BOTH(to_integer(count));
+			WHEN "100" => next_write_data_buffer <= std_logic_vector(count) & C_W8731_ADC_DAC_0DB_48K(to_integer(count));
+
+			WHEN OTHERS =>
+				nextStat <= idle;
+				nextcount <= (OTHERS => '0');
+		END CASE;
+
+	-- start sending data
+	WHEN startWrite =>
+		write_o <= '1';
+		nextStat <= waitAck;
+
+	-- wait till data are received
+	WHEN waitAck =>
+		IF (write_done_i = '1') THEN -- sending next data package
+			IF (count = 0) THEN -- go to idle if all data is sent
+				nextStat <= idle;
+				next_write_data_buffer <= (OTHERS => '0');
+			ELSE
+				nextStat <= prepare;
+				nextcount <= count -1; -- reduce count by 1
+			END IF;
+		ELSIF (ack_error_i = '1') THEN -- resending data if error is received
+			nextStat <= prepare;
+		END IF;
+
+	WHEN OTHERS =>
+		nextStat <= idle;
+
+	END CASE;
+
+	END PROCESS;
+
+
+	-- outputs
+	write_data_o <=write_data_buffer;
+
+
+END ARCHITECTURE;
