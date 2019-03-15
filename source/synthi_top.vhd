@@ -25,7 +25,6 @@ use ieee.std_logic_1164.all;
 library work;
 use ieee.numeric_std.all;
 use work.reg_table_pkg.all;
-use work.tone_gen_pkg.all;
 
 -------------------------------------------------------------------------------
 
