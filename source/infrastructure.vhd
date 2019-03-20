@@ -32,7 +32,7 @@ entity infrastructure is
   KEY_1: in std_logic;
   SW:in std_logic_vector(17 downto 0);
   GPIO_26:in std_logic;
-  clk_12m_int: out std_logic;
+  clk_12m: out std_logic;
   reset_n:out std_logic;
   key_1_sync: out std_logic;
   sw_sync: out std_logic_vector (17 downto 0);
@@ -48,6 +48,7 @@ architecture str of infrastructure is
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
+signal clk_12m_int:std_logic;
 
   -----------------------------------------------------------------------------
   -- Component declarations
@@ -61,6 +62,13 @@ architecture str of infrastructure is
       clk_12m  : in  std_logic;
       signal_o : out std_logic_vector(width-1 downto 0));
   end component synchronize;
+  
+    component synchronize_single is
+    port (
+      signal_i : in  std_logic;
+      clk_12m  : in  std_logic;
+      signal_o : out std_logic);
+  end component synchronize_single;
 
   component modulo_divider is
     generic (
@@ -77,48 +85,43 @@ begin  -- architecture str
   -----------------------------------------------------------------------------
 
   -- instance "synchronize_1"
-  synchronize_1: synchronize
-    generic map (
-      width => width)
+  synchronize_1: synchronize_single
+
     port map (
       signal_i => KEY_1,
-      clk_12m  => clk_12m,
+      clk_12m  => clk_12m_int,
       signal_o => key_1_sync);
 
   -- instance "synchronize_2"
   synchronize_2: synchronize
     generic map (
-      width => width)
+      width => 18)
     port map (
       signal_i => SW,
-      clk_12m  => clk_12m,
+      clk_12m  => clk_12m_int,
       signal_o => sw_sync);
 
   -- instance "synchronize_3"
-  synchronize_3: synchronize
-    generic map (
-      width => width)
+  synchronize_3: synchronize_single
     port map (
-      signal_i => GPIO_26i,
-      clk_12m  => clk_12m,
+      signal_i => GPIO_26,
+      clk_12m  => clk_12m_int,
       signal_o => gpio_26_sync);
 
   -- instance "modulo_divider_1"
   modulo_divider_1: modulo_divider
     generic map (
-      width => width)
+      width => 2)
     port map (
       clk     => CLOCK_50,
      reset_n => '1',
-      clk_12m => clk_12m);
+      clk_12m => clk_12m_int);
 
   -- instance "synchronize_4"
-  synchronize_4: synchronize
-    generic map (
-      width => width)
+  synchronize_4: synchronize_single
     port map (
       signal_i => KEY_0,
-      clk_12m  => clk_12m,
+      clk_12m  => clk_12m_int,
       signal_o => reset_n);
   
 

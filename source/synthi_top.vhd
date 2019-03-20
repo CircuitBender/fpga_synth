@@ -25,7 +25,6 @@ use ieee.std_logic_1164.all;
 library work;
 use ieee.numeric_std.all;
 use work.reg_table_pkg.all;
-use work.tone_gen_pkg.all;
 
 -------------------------------------------------------------------------------
 
@@ -63,14 +62,15 @@ architecture struct of synthi_top is
   -- Internal signal declarations
   -----------------------------------------------------------------------------
   signal reset_n: std_logic;
-  signal sw_syncro: std_loigc_vector (2 downto 0);
+  signal sw_syncro: std_logic_vector (17 downto 0);
   signal key_1_sync:std_logic;
-  signal write_done:std_logic_vecotr (15 downto 0);
-  signal  write_data:std_logic;
+  signal write_done:std_logic;
+  signal  write_data:std_logic_vector (15 downto 0);
 signal    write_c:std_logic;
 signal    ack_error:std_logic;
 signal mute:std_logic;
 signal gpio_26_sync:std_logic; 
+signal clk_12m_int:std_logic;
   -----------------------------------------------------------------------------
   -- Component declarations
   -----------------------------------------------------------------------------
@@ -82,7 +82,7 @@ signal gpio_26_sync:std_logic;
       KEY_1        : in  std_logic;
       SW           : in  std_logic_vector(17 downto 0);
       GPIO_26      : in  std_logic;
-      clk_12m_int  : out std_logic;
+      clk_12m	  : out std_logic;
       reset_n      : out std_logic;
       key_1_sync   : out std_logic;
       sw_sync      : out std_logic_vector (17 downto 0);
@@ -122,7 +122,7 @@ begin
       KEY_1        => KEY_1,
       SW           => SW,
       GPIO_26      => GPIO_26,
-      clk_12m_int  => AUD_XCK,
+      clk_12m	  => AUD_XCK,
       reset_n      => reset_n,
       key_1_sync   => key_1_sync,
       sw_sync      => sw_syncro,
@@ -131,7 +131,7 @@ begin
   -- instance "codec_controller_1"
   codec_controller_1: codec_controller
     port map (
-      sw_sync_i    => sw_syncro,
+      sw_sync_i    => sw_syncro(2 downto 0),
       initialize_i => key_1_sync,
       write_done_i => write_done,
       ack_error_i  => ack_error,
@@ -142,7 +142,7 @@ begin
   -- instance "i2c_master_1"
   i2c_master_1: i2c_master
     port map (
-      clk          => AUD_CXK,
+      clk          => clk_12m_int,
       reset_n      => reset_n,   
       write_i      => write_c,
       write_data_i => write_data,
