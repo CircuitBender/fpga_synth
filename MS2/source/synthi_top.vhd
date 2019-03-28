@@ -19,6 +19,7 @@
 -- 08.03.2019  1.0      Schawan         Created
 -- 15.03.2019  1.1      Schawan         Debugged
 -- 22.03.2019  1.1      Heinzen         Debugging and Comments
+-- 28.03.2019  1.2		Heinzen			Path Control implemented
 -------------------------------------------------------------------------------
 
 library ieee;
