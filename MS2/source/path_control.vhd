@@ -1,25 +1,20 @@
--------------------------------------------------------------------------------
--- Title      : path_control
--- Project    : syntProject_group10
--------------------------------------------------------------------------------
--- File       : path_control.vhd
--- Author     : Heinzen
--- Company    : 
--- Created    : 2019-03-28
--- Last update: 2019-03-29
--- Platform   : 
--- Standard   : VHDL'08
--------------------------------------------------------------------------------
--- Description: MUX to choose from 2 parallel signals
--------------------------------------------------------------------------------
--- Copyright (c) 2018 
--------------------------------------------------------------------------------
--- Revisions  :
--- Date        Version  Author  	Description
--- 2018-03-01  1.0      Gelke		Created
--- 2018-03-28  1.1		Heinzen		added MUX
-
--------------------------------------------------------------------------------
+--------------------------------------------------------------------
+-- Project     : Audio_Synthesizer
+--
+-- File Name   : digital_loop.vhd
+-- Description : Multiplexer für die parallelen Daten des i2s_master.vhd
+--                                      Bei Digital-Loop werden die Daten des i2s_master direkt
+--                                      an ihn zurückgegeben, bei aktivem synthesizer werden die
+--                                      Daten des synthesizer an den i2s_master gesendet.
+--
+--------------------------------------------------------------------
+-- Change History
+-- Date     |Name      |Modification
+------------|----------|--------------------------------------------
+-- 24.03.14 | loosean  | file created
+-- 21.04.14 | loosean  | revised comments
+-- 29.03.17 | dqtm     | adapt to reuse on extended DTP2 project with DAFX
+--------------------------------------------------------------------
 
 
 library ieee;
@@ -27,15 +22,15 @@ use ieee.std_logic_1164.all;
 
 
 entity path_control is
-  port(sw_sync_3      : in  std_logic;  -- path selection
+  port(sw_sync_3      : in  std_logic;  --Wahl des Path
             -- Audio data generated inside FPGA
-       dds_l_i : in  std_logic_vector(15 downto 0);  --Input from synthesizer
+       dds_l_i : in  std_logic_vector(15 downto 0);  --Eingang vom Synthesizer
        dds_r_i : in  std_logic_vector(15 downto 0);
        -- Audio data coming from codec
-       adcdat_pl_i : in  std_logic_vector(15 downto 0);  --Input  i2s_master
+       adcdat_pl_i : in  std_logic_vector(15 downto 0);  --Eingang vom i2s_master
        adcdat_pr_i : in  std_logic_vector(15 downto 0);
        -- Audio data towards codec
-       dacdat_pl_o : out std_logic_vector(15 downto 0);  --Output zum i2s_master
+       dacdat_pl_o : out std_logic_vector(15 downto 0);  --Ausgang zum i2s_master
        dacdat_pr_o : out std_logic_vector(15 downto 0)
        );
 end path_control;
@@ -47,18 +42,7 @@ architecture comb of path_control is
 
 begin
 
-mux : PROCESS (sw_sync_3, dds_l_i, dds_r_i, adcdat_pl_i, adcdat_pr_i)
-	BEGIN
-	-- mux switch between dds input LOW and feedback loop HIGH
-	IF sw_sync_3 = '0' THEN 
-		dacdat_pl_o <= dds_l_i;
-		dacdat_pr_o <= dds_r_i;
-	ELSE
-		dacdat_pl_o <= adcdat_pl_i;
-		dacdat_pr_o <= adcdat_pr_i;
-	END IF;
-	
-	END PROCESS mux;
+
 
 
 end comb;
