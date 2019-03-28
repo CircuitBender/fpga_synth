@@ -49,8 +49,8 @@ begin
 
 mux : PROCESS (sw_sync_3, dds_l_i, dds_r_i, adcdat_pl_i, adcdat_pr_i)
 	BEGIN
-	-- switch between dds input (0) and feed back loop
-	IF sw_sync_3 = '0' THEN
+	-- mux switch between dds input LOW and feedback loop HIGH
+	IF sw_sync_3 = '0' THEN 
 		dacdat_pl_o <= dds_l_i;
 		dacdat_pr_o <= dds_r_i;
 	ELSE
