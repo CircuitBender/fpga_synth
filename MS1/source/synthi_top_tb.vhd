@@ -3,10 +3,10 @@
 -- Project    : 
 -------------------------------------------------------------------------------
 -- File       : synthi_top_tb.vhd
--- Author     :   <cloed@DESKTOP-FP3JH1O>
+-- Author     : Rutishauser
 -- Company    : 
 -- Created    : 2019-03-08
--- Last update: 2019-03-22
+-- Last update: 2019-03-18
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -16,9 +16,8 @@
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author  Description
--- 2019-03-08  1.0      cloed   Created
+-- 2019-03-08  1.0      Rutishauser   Created
 -------------------------------------------------------------------------------
-
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -28,6 +27,7 @@ use std.textio.all;
 use work.simulation_pkg.all;
 use work.standard_driver_pkg.all;
 use work.user_driver_pkg.all;
+use work.reg_table_pkg.all;
 
 
 -------------------------------------------------------------------------------
@@ -37,28 +37,66 @@ entity synthi_top_tb is
 end entity synthi_top_tb;
 
 -------------------------------------------------------------------------------
-
+--**************************************problem abb6######################
 architecture struct of synthi_top_tb is
-
 
   component synthi_top is
     port (
-      CLOCK_50    : in    std_logic;
-      KEY_0       : in    std_logic;
-      KEY_1       : in    std_logic;
-      KEY_2       : in    std_logic;
-      KEY_3       : in    std_logic;
-      SW          : in    std_logic_vector(17 downto 0);
-      GPIO_26     : in    std_logic;
-      AUD_XCK     : out   std_logic;
-      AUD_DACDAT  : out   std_logic;
-      AUD_BCLK    : out   std_logic;
-      AUD_DACLRCK : out   std_logic;
-      AUD_ADCLRCK : out   std_logic;
-      AUD_ADCDAT  : in    std_logic;
-      I2C_SCLK    : out   std_logic;
-      I2C_SDAT    : inout std_logic);
+      CLOCK_50     : in    std_logic;
+      KEY_0        : in    std_logic;
+      KEY_1        : in    std_logic;
+      SW           : in    std_logic_vector(17 downto 0);  --wieso 18? abb. 6sagt3
+      GPIO_26      : in    std_logic;   --wird nicht erwähnt
+      --clk_12m      : out   std_logic;   --wird nicht erwähnt
+      --reset_n      : out   std_logic;   --wird nicht erwähnt **ist doch key1
+      -- key_1_sync   : out   std_logic;   --wird nicht erwähnt
+      --sw_sync      : out   std_logic_vector(17 downto 0);  --wird nicht erwähnt
+      gpio_26_sync : out   std_logic;   --wird nicht erwähnt
+      AUD_XCK      : out   std_logic;
+      --AUD_DACDAT   : out   std_logic;   --wird nicht erwähnt
+      --AUD_BCLK     : out   std_logic;   --wird nicht erwähnt
+      -- AUD_DACLRCK  : out   std_logic;   --wird nicht erwähnt
+      -- AUD_ADCLRCK  : out   std_logic;   --wird nicht erwähnt
+      --AUD_ADCDAT   : in    std_logic;   --wird nicht erwähnt
+      I2C_SCLK     : out   std_logic;
+      I2C_SDAT     : inout std_logic);
   end component synthi_top;
+
+  -- component ports
+  signal CLOCK_50     : std_logic;
+  signal KEY_0        : std_logic;
+  signal KEY_1        : std_logic;
+  signal SW           : std_logic_vector(17 downto 0);
+  signal GPIO_26      : std_logic;
+  --signal clk_12m      : std_logic;
+  --signal reset_n      : std_logic;
+  --signal key_1_sync   : std_logic;
+  --signal sw_sync      : std_logic_vector(17 downto 0);
+  signal gpio_26_sync : std_logic;
+  signal AUD_XCK      : std_logic;
+  -- signal AUD_DACDAT   : std_logic;
+  --signal AUD_BCLK     : std_logic;
+  --signal AUD_DACLRCK  : std_logic;
+  --signal AUD_ADCLRCK  : std_logic;
+  --signal AUD_ADCDAT   : std_logic;
+  signal I2C_SCLK     : std_logic;
+  signal I2C_SDAT     : std_logic;
+
+  signal reg_data0 : std_logic_vector(31 downto 0);
+  signal reg_data1 : std_logic_vector(31 downto 0);
+  signal reg_data2 : std_logic_vector(31 downto 0);
+  signal reg_data3 : std_logic_vector(31 downto 0);
+  signal reg_data4 : std_logic_vector(31 downto 0);
+  signal reg_data5 : std_logic_vector(31 downto 0);
+  signal reg_data6 : std_logic_vector(31 downto 0);
+  signal reg_data7 : std_logic_vector(31 downto 0);
+  signal reg_data8 : std_logic_vector(31 downto 0);
+  signal reg_data9 : std_logic_vector(31 downto 0);
+
+
+
+  constant clock_freq   : natural := 50_000_000;
+  constant clock_period : time    := 1000 ms/clock_freq;
 
   component i2c_slave_bfm is
     generic (
@@ -79,58 +117,29 @@ architecture struct of synthi_top_tb is
       reg_data9 : out   std_logic_vector(31 downto 0));
   end component i2c_slave_bfm;
 
-  -- component ports
-  signal CLOCK_50    : std_logic;
-  signal KEY_0       : std_logic;
-  signal KEY_1       : std_logic;
-  signal KEY_2       : std_logic;
-  signal KEY_3       : std_logic;
-  signal SW          : std_logic_vector(17 downto 0);
-  signal GPIO_26     : std_logic;
-  signal AUD_XCK     : std_logic;
-  signal AUD_DACDAT  : std_logic;
-  signal AUD_BCLK    : std_logic;
-  signal AUD_DACLRCK : std_logic;
-  signal AUD_ADCLRCK : std_logic;
-  signal AUD_ADCDAT  : std_logic;
-  signal I2C_SCLK    : std_logic;
-  signal I2C_SDAT    : std_logic;
-
-  signal reg_data0 : std_logic_vector(31 downto 0);
-  signal reg_data1 : std_logic_vector(31 downto 0);
-  signal reg_data2 : std_logic_vector(31 downto 0);
-  signal reg_data3 : std_logic_vector(31 downto 0);
-  signal reg_data4 : std_logic_vector(31 downto 0);
-  signal reg_data5 : std_logic_vector(31 downto 0);
-  signal reg_data6 : std_logic_vector(31 downto 0);
-  signal reg_data7 : std_logic_vector(31 downto 0);
-  signal reg_data8 : std_logic_vector(31 downto 0);
-  signal reg_data9 : std_logic_vector(31 downto 0);
-
-  constant clock_freq   : natural := 50_000_000;
-  constant clock_period : time    := 1000 ms/clock_freq;
-  constant clock_12m    : time    := clock_period *4;
-
 begin  -- architecture struct
 
   -- component instantiation
   DUT : synthi_top
     port map (
-      CLOCK_50    => CLOCK_50,
-      KEY_0       => KEY_0,
-      KEY_1       => KEY_1,
-      KEY_2       => KEY_2,
-      KEY_3       => KEY_3,
-      SW          => SW,
-      GPIO_26     => GPIO_26,
-      AUD_XCK     => AUD_XCK,
-      AUD_DACDAT  => AUD_DACDAT,
-      AUD_BCLK    => AUD_BCLK,
-      AUD_DACLRCK => AUD_DACLRCK,
-      AUD_ADCLRCK => AUD_ADCLRCK,
-      AUD_ADCDAT  => AUD_ADCDAT,
-      I2C_SCLK    => I2C_SCLK,
-      I2C_SDAT    => I2C_SDAT);
+      CLOCK_50     => CLOCK_50,
+      KEY_0        => KEY_0,
+      KEY_1        => KEY_1,
+      SW           => SW,
+      GPIO_26      => GPIO_26,
+      --clk_12m      => clk_12m,
+      --reset_n      => reset_n,
+      --key_1_sync   => key_1_sync,
+      --sw_sync      => sw_sync,
+      gpio_26_sync => gpio_26_sync,
+      AUD_XCK      => AUD_XCK,
+      --AUD_DACDAT   => AUD_DACDAT,
+      --AUD_BCLK     => AUD_BCLK,
+      -- AUD_DACLRCK  => AUD_DACLRCK,
+      --AUD_ADCLRCK  => AUD_ADCLRCK,
+      --AUD_ADCDAT   => AUD_ADCDAT,
+      I2C_SCLK     => I2C_SCLK,
+      I2C_SDAT     => I2C_SDAT);
 
 
 
@@ -193,8 +202,10 @@ begin  -- architecture struct
         rst_sim(tv, key_0);
       elsif cmd = string'("run_sim") then
         run_sim(tv);
+        
       elsif cmd = string'("ini_cod") then
-        ini_cod(tv, SW(2 downto 0), KEY_1);
+        ini_cod(tv, sw(2 downto 0), KEY_1);
+
       elsif cmd = string'("i2c_ch0") then
         gpo_chk(tv, reg_data0);
       elsif cmd = string'("i2c_ch1") then
@@ -217,14 +228,14 @@ begin  -- architecture struct
         gpo_chk(tv, reg_data9);
 
 
-        -- add further test commands below here
+                        -- add further test commands below here
 
 
-      else
-        assert false
-          report "Unknown Command"
-          severity failure;
-      end if;
+                    else
+                      assert false
+                        report "Unknown Command"
+                        severity failure;
+                    end if;
 
       if tv.fail_flag = true then       --count failures in tests
         fail_counter := fail_counter + 1;
@@ -264,6 +275,19 @@ begin  -- architecture struct
       reg_data7 => reg_data7,
       reg_data8 => reg_data8,
       reg_data9 => reg_data9);
+
+  -- instance "synthi_top_1"
+  synthi_top_1 : synthi_top
+    port map (
+      CLOCK_50     => CLOCK_50,
+      KEY_0        => KEY_0,
+      KEY_1        => KEY_1,
+      SW           => SW,
+      GPIO_26      => GPIO_26,
+      gpio_26_sync => gpio_26_sync,
+      AUD_XCK      => AUD_XCK,
+      I2C_SCLK     => I2C_SCLK,
+      I2C_SDAT     => I2C_SDAT);
 
 
 

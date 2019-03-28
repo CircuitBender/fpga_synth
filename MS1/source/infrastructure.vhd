@@ -1,116 +1,103 @@
--------------------------------------------------------------------------------
--- Title      : infrastructure
--- Project    : synthi_project
--------------------------------------------------------------------------------
--- File       : infrastructure.vhd
--- Author     :   <Nicola@NICOLA>
--- Company    : 
--- Created    : 2019-03-08
--- Last update: 2019-03-15
--- Platform   : 
--- Standard   : VHDL'08
--------------------------------------------------------------------------------
--- Description: 
--------------------------------------------------------------------------------
--- Copyright (c) 2019 
--------------------------------------------------------------------------------
--- Revisions  :
--- Date        Version  Author  Description
--- 2019-03-08  1.0      Nicola	Created
--------------------------------------------------------------------------------
+--
+-- Block code:  infrastructure.vhd
+-- History:     
+--                 11.03.19 - creation of infrastructure  (Heinzen)
+--                 15.03.19 - update (Heinzen)
+-- Function: edge detector with rise & fall outputs. 
+--           Declaring FFs as a shift-register.
+--
 
+-- Library & Use Statements
 library ieee;
 use ieee.std_logic_1164.all;
 
--------------------------------------------------------------------------------
+-- Entity Declaration 
+entity infrastructure is                -- See "Abbildung 3"
+  port(CLOCK_50     : in  std_logic;    -- 50 MHz Clock IN
+       KEY          : in  std_logic_vector(1 downto 0);  -- IN (KEY_0 & KEY_1)
+       -- KEY_1        : in  std_logic;    -- IN
+       GPIO_26      : in  std_logic;    --  to "sync_inst_3"
+       SW           : in  std_logic_vector(17 downto 0);  -- Input buttons                                              
+       clk_12m      : out std_logic;    -- Clock out @ 12.5 MHz
+       reset_n      : out std_logic;  -- Reset key to Codec Controller & I2C Master
+       key_1_sync   : out std_logic;    -- to Codec Controller
+       gpio_26_sync : out std_logic;    -- ND, out from "sync_inst_3"
+       sw_sync      : out std_logic_vector(17 downto 0)  -- synchronized input keys (x18)
 
-entity infrastructure is
+       );
+end infrastructure;
 
-  port (
-    clock_50 		: in std_logic;
-    key      		: in std_logic_vector(1 downto 0);
-    sw       		: in std_logic_vector(17 downto 0);
-    gpio_26  		: in std_logic;
-    clk_12m  		: out std_logic;
-    key_1_sync 	: out std_logic;
-    reset_n  		: out std_logic;
-    sw_sync  		: out std_logic_vector(17 downto 0);
-    gpio_26_sync 	: out std_logic
-    );
 
-end entity infrastructure;
+-- Architecture Declaration 
+architecture rtl of infrastructure is
 
--------------------------------------------------------------------------------
+  -- Signals & Constants Declaration 
+  signal clk_12m_int    : std_logic;
+  signal control_key_o  : std_logic_vector(1 downto 0);  -- reset_n & key_1_sync
+  signal GPIO_26_i      : std_logic_vector(0 downto 0);
+  signal GPIO_26_sync_i : std_logic_vector(0 downto 0);  -- before split up
 
-architecture str of infrastructure is
 
-  -----------------------------------------------------------------------------
-  -- Internal signal declarations
-  -----------------------------------------------------------------------------
-  signal clk_12m_int : std_logic;   -- internal 12.5MHz clock-signal
-  signal key_sync_int : std_logic_vector(1 downto 0);  --synchronized key-signals
-  -----------------------------------------------------------------------------
-  -- Component declarations
-  -----------------------------------------------------------------------------
-  component synchronize is
-    generic (
-      width : positive);
-    port (
-      signal_i : in  std_logic_vector(width-1 downto 0);
-      clk_12m  : in  std_logic;
-      signal_o : out std_logic_vector(width-1 downto 0));
-  end component synchronize;
+-- Component declarations
 
   component modulo_divider is
+       port (
+      clk     : in  std_logic;
+      clk_12m : out std_logic;
+      reset_n : in  std_logic);
+  end component modulo_divider;
+
+  component sync is
     generic (
       width : positive);
     port (
-      clk          : in  std_logic;
-      reset_n      : out std_logic;
-      clk_12m      : out std_logic);
-  end component modulo_divider;
+      clock_i  : in  std_logic;
+      signal_i : in  std_logic_vector(width-1 downto 0);
+      signal_o : out std_logic_vector(width-1 downto 0));
+  end component sync;
 
-begin  -- architecture str
+-- Begin Architecture
+begin
 
-  -----------------------------------------------------------------------------
-  -- Component instantiations
-  -----------------------------------------------------------------------------
-  sync_inst_1: synchronize
+  takt_inst : modulo_divider
+    port map (
+      clk     => CLOCK_50,
+      clk_12m => clk_12m_int,
+      reset_n =>'1'
+      );
+
+  sync_inst_1 : sync
     generic map (
       width => 2)
     port map (
-      signal_i => key,
-      clk_12m  => clk_12m_int,
-      signal_o => key_sync_int);
-  
-  sync_inst_2: synchronize
+      clock_i  => clk_12m_int,
+      signal_i => KEY,
+      signal_o => control_key_o);
+
+  sync_inst_2 : sync
     generic map (
       width => 18)
     port map (
-      signal_i => sw,
-      clk_12m  => clk_12m_int,
+      clock_i  => clk_12m_int,
+      signal_i => SW,
       signal_o => sw_sync);
-  
-  sync_inst_3: synchronize
+
+  sync_inst_3 : sync
     generic map (
       width => 1)
     port map (
-      signal_i(0) => gpio_26,
-      clk_12m  => clk_12m_int,
-      signal_o(0) => gpio_26_sync);
+      clock_i  => clk_12m_int,
+      signal_i => GPIO_26_i,
+      signal_o => gpio_26_sync_i);
 
-    takt_inst: modulo_divider
-    generic map (
-      width => 2)
-    port map (
-      clk     => clock_50,
-      clk_12m => clk_12m_int);
+  GPIO_26_i(0) <= GPIO_26;
+  GPIO_26_sync <= GPIO_26_sync_i(0);
 
-  
-  clk_12m <= clk_12m_int;               --12.5MHz clock output
-  key_1_sync <= key_sync_int(1);        --synchronized keys get split in 2 outputs
-  reset_n <= key_sync_int(0);
-  
-end architecture str;
+  --zuweisungen
 
--------------------------------------------------------------------------------
+  clk_12m    <= clk_12m_int;
+  key_1_sync <= control_key_o(1);
+  reset_n    <= control_key_o(0);
+
+
+end architecture;
