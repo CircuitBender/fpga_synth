@@ -1,0 +1,77 @@
+-------------------------------------------------------------------------------
+-- Title      : I2S_Decoder
+-- Project    : fpga_synth
+-------------------------------------------------------------------------------
+-- File       : i2s_decoder.vhd
+-- Author     : Heinzen
+-- Company    : 
+-- Created    : 2019-03-23
+-- Last update: 2019-03-28
+-- Platform   : Windows 10
+-- Standard   : VHDL'08
+-------------------------------------------------------------------------------
+-- Description: Controls load and shift event of following P2S and S2P blocks
+-------------------------------------------------------------------------------
+-- Copyright (c) 2019
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date        Version  Author  Description
+-- 2019-03-23  1.0      Heinzen	created
+-- 2019-03-26	1.1		Heinzen changed shift direction 
+-- 2019-06-28	1.1		Heinzen	added comments
+-------------------------------------------------------------------------------
+
+-------------------------------------------
+-- Library & Use Statements
+-------------------------------------------
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+
+-------------------------------------------
+-- Entity Declaration 
+-------------------------------------------
+ENTITY i2s_decoder IS
+  PORT( bit_count								: IN    std_logic_vector(6 downto 0);
+    	  load, shift_l, shift_r, ws		: OUT   std_logic
+    	);
+END i2s_decoder;
+
+
+-------------------------------------------
+-- Architecture Declaration 
+-------------------------------------------
+ARCHITECTURE rtl OF i2s_decoder IS
+
+-------------------------------------------
+-- Signals & Constants Declaration 
+-------------------------------------------
+
+BEGIN
+--------------------------------------------------
+-- COMBINATORIAL LOGIC FOR OUTPUT
+--------------------------------------------------
+		
+		comb_out : PROCESS(bit_count)
+		BEGIN
+			-- default statements
+			load <= '0';
+			shift_l <= '0';
+			shift_r <= '0';
+			
+			-- load condition when bit_count is zero
+			IF (bit_count = "0000000") THEN
+				load<= '1';
+			ELSIF (unsigned(bit_count)<17) THEN		-- when bit counter in range 0..16: shift left should be active
+				shift_l <= '1';
+			ELSIF (unsigned(bit_count)> 64) AND (unsigned(bit_count)<81) THEN --when bit counter in range 65..80: shift right should be active
+				shift_r <='1';
+			END IF;
+			
+			ws <= bit_count(6); -- take MSB of bit_counter as ws
+		END PROCESS comb_out;
+		
+
+
+END ARCHITECTURE;
+

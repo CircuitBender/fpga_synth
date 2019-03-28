@@ -3,7 +3,7 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 
-ENTITY shiftreg_s2p IS
+ENTITY shiftreg_s2p_i2s IS
 	PORT (
 		clk		 		: 	IN std_logic;
 		reset_n 		: 	IN std_logic;
@@ -12,10 +12,10 @@ ENTITY shiftreg_s2p IS
 		shift_i			:	IN std_logic;			--Shift l/r
 		par_o 			: 	OUT std_logic_vector(15 downto 0)
 	);
-END shiftreg_s2p;
+END shiftreg_s2p_i2s;
 
 
-ARCHITECTURE rtl OF shiftreg_s2p IS
+ARCHITECTURE rtl OF shiftreg_s2p_i2s IS
 	
 	SIGNAL shiftreg 		:std_logic_vector (15 downto 0);
 	SIGNAL next_shiftreg	:std_logic_vector (15 downto 0);
