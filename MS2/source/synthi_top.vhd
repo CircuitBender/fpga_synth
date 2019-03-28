@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- Title      : synthi_top
--- Project    : synthi_top
+-- Project    : fpga_synth
 -------------------------------------------------------------------------------
 -- File       : synthi_top.vhd
 -- Author     : Schawan Schirwan
