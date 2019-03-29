@@ -6,7 +6,7 @@
 -- Author     : Heinzen
 -- Company    : 
 -- Created    : 2014-03-24
--- Last update: 2019-03-28
+-- Last update: 2019-03-29
 -- Platform   : Windows 10
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -48,7 +48,7 @@ entity i2s_master is
        --Verbindungen zum Audio-Codec
        dacdat_s_o : out std_logic;      --Serielle Daten Ausgang
        bclk_o     : out std_logic;      --Bus-Clock
-       ws_o         : out std_logic;      --WordSelect (Links/Rechts)
+        ws_o         : out std_logic;      --WordSelect (Links/Rechts)
        adcdat_s_i : in  std_logic       --Serielle Daten Eingang
        );
 end i2s_master;
