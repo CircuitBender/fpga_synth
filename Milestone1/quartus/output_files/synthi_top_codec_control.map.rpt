@@ -1,5 +1,5 @@
 Analysis & Synthesis report for synthi_top_codec_control
-Fri Mar 29 12:48:49 2019
+Sat Mar 30 12:51:11 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -53,13 +53,13 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Mar 29 12:48:49 2019       ;
+; Analysis & Synthesis Status        ; Successful - Sat Mar 30 12:51:11 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; synthi_top_codec_control                    ;
 ; Top-level Entity Name              ; synthi_top                                  ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 137                                         ;
-;     Total combinational functions  ; 121                                         ;
+; Total logic elements               ; 139                                         ;
+;     Total combinational functions  ; 123                                         ;
 ;     Dedicated logic registers      ; 71                                          ;
 ; Total registers                    ; 71                                          ;
 ; Total pins                         ; 32                                          ;
@@ -194,16 +194,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                    ;
 +---------------------------------------------+--------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 137                                                                      ;
+; Estimated Total logic elements              ; 139                                                                      ;
 ;                                             ;                                                                          ;
-; Total combinational functions               ; 121                                                                      ;
+; Total combinational functions               ; 123                                                                      ;
 ; Logic element usage by number of LUT inputs ;                                                                          ;
-;     -- 4 input functions                    ; 69                                                                       ;
+;     -- 4 input functions                    ; 70                                                                       ;
 ;     -- 3 input functions                    ; 23                                                                       ;
-;     -- <=2 input functions                  ; 29                                                                       ;
+;     -- <=2 input functions                  ; 30                                                                       ;
 ;                                             ;                                                                          ;
 ; Logic elements by mode                      ;                                                                          ;
-;     -- normal mode                          ; 118                                                                      ;
+;     -- normal mode                          ; 120                                                                      ;
 ;     -- arithmetic mode                      ; 3                                                                        ;
 ;                                             ;                                                                          ;
 ; Total registers                             ; 71                                                                       ;
@@ -216,7 +216,7 @@ refer to the applicable agreement for further details.
 ;                                             ;                                                                          ;
 ; Maximum fan-out node                        ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ;
 ; Maximum fan-out                             ; 71                                                                       ;
-; Total fan-out                               ; 668                                                                      ;
+; Total fan-out                               ; 674                                                                      ;
 ; Average fan-out                             ; 2.60                                                                     ;
 +---------------------------------------------+--------------------------------------------------------------------------+
 
@@ -226,9 +226,9 @@ refer to the applicable agreement for further details.
 +------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------+------------------+--------------+
 ; Compilation Hierarchy Node               ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                         ; Entity Name      ; Library Name ;
 +------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------+------------------+--------------+
-; |synthi_top                              ; 121 (0)             ; 71 (0)                    ; 0           ; 0            ; 0       ; 0         ; 32   ; 0            ; |synthi_top                                                                 ; synthi_top       ; work         ;
-;    |codec_controller:codec_controller_1| ; 16 (16)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|codec_controller:codec_controller_1                             ; codec_controller ; work         ;
-;    |i2c_master:i2c_master_1|             ; 103 (103)           ; 52 (52)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|i2c_master:i2c_master_1                                         ; i2c_master       ; work         ;
+; |synthi_top                              ; 123 (0)             ; 71 (0)                    ; 0           ; 0            ; 0       ; 0         ; 32   ; 0            ; |synthi_top                                                                 ; synthi_top       ; work         ;
+;    |codec_controller:codec_controller_1| ; 21 (21)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|codec_controller:codec_controller_1                             ; codec_controller ; work         ;
+;    |i2c_master:i2c_master_1|             ; 100 (100)           ; 52 (52)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|i2c_master:i2c_master_1                                         ; i2c_master       ; work         ;
 ;    |infrastructure:infrastructure_1|     ; 2 (0)               ; 12 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|infrastructure:infrastructure_1                                 ; infrastructure   ; work         ;
 ;       |modulo_divider:modulo_divider_1|  ; 2 (2)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|infrastructure:infrastructure_1|modulo_divider:modulo_divider_1 ; modulo_divider   ; work         ;
 ;       |synchronize:synchronize_1|        ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|infrastructure:infrastructure_1|synchronize:synchronize_1       ; synchronize      ; work         ;
@@ -388,19 +388,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA CLR SCLR      ; 2                           ;
 ;     plain             ; 12                          ;
 ; cycloneiii_io_obuf    ; 1                           ;
-; cycloneiii_lcell_comb ; 123                         ;
+; cycloneiii_lcell_comb ; 125                         ;
 ;     arith             ; 3                           ;
 ;         2 data inputs ; 2                           ;
 ;         3 data inputs ; 1                           ;
-;     normal            ; 120                         ;
+;     normal            ; 122                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 4                           ;
-;         2 data inputs ; 24                          ;
+;         2 data inputs ; 25                          ;
 ;         3 data inputs ; 22                          ;
-;         4 data inputs ; 69                          ;
+;         4 data inputs ; 70                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 2.38                        ;
+; Average LUT depth     ; 2.43                        ;
 +-----------------------+-----------------------------+
 
 
@@ -419,15 +419,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Mar 29 12:48:29 2019
+    Info: Processing started: Sat Mar 30 12:50:56 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off synthi_top_codec_control -c synthi_top_codec_control
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 1 design units, including 0 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone1/source/tone_gen_pkg.vhd
     Info (12022): Found design unit 1: tone_gen_pkg File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/tone_gen_pkg.vhd Line: 25
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone1/source/synthi_top.vhd
-    Info (12022): Found design unit 1: synthi_top-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 54
-    Info (12023): Found entity 1: synthi_top File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 29
+    Info (12022): Found design unit 1: synthi_top-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 56
+    Info (12023): Found entity 1: synthi_top File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 32
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone1/source/synchronize_single.vhd
     Info (12022): Found design unit 1: synchronize_single-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synchronize_single.vhd Line: 42
     Info (12023): Found entity 1: synchronize_single File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synchronize_single.vhd Line: 27
@@ -440,8 +440,8 @@ Info (12021): Found 2 design units, including 1 entities, in source file /digita
     Info (12022): Found design unit 1: modulo_divider-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/modulo_divider.vhd Line: 26
     Info (12023): Found entity 1: modulo_divider File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/modulo_divider.vhd Line: 17
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone1/source/infrastructure.vhd
-    Info (12022): Found design unit 1: infrastructure-str File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/infrastructure.vhd Line: 46
-    Info (12023): Found entity 1: infrastructure File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/infrastructure.vhd Line: 28
+    Info (12022): Found design unit 1: infrastructure-str File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/infrastructure.vhd Line: 50
+    Info (12023): Found entity 1: infrastructure File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/infrastructure.vhd Line: 32
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone1/source/i2c_slave_bfm.vhd
     Info (12022): Found design unit 1: i2c_slave_bfm-bfm File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/i2c_slave_bfm.vhd Line: 32
     Info (12023): Found entity 1: i2c_slave_bfm File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/i2c_slave_bfm.vhd Line: 7
@@ -449,61 +449,61 @@ Info (12021): Found 2 design units, including 1 entities, in source file /digita
     Info (12022): Found design unit 1: i2c_master-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/i2c_master.vhd Line: 40
     Info (12023): Found entity 1: i2c_master File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/i2c_master.vhd Line: 22
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone1/source/codec_controller.vhd
-    Info (12022): Found design unit 1: codec_controller-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/codec_controller.vhd Line: 53
-    Info (12023): Found entity 1: codec_controller File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/codec_controller.vhd Line: 36
+    Info (12022): Found design unit 1: codec_controller-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/codec_controller.vhd Line: 54
+    Info (12023): Found entity 1: codec_controller File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/codec_controller.vhd Line: 37
 Info (12127): Elaborating entity "synthi_top" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(44): used implicit default value for signal "AUD_DACDAT" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 44
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(45): used implicit default value for signal "AUD_BCLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 45
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(46): used implicit default value for signal "AUD_DACLRCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 46
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(47): used implicit default value for signal "AUD_ADCLRCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 47
-Warning (10036): Verilog HDL or VHDL warning at synthi_top.vhd(67): object "gpio_26_sync_2" assigned a value but never read File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 67
-Warning (10036): Verilog HDL or VHDL warning at synthi_top.vhd(75): object "mute_o" assigned a value but never read File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 75
-Info (12128): Elaborating entity "infrastructure" for hierarchy "infrastructure:infrastructure_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 128
-Info (12128): Elaborating entity "synchronize" for hierarchy "infrastructure:infrastructure_1|synchronize:synchronize_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/infrastructure.vhd Line: 83
-Info (12128): Elaborating entity "synchronize" for hierarchy "infrastructure:infrastructure_1|synchronize:synchronize_2" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/infrastructure.vhd Line: 92
-Info (12128): Elaborating entity "synchronize" for hierarchy "infrastructure:infrastructure_1|synchronize:synchronize_3" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/infrastructure.vhd Line: 101
-Info (12128): Elaborating entity "modulo_divider" for hierarchy "infrastructure:infrastructure_1|modulo_divider:modulo_divider_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/infrastructure.vhd Line: 110
-Info (12128): Elaborating entity "codec_controller" for hierarchy "codec_controller:codec_controller_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 141
-Info (12128): Elaborating entity "i2c_master" for hierarchy "i2c_master:i2c_master_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 154
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(45): used implicit default value for signal "AUD_DACDAT" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 45
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(46): used implicit default value for signal "AUD_BCLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 46
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(47): used implicit default value for signal "AUD_DACLRCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 47
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(48): used implicit default value for signal "AUD_ADCLRCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 48
+Warning (10036): Verilog HDL or VHDL warning at synthi_top.vhd(69): object "gpio_26_sync_2" assigned a value but never read File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 69
+Warning (10036): Verilog HDL or VHDL warning at synthi_top.vhd(77): object "mute_o" assigned a value but never read File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 77
+Info (12128): Elaborating entity "infrastructure" for hierarchy "infrastructure:infrastructure_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 127
+Info (12128): Elaborating entity "synchronize" for hierarchy "infrastructure:infrastructure_1|synchronize:synchronize_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/infrastructure.vhd Line: 87
+Info (12128): Elaborating entity "synchronize" for hierarchy "infrastructure:infrastructure_1|synchronize:synchronize_2" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/infrastructure.vhd Line: 96
+Info (12128): Elaborating entity "synchronize" for hierarchy "infrastructure:infrastructure_1|synchronize:synchronize_3" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/infrastructure.vhd Line: 105
+Info (12128): Elaborating entity "modulo_divider" for hierarchy "infrastructure:infrastructure_1|modulo_divider:modulo_divider_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/infrastructure.vhd Line: 114
+Info (12128): Elaborating entity "codec_controller" for hierarchy "codec_controller:codec_controller_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 140
+Info (12128): Elaborating entity "i2c_master" for hierarchy "i2c_master:i2c_master_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 153
 Info (13000): Registers with preset signals will power-up high File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/i2c_master.vhd Line: 300
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "AUD_DACDAT" is stuck at GND File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 44
-    Warning (13410): Pin "AUD_BCLK" is stuck at GND File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 45
-    Warning (13410): Pin "AUD_DACLRCK" is stuck at GND File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 46
-    Warning (13410): Pin "AUD_ADCLRCK" is stuck at GND File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 47
+    Warning (13410): Pin "AUD_DACDAT" is stuck at GND File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 45
+    Warning (13410): Pin "AUD_BCLK" is stuck at GND File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 46
+    Warning (13410): Pin "AUD_DACLRCK" is stuck at GND File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 47
+    Warning (13410): Pin "AUD_ADCLRCK" is stuck at GND File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 48
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 19 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "GPIO_26" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 36
-    Warning (15610): No output dependent on input pin "KEY[2]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 37
-    Warning (15610): No output dependent on input pin "KEY[3]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 37
-    Warning (15610): No output dependent on input pin "SW[3]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[4]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[5]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[6]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[7]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[8]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[9]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[10]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[11]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[12]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[13]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[14]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[15]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[16]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[17]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 41
-Info (21057): Implemented 170 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "GPIO_26" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 37
+    Warning (15610): No output dependent on input pin "KEY[2]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 38
+    Warning (15610): No output dependent on input pin "KEY[3]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 38
+    Warning (15610): No output dependent on input pin "SW[3]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[4]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[5]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[6]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[7]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[8]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[9]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[10]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[11]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[12]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[13]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[14]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[15]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[16]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[17]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone1/source/synthi_top.vhd Line: 42
+Info (21057): Implemented 172 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 25 input pins
     Info (21059): Implemented 6 output pins
     Info (21060): Implemented 1 bidirectional pins
-    Info (21061): Implemented 138 logic cells
+    Info (21061): Implemented 140 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 32 warnings
-    Info: Peak virtual memory: 4828 megabytes
-    Info: Processing ended: Fri Mar 29 12:48:49 2019
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:39
+    Info: Peak virtual memory: 4829 megabytes
+    Info: Processing ended: Sat Mar 30 12:51:11 2019
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:29
 
 

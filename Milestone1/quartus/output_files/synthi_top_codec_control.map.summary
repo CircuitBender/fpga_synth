@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Fri Mar 29 12:48:49 2019
+Analysis & Synthesis Status : Successful - Sat Mar 30 12:51:11 2019
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : synthi_top_codec_control
 Top-level Entity Name : synthi_top
 Family : Cyclone IV E
-Total logic elements : 137
-    Total combinational functions : 121
+Total logic elements : 139
+    Total combinational functions : 123
     Dedicated logic registers : 71
 Total registers : 71
 Total pins : 32

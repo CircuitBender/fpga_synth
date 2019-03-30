@@ -23,14 +23,14 @@ SW[14] => infrastructure:infrastructure_1.SW[14]
 SW[15] => infrastructure:infrastructure_1.SW[15]
 SW[16] => infrastructure:infrastructure_1.SW[16]
 SW[17] => infrastructure:infrastructure_1.SW[17]
-AUD_XCK << infrastructure:infrastructure_1.clk_12m
+AUD_XCK <= infrastructure:infrastructure_1.clk_12m
 AUD_ADCDAT => ~NO_FANOUT~
-I2C_SCLK << i2c_master:i2c_master_1.scl_o
+I2C_SCLK <= i2c_master:i2c_master_1.scl_o
 I2C_SDAT <> i2c_master:i2c_master_1.sda_io
-AUD_DACDAT << AUD_DACDAT.DB_MAX_OUTPUT_PORT_TYPE
-AUD_BCLK << AUD_BCLK.DB_MAX_OUTPUT_PORT_TYPE
-AUD_DACLRCK << AUD_DACLRCK.DB_MAX_OUTPUT_PORT_TYPE
-AUD_ADCLRCK << comb.DB_MAX_OUTPUT_PORT_TYPE
+AUD_DACDAT <= AUD_DACDAT.DB_MAX_OUTPUT_PORT_TYPE
+AUD_BCLK <= AUD_BCLK.DB_MAX_OUTPUT_PORT_TYPE
+AUD_DACLRCK <= AUD_DACLRCK.DB_MAX_OUTPUT_PORT_TYPE
+AUD_ADCLRCK <= comb.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |synthi_top|infrastructure:infrastructure_1
@@ -200,11 +200,7 @@ clk => count[1].CLK
 clk => count[2].CLK
 clk => count[3].CLK
 clk => fsm_reg~1.DATAIN
-reset_n => count[0].ACLR
-reset_n => count[1].ACLR
-reset_n => count[2].ACLR
-reset_n => count[3].ACLR
-reset_n => fsm_reg~3.DATAIN
+reset_n => flip_flops.IN0
 event_ctrl_i[0] => Mux15.IN10
 event_ctrl_i[0] => Mux16.IN10
 event_ctrl_i[0] => Mux17.IN10
@@ -230,7 +226,7 @@ write_done_i => next_fsm_reg.OUTPUTSELECT
 write_done_i => Selector1.IN2
 write_done_i => counter.IN0
 write_done_i => Selector2.IN1
-ack_error_i => ~NO_FANOUT~
+ack_error_i => flip_flops.IN1
 write_data_o[0] <= Mux20.DB_MAX_OUTPUT_PORT_TYPE
 write_data_o[1] <= Mux10.DB_MAX_OUTPUT_PORT_TYPE
 write_data_o[2] <= Mux19.DB_MAX_OUTPUT_PORT_TYPE
