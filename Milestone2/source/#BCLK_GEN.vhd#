@@ -16,63 +16,63 @@
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author          Description
--- 30.03.2019  1.0      Heinzen         Created
+-- 08.03.2019  1.0      Heinzen         Created
 
 -------------------------------------------------------------------------------
 
 
 -- Library & Use Statements
 -------------------------------------------
-LIBRARY ieee;
-USE ieee.std_logic_1164.all;
+library ieee;
+use ieee.std_logic_1164.all;
+
 
 
 -- Entity Declaration 
 -------------------------------------------
-ENTITY bclk_gen IS
-  PORT( clk_12m, reset_n	: IN    std_logic;
-    	  bclk     				: OUT   std_logic
-    	);
-END bclk_gen;
+entity BCLK_GEN is
+  port(clk_12m : in  std_logic;         -- 12.5M Clock
+       bclk_o  : out std_logic;         --Bus-Clock out
+       );
+end BCLK_GEN;
 
--- Architecture Declaration
 -------------------------------------------
-ARCHITECTURE rtl OF bclk_gen IS
-
+-- Architecture 
+-------------------------------------------
+architecture rtl of BCLK_GEN is
+-------------------------------------------
 -- Signals & Constants Declaration
 -------------------------------------------
-signal bclk_temp : std_logic := '0';
-signal counter : integer := 0;
+  signal count is integer of range 0 to 1;
+  signal nextcount : integer := 0;      -- next count signal
+  signal bclk_temp : std_logic := '0';  -- internal bclk signal
+
+-------------------------------------------
+-- Begin Architecture
+-------------------------------------------
 begin
-	P1: Process(clk_12m, reset_n)
-	begin
-		if rising_edge(clk_12m) then
-			if reset_n = '0' then
-				bclk_temp <= '0';
-				counter <= 0;
-			else
-				counter <= counter + 1;
-				if counter = 1 then
-					bclk_temp <= '1';
-					counter <= 0;
-				else 
-					bclk_temp <= '0';
-				end if;
-			end if;
-		end if;
-	end Process;
-
   --------------------------------------------------
-  -- CONCURRENT ASSIGNMENTS
+  -- PROCESS FOR COMBINATORIAL LOGIC
   --------------------------------------------------
-	bclk <= bclk_temp; --type conversion for output
-  
-  
- -- End Architecture 
-------------------------------------------- 
-END rtl;
+  if rising_edge(clk_12m) then
+    count = count + 1;
+  else nextcount <= count;
+  end if
+  if count = 1 then
+    bclk_temp = 1;
+  else bclk = 0;
+  end if
 
 
+    --------------------------------------------------
+    -- PROCESS FOR REGISTERS
+    --------------------------------------------------
 
 
+    --------------------------------------------------
+    -- concurrent assignments
+    --------------------------------------------------
+    bclk_o <= bclk_temp
+
+end rtl;
 
