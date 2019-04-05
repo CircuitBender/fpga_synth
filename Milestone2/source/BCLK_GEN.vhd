@@ -30,7 +30,7 @@ entity bclk_gen is
 port(
   clk_12m         : in  std_logic;
   reset_n         : in  std_logic;
-  bclk_o    : out std_logic;
+  bclk_o    : out std_logic);
  
 end bclk_gen;
 architecture rtl of bclk_gen is
@@ -44,7 +44,7 @@ begin
     clk_divider   <= clk_divider + 1;
   end if;
 end process bclk_gen_process;
-bclk_0    <= not clk_divider(0);
+bclk_o    <= clk_divider(0);
 
 end rtl;
 
