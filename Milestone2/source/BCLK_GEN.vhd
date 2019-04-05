@@ -16,47 +16,38 @@
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author          Description
--- 08.03.2019  1.0      Heinzen         Created
+-- 30.03.2019  1.0      Heinzen         Created
+-- 05.04.2019  1.1      Heinzen         version 2
 
 -------------------------------------------------------------------------------
 
 
--- Library & Use Statements
--------------------------------------------
-library ieee;
-use ieee.std_logic_1164.all;
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 
-
-
--- Entity Declaration 
--------------------------------------------
-entity BCLK_GEN is
-  port(clk_12m   : in std_logic;            -- 12.5M Clock
-       bclk_o     : out std_logic;      --Bus-Clock out
-       );
-end BCLK_GEN;
-
--------------------------------------------
--- Architecture 
--------------------------------------------
-architecture rtl of BCLK_GEN is
--------------------------------------------
--- Signals & Constants Declaration
--------------------------------------------
-
--------------------------------------------
--- Begin Architecture
--------------------------------------------
+entity bclk_gen is
+port(
+  clk_12m         : in  std_logic;
+  reset_n         : in  std_logic;
+  bclk_o    : out std_logic);
+ 
+end bclk_gen;
+architecture rtl of bclk_gen is
+signal clk_divider        : unsigned(3 downto 0);
 begin
-  --------------------------------------------------
-  -- PROCESS FOR COMBINATORIAL LOGIC
-  --------------------------------------------------
-if rising_edge(clk_12m) and  then 
+bclk_gen_process: process(reset_n,clk_12m)
+begin
+  if(reset_n='0') then
+    clk_divider   <= (others=>'0');
+  elsif(rising_edge(clk_12m)) then
+    clk_divider   <= clk_divider + 1;
+  end if;
+end process bclk_gen_process;
+bclk_o    <= clk_divider(0);
 
- --------------------------------------------------
-  -- PROCESS FOR REGISTERS
-  --------------------------------------------------
-  
-  
 end rtl;
+
+
+
 
