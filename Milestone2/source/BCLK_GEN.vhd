@@ -17,61 +17,36 @@
 -- Revisions  :
 -- Date        Version  Author          Description
 -- 30.03.2019  1.0      Heinzen         Created
+-- 05.04.2019  1.1      Heinzen         version 2
 
 -------------------------------------------------------------------------------
 
 
--- Library & Use Statements
--------------------------------------------
-LIBRARY ieee;
-USE ieee.std_logic_1164.all;
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 
-
--- Entity Declaration 
--------------------------------------------
-ENTITY bclk_gen IS
-  PORT( clk_12m, reset_n	: IN    std_logic;
-    	  bclk     				: OUT   std_logic
-    	);
-END bclk_gen;
-
--- Architecture Declaration
--------------------------------------------
-ARCHITECTURE rtl OF bclk_gen IS
-
--- Signals & Constants Declaration
--------------------------------------------
-signal bclk_temp : std_logic := '0';
-signal counter : integer := 0;
+entity bclk_gen is
+port(
+  clk_12m         : in  std_logic;
+  reset_n         : in  std_logic;
+  bclk_o    : out std_logic;
+ 
+end bclk_gen;
+architecture rtl of bclk_gen is
+signal clk_divider        : unsigned(3 downto 0);
 begin
-	P1: Process(clk_12m, reset_n)
-	begin
-		if rising_edge(clk_12m) then
-			if reset_n = '0' then
-				bclk_temp <= '0';
-				counter <= 0;
-			else
-				counter <= counter + 1;
-				if counter = 1 then
-					bclk_temp <= '1';
-					counter <= 0;
-				else 
-					bclk_temp <= '0';
-				end if;
-			end if;
-		end if;
-	end Process;
+bclk_gen_process: process(reset_n,clk_12m)
+begin
+  if(reset_n='0') then
+    clk_divider   <= (others=>'0');
+  elsif(rising_edge(clk_12m)) then
+    clk_divider   <= clk_divider + 1;
+  end if;
+end process bclk_gen_process;
+bclk_0    <= not clk_divider(0);
 
-  --------------------------------------------------
-  -- CONCURRENT ASSIGNMENTS
-  --------------------------------------------------
-	bclk <= bclk_temp; --type conversion for output
-  
-  
- -- End Architecture 
-------------------------------------------- 
-END rtl;
-
+end rtl;
 
 
 
