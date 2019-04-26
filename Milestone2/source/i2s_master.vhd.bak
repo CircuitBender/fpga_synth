@@ -66,10 +66,21 @@ architecture rtl of i2s_master is
 -------------------------------------------
 -- Component declarations
 -------------------------------------------
+  component bclk_gen is
+    port (
+      clk_12m, reset_n : in  std_logic;
+      bclk             : out std_logic);
+  end component bclk_gen;
+
+  component bit_counter is
+    port (
+      clk_12m, bclk, reset_n, init_i : in  std_logic;
+      bit_count                      : out std_logic_vector(6 downto 0));
+  end component bit_counter;
 
   component i2s_decoder is
     port (
-      bit_count                  : in integer range 0 to 127;
+      bit_count                  : in  std_logic_vector(6 downto 0);
       load, shift_l, shift_r, ws : out std_logic);
   end component i2s_decoder;
 
@@ -100,39 +111,39 @@ architecture rtl of i2s_master is
   -- Internal signal declarations
   -----------------------------------------------------------------------------
   signal  bclk_sig   : std_logic;
-  signal  bclk_temp   : std_logic;
-  signal  ws_sig   	: std_logic;
-  signal  dacdat_sig   : std_logic;
-  signal ser_o_l_sig   : std_logic;
-  signal ser_o_r_sig   : std_logic;
-  signal init_i_sig : std_logic;   -- optional initialisation signal , still to be implemented
-  signal bit_count_sig : std_logic_vector(6 downto 0);  -- bitcount signal
+  signal init_i_sig : std_logic := 0;   -- optional initialisation signal , still to be implemented
+  signal bitcount_signal : std_logic_vector(6 downto 0);  -- bitcount signal
   signal ac_atttime : std_logic_vector(4 downto 1);
   signal ac_dectime : std_logic_vector(4 downto 1);
-  signal load_sig : std_logic;     -- load signal
-  signal shift_l_sig : std_logic;  -- shift left signal
-  signal shift_r_sig : std_logic;  -- shift right signal
-  signal bit_count, next_bit_count : integer range 0 to 127;
-  signal set_n_sig : std_logic;
-  signal par_o_r_sig : std_logic_vector (15 downto 0);
-  signal par_o_l_sig : std_logic_vector (15 downto 0);
-  signal ser_i_sig : std_logic;
-  signal bclk, next_bclk : std_logic := '0';
-  -------------------------------------------
--- Begin Architecture
--------------------------------------------
-begin
+  signal load_sig : std_logic := 0;     -- load signal
+  signal shift_l_sig : std_logic := 0;  -- shift left signal
+  signal shift_r_sig : std_logic := 0;  -- shift right signal
+  
+
   -----------------------------------------------------------------------------
   -- instance declaration
   -----------------------------------------------------------------------------
+  bclk_gen_1 : bclk_gen
+    port map (
+      clk_12m => clk_12m,
+      reset_n => reset_n,
+      bclk    => bclk_sig);
+
+  bit_counter_1 : bit_counter
+    port map (
+      clk_12m   => clk_12m,
+      bclk      => bclk_sig,
+      reset_n   => reset_n,
+      init_i    => init_i_sig,
+      bit_count => bit_count_sig);
 
   i2s_decoder_1 : i2s_decoder
     port map (
-      bit_count => bit_count,
+      bit_count => bit_count_sig,
       load      => load_sig,
       shift_l   => shift_l_sig,
       shift_r   => shift_r_sig,
-      ws        => ws_sig);
+      ws        => ws_o);
 
   shiftreg_p2s_i2s_right : shiftreg_p2s_i2s
     port map (
@@ -142,7 +153,7 @@ begin
       par_i    => dacdat_pr_i,
       enable_i => bclk_sig,
       shift_i  => shift_r_sig,
-      ser_o    => ser_o_r_sig);
+      ser_o    => ser_o_sig);
   
    shiftreg_p2s_i2s_left : shiftreg_p2s_i2s
     port map (
@@ -152,7 +163,7 @@ begin
       par_i    => dacdat_pl_i,
       enable_i => bclk_sig,
       shift_i  => shift_l_sig,
-      ser_o    => ser_o_l_sig);
+      ser_o    => ser_o_sig);
 
   shiftreg_s2p_i2s_right : shiftreg_s2p_i2s
     port map (
@@ -161,70 +172,34 @@ begin
       enable_i => bclk_sig,
       ser_i    => adcdat_s_i,
       shift_i  => shift_r_sig,
-      par_o    => par_o_r_sig);
+      par_o    => par_o_sig);
 
     shiftreg_s2p_i2s_left : shiftreg_s2p_i2s
     port map (
       clk      => clk_12m,
       reset_n  => reset_n,
       enable_i => bclk_sig,
-      ser_i    => adcdat_s_i,
-      shift_i  => shift_l_sig,
-      par_o    => par_o_l_sig);
-	  
-	 
+      ser_i    => ser_i_sig,
+      shift_i  => adcdat_s_i,
+      par_o    => par_o_sig);
+
+-------------------------------------------
+-- Begin Architecture
+-------------------------------------------
+begin
+  --------------------------------------------------
+  -- PROCESS FOR COMBINATORIAL LOGIC
+  --------------------------------------------------
+
   --------------------------------------------------
   -- PROCESS FOR REGISTERS
   --------------------------------------------------
-  flip_flops: process(clk_12m)
-	begin
-		if reset_n = '0' then	
-			bit_count <= 0;
-		elsif(rising_edge(clk_12m)) then
-			bclk <= next_bclk; 
-			bit_count <= next_bit_count;
-		end if;
-  end process flip_flops;
-  
-  comb_logic :process(all)
-  begin
-	next_bclk <= bclk xor '1';
-	
-	if bclk = '1' then
-		if bit_count < 127 then	
-			next_bit_count <= bit_count + 1;
-		else
-			next_bit_count <= 0;
-		end if;
-	else
-		next_bit_count <= bit_count;
-	end if;
-  end process comb_logic;
-  
-  
-  register_mux: process(ws_sig)
-
-begin
-  
-  if(ws_sig = '0') then
-	dacdat_sig <= ser_o_l_sig;
-	else 
-	dacdat_sig <= ser_o_r_sig;
-	 
-  end if;
-
-  end process register_mux;
 ----------------------------------------------------
 -- concurrent assignments
 ----------------------------------------------------
-
-  bclk_o <= bclk;
-  bclk_sig <= bclk;
+  bclk_o <= bclk_sig;
   load_o <= load_sig;
   ws_o <= ws_sig;
-  dacdat_s_o <= dacdat_sig;
   
-  adcdat_pl_o <= par_o_l_sig;
-  adcdat_pr_o <= par_o_r_sig;  
 end rtl;
 

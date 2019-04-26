@@ -32,7 +32,7 @@ use ieee.numeric_std.all;
 -- Entity Declaration 
 -------------------------------------------
 entity i2s_decoder is
-  port(bit_count                  : in  std_logic_vector(6 downto 0);
+  port(bit_count                  : in  integer range 0 to 127;
        load, shift_l, shift_r, ws : out std_logic
        );
 end i2s_decoder;
@@ -60,15 +60,19 @@ begin
     shift_r <= '0';
 
     -- load condition when bit_count is zero
-    if (bit_count = "0000000") then
+    if (bit_count = 0) then
       load <= '1';
-    elsif (unsigned(bit_count) < 17) then  -- when bit counter in range 0..16: shift left should be active
+    elsif (bit_count < 17) then  -- when bit counter in range 0..16: shift left should be active
       shift_l <= '1';
-    elsif (unsigned(bit_count) > 64) and (unsigned(bit_count) < 81) then  --when bit counter in range 65..80: shift right should be active
+    elsif (bit_count > 64) and (bit_count < 81) then  --when bit counter in range 65..80: shift right should be active
       shift_r <= '1';
     end if;
 
-    ws <= bit_count(6);                 -- take MSB of bit_counter as ws
+    if bit_count < 64 then              -- take MSB of bit_counter as ws
+		ws <= '0';
+	else 
+		ws <= '1';
+	end if;
   end process comb_out;
 
 
