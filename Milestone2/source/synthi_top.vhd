@@ -6,7 +6,7 @@
 -- Author     : Schawan / Heinzen
 -- Company    : 
 -- Created    : 2019-03-08
--- Last update: 2018-03-16
+-- Last update: 2019-04-12
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -59,13 +59,11 @@ architecture rtl of synthi_top is
   -- Internal signal declarations
   -----------------------------------------------------------------------------
 
-  signal clk_12m : std_logic;
-  signal reset_n : std_logic;
 
   -- output infrastructure --
   signal clk_12m_sync   : std_logic;
-  signal key_sync_2     : std_logic_vector (3 downto 0);
-  signal sw_sync_2      : std_logic_vector (17 downto 0);
+  signal key_sync_sig    : std_logic_vector (3 downto 0);
+  signal sw_sync_sig      : std_logic_vector (17 downto 0);
   signal gpio_26_sync_2 : std_logic;
 
   -- signals between codec_controller and i2c_master
@@ -74,7 +72,18 @@ architecture rtl of synthi_top is
   signal ack_error_sync  : std_logic;
   signal write_done_sync : std_logic;
   -- signal between codec_controlle amd i2s
-  signal mute_o : std_logic;
+  signal mute_o      : std_logic; signal clk_12m : std_logic;
+  signal reset_n     : std_logic;
+  signal load_o      : std_logic;
+  signal adcdat_pl_o : std_logic_vector(15 downto 0);
+  signal adcdat_pr_o : std_logic_vector(15 downto 0);
+  signal dacdat_pl_i : std_logic_vector(15 downto 0);
+  signal dacdat_pr_i : std_logic_vector(15 downto 0);
+  signal dacdat_s_o  : std_logic;
+  signal bclk_o      : std_logic;
+  signal ws_o        : std_logic;
+  signal adcdat_s_i  : std_logic;
+  signal dds_sig :  std_logic_vector(15 downto 0);
   
   -----------------------------------------------------------------------------
   -- Component declarations
@@ -117,6 +126,36 @@ architecture rtl of synthi_top is
       ack_error_o  : out   std_logic);
   end component i2c_master;
 
+  component i2s_master is
+    port (
+      clk_12m     : in  std_logic;
+      reset_n     : in  std_logic;
+      load_o      : out std_logic;
+      adcdat_pl_o : out std_logic_vector(15 downto 0);
+      adcdat_pr_o : out std_logic_vector(15 downto 0);
+      dacdat_pl_i : in  std_logic_vector(15 downto 0);
+      dacdat_pr_i : in  std_logic_vector(15 downto 0);
+      dacdat_s_o  : out std_logic;
+      bclk_o      : out std_logic;
+      ws_o        : out std_logic;
+      adcdat_s_i  : in  std_logic);
+  end component i2s_master;
+
+  
+  component path_control is	
+	port (
+	  sw_sync_i      : in  std_logic_vector(17 downto 0); -- path selection
+            -- Audio data generated inside FPGA
+	dds_l_i 		: in  std_logic_vector(15 downto 0);  --Input from synthesizer
+      dds_r_i 		: in  std_logic_vector(15 downto 0);
+       -- Audio data coming from codec
+       adcdat_pl_i 	: in  std_logic_vector(15 downto 0);  --Input  i2s_master
+       adcdat_pr_i 	: in  std_logic_vector(15 downto 0);
+       -- Audio data towards codec
+       dacdat_pl_o 	: out std_logic_vector(15 downto 0);  --Output zum i2s_master
+       dacdat_pr_o 	: out std_logic_vector(15 downto 0));
+  end component path_control;
+ 
 begin  -- architecture rtl
 
   -----------------------------------------------------------------------------
@@ -130,8 +169,8 @@ begin  -- architecture rtl
       GPIO_26      => GPIO_26,
       KEY          => KEY,
       SW           => SW,
-      key_sync     => key_sync_2(3 downto 0),
-      sw_sync      => sw_sync_2,
+      key_sync     => key_sync_sig,
+      sw_sync      => sw_sync_sig,
       gpio_26_sync => gpio_26_sync_2,
       clk_12m      => clk_12m_sync,
       reset_n      => reset_n);
@@ -141,8 +180,8 @@ begin  -- architecture rtl
     port map (
       clk          => clk_12m_sync,
       reset_n      => reset_n,
-      event_ctrl_i   => sw_sync_2(2 downto 0),
-      initialize_i   => key_sync_2(1),
+      event_ctrl_i   => sw_sync_sig(2 downto 0),
+      initialize_i   => key_sync_sig(1),
       write_done_i => write_done_sync,
       ack_error_i  => ack_error_sync,
       write_data_o => write_data_sync,
@@ -161,11 +200,42 @@ begin  -- architecture rtl
       write_done_o => write_done_sync,
       ack_error_o  => ack_error_sync);
 
-  -----------------------------------------------------------------------------
-  -- concurrent assignments / output
-  -----------------------------------------------------------------------------
-AUD_XCK <=  clk_12m_sync;
+  -- instance "i2s_master_1"
+  i2s_master_1: i2s_master
+    port map (
+      clk_12m     => clk_12m_sync,
+      reset_n     => reset_n,
+      load_o      => load_o,
+      adcdat_pl_o => adcdat_pl_o,
+      adcdat_pr_o => adcdat_pr_o,
+      dacdat_pl_i => dacdat_pl_i,
+      dacdat_pr_i => dacdat_pr_i,
+      dacdat_s_o  => AUD_DACDAT,
+      bclk_o      => AUD_BCLK,
+      ws_o        => ws_o,
+      adcdat_s_i  => AUD_ADCDAT);
 
+
+  path_control_1 : path_control
+	port map (
+  sw_sync_i	=> sw_sync_sig,
+	dds_r_i 		=> dds_sig,
+   dds_l_i 		=> dds_sig,
+
+       adcdat_pl_i 	=> adcdat_pl_o,
+       adcdat_pr_i 	=> adcdat_pr_o,
+       dacdat_pl_o 	=> dacdat_pl_i,
+       dacdat_pr_o	=> dacdat_pr_i
+	   );
+
+------------------------------------
+-- concurrent assignments
+------------------------------------	   
+	AUD_XCK <=  clk_12m_sync;
+	AUD_DACLRCK <= ws_o;
+	AUD_ADCLRCK <= ws_o;
+	dds_sig <= (others => '0');
+	
 end architecture rtl;
 
 -------------------------------------------------------------------------------
