@@ -31,7 +31,7 @@ generic (
   
   port (
     signal_i : in  std_logic_vector(width-1 downto 0);
-    clk_12m  : in  std_logic;
+    clk_i  : in  std_logic;
     signal_o : out std_logic_vector(width-1 downto 0)
     );
 
@@ -48,9 +48,9 @@ architecture rtl of synchronize is
 
 begin  -- architecture rtl
 
-  flipflops : process(clk_12m)
+  flipflops : process(clk_i)
   begin
-    if(rising_edge(clk_12m)) then
+    if(rising_edge(clk_i)) then
       tmp_signal <= signal_i;
       signal_o   <= tmp_signal;
     end if;

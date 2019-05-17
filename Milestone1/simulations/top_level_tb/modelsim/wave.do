@@ -1,7 +1,7 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /synthi_top_tb/DUT/codec_controller_1/reset_n
-add wave -noupdate /synthi_top_tb/DUT/codec_controller_1/initalise_i
+add wave -noupdate /synthi_top_tb/DUT/codec_controller_1/reset_n_i
+add wave -noupdate /synthi_top_tb/DUT/codec_controller_1/initialize_i
 add wave -noupdate /synthi_top_tb/DUT/codec_controller_1/write_o
 add wave -noupdate -radix hexadecimal /synthi_top_tb/DUT/codec_controller_1/write_data_o
 add wave -noupdate /synthi_top_tb/DUT/codec_controller_1/next_count
@@ -9,8 +9,8 @@ add wave -noupdate /synthi_top_tb/DUT/codec_controller_1/write_done_i
 add wave -noupdate /synthi_top_tb/DUT/codec_controller_1/count
 add wave -noupdate /synthi_top_tb/DUT/codec_controller_1/write_o
 add wave -noupdate /synthi_top_tb/DUT/codec_controller_1/ack_error_i
-add wave -noupdate /synthi_top_tb/DUT/codec_controller_1/s_state
-add wave -noupdate /synthi_top_tb/DUT/infrastructure_1/clk_12m
+add wave -noupdate /synthi_top_tb/DUT/codec_controller_1/fsm_state
+add wave -noupdate /synthi_top_tb/DUT/infrastructure_1/clk_12m_o
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {2666 ns} 0}
 quietly wave cursor active 1

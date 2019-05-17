@@ -36,8 +36,8 @@ use ieee.std_logic_1164.all;
 -- Entity Declaration 
 -------------------------------------------
 entity i2s_master is
-  port(clk_12m : in  std_logic;         -- 12.5M Clock
-       reset_n : in  std_logic;  -- Reset or init used for re-initialisation
+  port(clk_12m_i : in  std_logic;         -- 12.5M Clock
+       reset_n_i : in  std_logic;  -- Reset or init used for re-initialisation
        load_o  : out std_logic;         -- Pulse once per audio frame 1/48kHz
 
        --Verbindungen zum audio_controller
@@ -115,7 +115,7 @@ architecture rtl of i2s_master is
   signal set_n_sig : std_logic;
   signal par_o_r_sig : std_logic_vector (15 downto 0);
   signal par_o_l_sig : std_logic_vector (15 downto 0);
-  signal bclk : std_logic := '0';
+  signal bclk_sig : std_logic := '0';
   -------------------------------------------
 -- Begin Architecture
 -------------------------------------------
@@ -134,38 +134,38 @@ begin
 
   shiftreg_p2s_i2s_right : shiftreg_p2s_i2s
     port map (
-      clk      => clk_12m,
+      clk      => clk_12m_i,
       set_n    => set_n_sig,
       load_i   => load_sig,
       par_i    => dacdat_pr_i,
-      enable_i => bclk,
+      enable_i => bclk_sig,
       shift_i  => shift_r_sig,
       ser_o    => ser_o_r_sig);
   
    shiftreg_p2s_i2s_left : shiftreg_p2s_i2s
     port map (
-      clk      => clk_12m,
+      clk      => clk_12m_i,
       set_n    => set_n_sig,
       load_i   => load_sig,
       par_i    => dacdat_pl_i,
-      enable_i => bclk,
+      enable_i => bclk_sig,
       shift_i  => shift_l_sig,
       ser_o    => ser_o_l_sig);
 
   shiftreg_s2p_i2s_right : shiftreg_s2p_i2s
     port map (
-      clk      => clk_12m,
-      reset_n  => reset_n,
-      enable_i => bclk,
+      clk      => clk_12m_i,
+      reset_n  => reset_n_i,
+      enable_i => bclk_sig,
       ser_i    => adcdat_s_i,
       shift_i  => shift_r_sig,
       par_o    => par_o_r_sig);
 
     shiftreg_s2p_i2s_left : shiftreg_s2p_i2s
     port map (
-      clk      => clk_12m,
-      reset_n  => reset_n,
-      enable_i => bclk,
+      clk      => clk_12m_i,
+      reset_n  => reset_n_i,
+      enable_i => bclk_sig,
       ser_i    => adcdat_s_i,
       shift_i  => shift_l_sig,
       par_o    => par_o_l_sig);
@@ -176,9 +176,9 @@ begin
   --------------------------------------------------
   flip_flops: process(all)
 	begin
-		if reset_n = '0' then	
+		if reset_n_i = '0' then	
 			bit_count <= 0;
-		elsif(rising_edge(clk_12m)) then
+		elsif(rising_edge(clk_12m_i)) then
 			bit_count <= next_bit_count;
 		end if;
   end process flip_flops;
@@ -186,15 +186,15 @@ begin
   flip_flops_bclk: process(all)
 	begin
 		
-		if(rising_edge(clk_12m)) then
-			bclk <=  not bclk; 
+		if(rising_edge(clk_12m_i)) then
+			bclk_sig <=  not bclk_sig; 
 		end if;
   end process flip_flops_bclk;
   
   comb_logic :process(all)
   begin
 	
-	if bclk = '1' then
+	if bclk_sig = '1' then
 		if bit_count < 127 then	
 			next_bit_count <= bit_count + 1;
 		else
@@ -222,7 +222,7 @@ begin
 -- concurrent assignments
 ----------------------------------------------------
 
-  bclk_o <= bclk;
+  bclk_o <= bclk_sig;
   load_o <= load_sig;
   ws_o <= ws_sig;
   dacdat_s_o <= dacdat_sig;

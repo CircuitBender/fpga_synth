@@ -29,6 +29,8 @@ use work.simulation_pkg.all;
 use work.standard_driver_pkg.all;
 use work.user_driver_pkg.all;
 use work.reg_table_pkg.all;
+use work.tone_gen_pkg.all;
+use work.audio_filter_pkg.all;
 
 
 -------------------------------------------------------------------------------
@@ -206,26 +208,26 @@ begin  -- architecture struct
       elsif cmd = string'("ini_cod") then
         ini_cod(tv, SW(2 downto 0), KEY(1));
 
-     -- elsif cmd = string'("i2c_ch0") then
-     --   gpo_chk(tv, reg_data0);
-     -- elsif cmd = string'("i2c_ch1") then
-     --   gpo_chk(tv, reg_data1);
-     -- elsif cmd = string'("i2c_ch2") then
-     --   gpo_chk(tv, reg_data2);
-     -- elsif cmd = string'("i2c_ch3") then
-     --   gpo_chk(tv, reg_data3);
-     -- elsif cmd = string'("i2c_ch4") then
-    --   gpo_chk(tv, reg_data4);
-     -- elsif cmd = string'("i2c_ch5") then
-     --   gpo_chk(tv, reg_data5);
-     -- elsif cmd = string'("i2c_ch6") then
-     --   gpo_chk(tv, reg_data6);
-     -- elsif cmd = string'("i2c_ch7") then
-     --   gpo_chk(tv, reg_data7);
-     -- elsif cmd = string'("i2c_ch8") then
-     --   gpo_chk(tv, reg_data8);
-     -- elsif cmd = string'("i2c_ch9") then
-     --   gpo_chk(tv, reg_data9);
+     elsif cmd = string'("i2c_ch0") then
+        gpo_chk(tv, reg_data0);
+      elsif cmd = string'("i2c_ch1") then
+        gpo_chk(tv, reg_data1);
+      elsif cmd = string'("i2c_ch2") then
+        gpo_chk(tv, reg_data2);
+      elsif cmd = string'("i2c_ch3") then
+        gpo_chk(tv, reg_data3);
+      elsif cmd = string'("i2c_ch4") then
+       gpo_chk(tv, reg_data4);
+     elsif cmd = string'("i2c_ch5") then
+       gpo_chk(tv, reg_data5);
+     elsif cmd = string'("i2c_ch6") then
+       gpo_chk(tv, reg_data6);
+     elsif cmd = string'("i2c_ch7") then
+       gpo_chk(tv, reg_data7);
+     elsif cmd = string'("i2c_ch8") then
+       gpo_chk(tv, reg_data8);
+     elsif cmd = string'("i2c_ch9") then
+       gpo_chk(tv, reg_data9);
 
 	  elsif cmd = string'("run_sim") then
 		run_sim(tv);

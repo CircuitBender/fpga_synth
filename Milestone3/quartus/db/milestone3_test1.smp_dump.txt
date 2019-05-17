@@ -1,0 +1,33 @@
+
+State Machine - |synthi_top|path_control:path_control_1|fir_core:fir_core_2|fir_state
+Name fir_state.sample_rdy fir_state.tap_x_mac fir_state.tap_x_waitrd fir_state.tap_0 fir_state.idle 
+fir_state.idle 0 0 0 0 0 
+fir_state.tap_0 0 0 0 1 1 
+fir_state.tap_x_waitrd 0 0 1 0 1 
+fir_state.tap_x_mac 0 1 0 0 1 
+fir_state.sample_rdy 1 0 0 0 1 
+
+State Machine - |synthi_top|path_control:path_control_1|fir_core:fir_core_1|fir_state
+Name fir_state.sample_rdy fir_state.tap_x_mac fir_state.tap_x_waitrd fir_state.tap_0 fir_state.idle 
+fir_state.idle 0 0 0 0 0 
+fir_state.tap_0 0 0 0 1 1 
+fir_state.tap_x_waitrd 0 0 1 0 1 
+fir_state.tap_x_mac 0 1 0 0 1 
+fir_state.sample_rdy 1 0 0 0 1 
+
+State Machine - |synthi_top|i2c_master:i2c_master_1|fsm_state
+Name fsm_state.S_STOP fsm_state.S_WAIT_FOR_STOP fsm_state.S_ACK_BYTE fsm_state.S_SEND_BYTE fsm_state.S_WAIT_FOR_NEXT_BYTE fsm_state.S_START fsm_state.S_WAIT_FOR_START fsm_state.S_IDLE 
+fsm_state.S_IDLE 0 0 0 0 0 0 0 0 
+fsm_state.S_WAIT_FOR_START 0 0 0 0 0 0 1 1 
+fsm_state.S_START 0 0 0 0 0 1 0 1 
+fsm_state.S_WAIT_FOR_NEXT_BYTE 0 0 0 0 1 0 0 1 
+fsm_state.S_SEND_BYTE 0 0 0 1 0 0 0 1 
+fsm_state.S_ACK_BYTE 0 0 1 0 0 0 0 1 
+fsm_state.S_WAIT_FOR_STOP 0 1 0 0 0 0 0 1 
+fsm_state.S_STOP 1 0 0 0 0 0 0 1 
+
+State Machine - |synthi_top|codec_controller:codec_controller_1|fsm_state
+Name fsm_state.state_wait fsm_state.state_start_write fsm_state.state_idle 
+fsm_state.state_idle 0 0 0 
+fsm_state.state_start_write 0 1 1 
+fsm_state.state_wait 1 0 1 

@@ -40,11 +40,11 @@ use work.tone_gen_pkg.all;              -- package tone_gen_pkg.vhd
 -- Entity Declaration 
 --------------------------------------------------------------------------------
 entity tone_generator is
-  port(clk_12m    : in  std_logic;      -- 12.5M Clock
-       reset_n    : in  std_logic;  -- Reset or init used for re-initialisation
+  port(clk_12m_i    : in  std_logic;      -- 12.5M Clock
+       reset_n_i    : in  std_logic;  -- Reset or init used for re-initialisation
        tone_on_i  : in  std_logic;
        load_i     : in  std_logic;      -- Pulse once per audio frame 1/48kHz
-    note_vector : in  std_logic_vector (6 downto 0);
+    note_vector_i : in  std_logic_vector (6 downto 0);
     attenu_i    : in  std_logic_vector (3 downto 0);
     dds_o       : out std_logic_vector(N_AUDIO -1 downto 0));
 end tone_generator;
@@ -56,9 +56,9 @@ architecture struct of tone_generator is
 
   component DDS is
     port (
-      clk_12m    : in  std_logic;
+      clk_12m_i    : in  std_logic;
       load_i     : in  std_logic;
-      reset_n    : in  std_logic;
+      reset_n_i    : in  std_logic;
       phi_incr_i : in  std_logic_vector (N_CUM-1 downto 0);
       tone_on_i  : in  std_logic;
       attenu_i   : in  std_logic_vector (3 downto 0);
@@ -70,10 +70,10 @@ begin
   -- instance "DDS_1"
   DDS_1 : DDS
     port map (
-      clk_12m    => clk_12m,
+      clk_12m_i    => clk_12m_i,
       load_i     => load_i,
-      reset_n    => reset_n,
-      phi_incr_i => LUT_midi2dds(to_integer(unsigned(note_vector))),  --lut_midi2dds in tone_generator,
+      reset_n_i    => reset_n_i,
+      phi_incr_i => LUT_midi2dds(to_integer(unsigned(note_vector_i))),  --lut_midi2dds in tone_generator,
       tone_on_i  => tone_on_i,
       attenu_i   => attenu_i,
       dds_o      => dds_o);

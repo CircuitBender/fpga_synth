@@ -16,8 +16,8 @@ use ieee.numeric_std.all;
 -------------------------------------------
 entity modulo_divider is
   generic (width : positive := 5);
-  port(clk, reset_n : in  std_logic;
-       clk_12m      : out std_logic
+  port(clk_i, reset_n_i : in  std_logic;
+       clk_12m_o      : out std_logic
        );
 end modulo_divider;
 
@@ -46,9 +46,9 @@ begin
   --------------------------------------------------
   flip_flops : process(all)
   begin
-    if reset_n = '0' then
+    if reset_n_i = '0' then
       count <= to_unsigned(0, width);
-    elsif rising_edge(clk) then
+    elsif rising_edge(clk_i) then
       count <= next_count;
     end if;
   end process flip_flops;
@@ -57,7 +57,7 @@ begin
   -- CONCURRENT ASSIGNMENTS
   --------------------------------------------------
   -- take MSB and convert for output data-type
-  clk_12m <= std_logic(count(width-1));
+  clk_12m_o <= std_logic(count(width-1));
 
 -- End Architecture 
 ------------------------------------------- 

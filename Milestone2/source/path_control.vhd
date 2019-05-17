@@ -27,16 +27,19 @@ use ieee.std_logic_1164.all;
 
 
 entity path_control is
-  port(sw_sync_i      : in  std_logic_vector(17 downto 0);  -- path selection
+  generic (
+        g_init_val : std_logic := '0'
+    );
+  port(sw_sync_i      : in  std_logic_vector(17 downto 0) := (others => g_init_val);  -- path selection
             -- Audio data generated inside FPGA
-		dds_l_i : in  std_logic_vector(15 downto 0);  --Input from synthesizer
-		dds_r_i : in  std_logic_vector(15 downto 0);
+		dds_l_i : in  std_logic_vector(15 downto 0) := (others => g_init_val);  --Input from synthesizer
+		dds_r_i : in  std_logic_vector(15 downto 0) := (others => g_init_val);
        -- Audio data coming from codec
-       adcdat_pl_i : in  std_logic_vector(15 downto 0);  --Input  i2s_master
-       adcdat_pr_i : in  std_logic_vector(15 downto 0);
+       adcdat_pl_i : in  std_logic_vector(15 downto 0) := (others => g_init_val);  --Input  i2s_master
+       adcdat_pr_i : in  std_logic_vector(15 downto 0) := (others => g_init_val);
        -- Audio data towards codec
-       dacdat_pl_o : out std_logic_vector(15 downto 0);  --Output zum i2s_master
-       dacdat_pr_o : out std_logic_vector(15 downto 0)
+       dacdat_pl_o : out std_logic_vector(15 downto 0) := (others => g_init_val);  --Output zum i2s_master
+       dacdat_pr_o : out std_logic_vector(15 downto 0) := (others => g_init_val)
        );
 end path_control;
 

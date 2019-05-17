@@ -44,12 +44,10 @@ set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:26:53  MARCH 29, 2019
 set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
 set_global_assignment -name VHDL_FILE ../source/tone_gen_pkg.vhd
 set_global_assignment -name VHDL_FILE ../source/synthi_top.vhd
-set_global_assignment -name VHDL_FILE ../source/synchronize_single.vhd
 set_global_assignment -name VHDL_FILE ../source/synchronize.vhd
 set_global_assignment -name VHDL_FILE ../source/reg_table_pkg.vhd
 set_global_assignment -name VHDL_FILE ../source/modulo_divider.vhd
 set_global_assignment -name VHDL_FILE ../source/infrastructure.vhd
-set_global_assignment -name VHDL_FILE ../source/i2c_slave_bfm.vhd
 set_global_assignment -name VHDL_FILE ../source/i2c_master.vhd
 set_global_assignment -name VHDL_FILE ../source/codec_controller.vhd
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files

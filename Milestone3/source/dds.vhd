@@ -34,9 +34,9 @@ use work.tone_gen_pkg.all;
 entity DDS is
 
   port(
-    clk_12m    : in  std_logic;
+    clk_12m_i    : in  std_logic;
     load_i     : in  std_logic;
-    reset_n    : in  std_logic;
+    reset_n_i    : in  std_logic;
     phi_incr_i : in  std_logic_vector (N_CUM-1 downto 0);
     tone_on_i  : in  std_logic;
     attenu_i   : in  std_logic_vector (3 downto 0);
@@ -81,11 +81,11 @@ begin
     end if;
   end process attenuator;
 
-  flipflop : process (clk_12m, reset_n)
+  flipflop : process (clk_12m_i, reset_n_i)
   begin
-    if reset_n = '0' then
+    if reset_n_i = '0' then
       count <= to_unsigned(0, N_CUM);
-    elsif rising_edge(clk_12m) then -- rising oder falling edge ?? von fall zu rise korrigiert
+    elsif rising_edge(clk_12m_i) then -- rising oder falling edge ?? von fall zu rise korrigiert
       count <= next_count;
     end if;
   end process flipflop;

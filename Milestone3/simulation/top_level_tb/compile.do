@@ -20,9 +20,10 @@ vcom -2008 -explicit -work work ../../../source/reg_table_pkg.vhd
 vcom -2008 -explicit -work work ../../../source/shiftreg_p2s_i2s.vhd
 vcom -2008 -explicit -work work ../../../source/shiftreg_s2p_i2s.vhd
 vcom -2008 -explicit -work work ../../../source/synchronize.vhd
-vcom -2008 -explicit -work work ../../../source/synchronize_single.vhd
 vcom -2008 -explicit -work work ../../../source/tone_gen_pkg.vhd
-
+vcom -2008 -explicit -work work ../../../source/audio_filter_pkg.vhd;
+vcom -2009 -explicit -work work ../../../source/fir_core.vhd;
+vcom -2009 -explicit -work work ../../../source/single_port_ram.vhd
 
 vcom -2008 -explicit -work work ../../../source/synthi_top.vhd
 vcom -2008 -explicit -work work ../../../source/synthi_top_tb.vhd
