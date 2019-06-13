@@ -18,7 +18,6 @@
 -- Date        Version  Author  Description
 -- 2019-05-02  1.0      Rutishauser   Created
 -- 2019-05-09  1.2      Heinzen   Debugging, commentaries
--- 2019-05-22	1.3		Heinzen		debugging, nomenclatura
 ---------------------------------------------------------------
 -------------------------------------------------------------------------------
 -- Package  Declaration
@@ -41,96 +40,84 @@ use work.tone_gen_pkg.all;              -- package tone_gen_pkg.vhd
 -- Entity Declaration 
 --------------------------------------------------------------------------------
 entity tone_generator is
-  port(clk_i     : in  std_logic;      -- 12.5M Clock
-       reset_n_i     : in  std_logic;      -- Reset or init used for re-initialisation
+  port(clk_12m     : in  std_logic;      -- 12.5M Clock
+       reset_n     : in  std_logic;      -- Reset or init used for re-initialisation
       -- tone_on_i   : in  std_logic;
        load_i      : in  std_logic;      -- Pulse once per audio frame 1/48kHz
-       note_on_i     : in  std_logic_vector(9 downto 0);
-	    strobe_i      : in std_logic;
-		 note_array_i  : in  t_tone_array;
+       note_on     : in  std_logic_vector(9 downto 0);
+	    strobe      : in std_logic;
+		 note_array  : in  t_tone_array;
        --attenu_i  : in  std_logic_vector (3 downto 0);
        dds_o       : out std_logic_vector(N_AUDIO -1 downto 0));
 end tone_generator;
 
------------------------------------------
--- architecture declaration
------------------------------------------
+
+-------------------------------------------------------------------------------
+
 architecture struct of tone_generator is
 
------------------------------------------
--- signal declaration
------------------------------------------
+
   signal dds_o_array : t_dds_o_array;
   signal sum_reg : integer;
   signal next_sum_reg : integer;
 
------------------------------------------
--- component declaration
------------------------------------------
   component DDS is
     port (
-      clk_i    : in  std_logic;
+      clk_12m    : in  std_logic;
       load_i     : in  std_logic;
-      reset_n_i   : in  std_logic;
+      reset_n    : in  std_logic;
       phi_incr_i : in  std_logic_vector (N_CUM-1 downto 0);
       tone_on_i  : in  std_logic;
       attenu_i   : in  std_logic_vector (3 downto 0);
       dds_o      : out std_logic_vector (N_AUDIO -1 downto 0));
+
   end component DDS;
 
------------------------------------------
--- begin architecture
------------------------------------------
+
 begin
------------------------------------------
--- 10 DDS instances
------------------------------------------
+
   DDS_inst_gen : for i in 0 to 9 generate
     DDS_1 : DDS
       port map (
-        clk_i    => clk_i,
+        clk_12m    => clk_12m,
         load_i     => load_i,
-        reset_n_i    => reset_n_i,
-        phi_incr_i => LUT_midi2dds(to_integer(unsigned(note_array_i(i)))),  --lut_midi2dds in tone_generator,
-        tone_on_i  => note_on_i(i),
+        reset_n    => reset_n,
+        phi_incr_i => LUT_midi2dds(to_integer(unsigned(note_array(i)))),  --lut_midi2dds in tone_generator,
+        tone_on_i  => note_on(i),
         attenu_i   => "0001",
         dds_o      => dds_o_array(i));
+
   end generate DDS_inst_gen;
 
------------------------------------------
--- comb sum output
------------------------------------------
+
   comb_sum_output : process(all)
-    variable var_sum : integer range -(2**(N_AUDIO-1)) to (2**(N_AUDIO-1))-1;
+    variable var_sum : integer range -(2**(20)) to (2**(20))-1;
   begin
     var_sum := 0;
-    if strobe_i = '1' then
+    if strobe = '1' then
+
       dds_sum_loop : for i in 0 to 9 loop
         var_sum := var_sum + (to_integer(unsigned(dds_o_array(i))));
       end loop dds_sum_loop;
+
       next_sum_reg <= var_sum;
     else
       next_sum_reg <= sum_reg;
     end if;
+
   end process comb_sum_output;
 
------------------------------------------
--- reg sum output process
------------------------------------------
+
   reg_sum_output : process(all)
   begin
-    if reset_n_i = '0' then
+    if reset_n = '0' then
       sum_reg <= 0;
-    elsif rising_edge(clk_i) then
+    elsif rising_edge(clk_12m) then
       sum_reg <= next_sum_reg;
     end if;
   end process reg_sum_output;
------------------------------------------
--- concurrent assignments
------------------------------------------
+
 --output:
 dds_o<= std_logic_vector(to_unsigned(sum_reg,16));
 
 end architecture struct;
---end
------------------------------------------

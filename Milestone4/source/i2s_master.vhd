@@ -16,23 +16,22 @@
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author          Description
--- 19.05.19     1.1      Rutishauser     Neustart
--- 22.05.19		1.2		Heinzen			Debugging, nomenclatura
+--19.05.19     1.1      Rutishauser     Neustart
 -------------------------------------------------------------------------------
 
--------------------------------------------
+
 -- Library & Use Statements
 -------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
--------------------------------------------
+
 -- Entity Declaration 
 -------------------------------------------
 entity i2s_master is
-  port(clk_i : in std_logic;          -- 12.5M Clock
-       reset_n_i : in std_logic;  -- Reset or init used for re-initialisation
+  port(clk_12m : in std_logic;          -- 12.5M Clock
+       reset_n : in std_logic;  -- Reset or init used for re-initialisation
 
        load_o : out std_logic;          -- Pulse once per audio frame 1/48kHz
 
@@ -56,37 +55,34 @@ end i2s_master;
 -------------------------------------------
 architecture rtl of i2s_master is
 
--------------------------------------------
--- component declaration
--------------------------------------------
   component BCLK_GEN is
     port (
-      reset_n_i : in  std_logic;
-      clk_i : in  std_logic;
-      bclk_o    : out std_logic);
+      reset_n : in  std_logic;
+      clk_12m : in  std_logic;
+      bclk    : out std_logic);
   end component BCLK_GEN;
 
   component bit_counter is
     port (
-      clk_i, bclk_i, reset_n_i, init_n_i : in  std_logic;
-      bit_count_o                      : out integer range 0 to 127);
+      clk_12m, bclk, reset_n, init_n : in  std_logic;
+      bit_count                      : out integer range 0 to 127);
   end component bit_counter;
 
   component i2s_decoder is
     port (
-      bit_count_i                  : in integer range 0 to 127;
-      load_o, shift_l_o, shift_r_o, ws_o : out std_logic);
+      bit_count                  : in integer range 0 to 127;
+      load, shift_l, shift_r, ws : out std_logic);
   end component i2s_decoder;
 
   component shiftreg_p2s is
     generic (
       width : positive);
     port (
-      clk_i : in  std_logic;
-      reset_n_i : in  std_logic;
-      load_i    : in  std_logic;
-      shift_i   : in  std_logic;
-      enable_i  : in  std_logic;
+      clk_12m : in  std_logic;
+      reset_n : in  std_logic;
+      load    : in  std_logic;
+      shift   : in  std_logic;
+      enable  : in  std_logic;
       par_in  : in  std_logic_vector(width-1 downto 0);
       ser_out : out std_logic);
   end component shiftreg_p2s;
@@ -95,18 +91,17 @@ architecture rtl of i2s_master is
     generic (
       width : positive);
     port (
-      clk_i : in  std_logic;
-      reset_n_i : in  std_logic;
-      enable_i  : in  std_logic;
-      shift_i   : in  std_logic;
+      clk_12m : in  std_logic;
+      reset_n : in  std_logic;
+      enable  : in  std_logic;
+      shift   : in  std_logic;
       ser_in  : in  std_logic;
-      dir_i     : in  std_logic;
+      dir     : in  std_logic;
       par_out : out std_logic_vector(width-1 downto 0));
   end component shiftreg_s2p;
   
-------------------------------------------- 
--- Signals
--------------------------------------------
+-- Signale
+  
   signal bclk      : std_logic;
   signal bit_count : integer range 0 to 127;
   signal load      : std_logic;
@@ -119,44 +114,42 @@ architecture rtl of i2s_master is
   signal ws : std_logic;
   
 begin  -- architecture rtl
--------------------------------------------
--- instance initiation
--------------------------------------------
+
   -- instance "bckl_gen_1"
   bckl_gen_1: BCLK_GEN
     port map (
-      reset_n_i => reset_n_i,
-      clk_i => clk_i,
-      bclk_o    => bclk);
+      reset_n => reset_n,
+      clk_12m => clk_12m,
+      bclk    => bclk);
 
   -- instance "bit_counter_1"
   bit_counter_1: bit_counter
     port map (
-      clk_i  => clk_i,
-      bclk_i     => bclk,
-      reset_n_i   => reset_n_i,
-      init_n_i    => '1',
-      bit_count_o => bit_count);
+      clk_12m   => clk_12m,
+      bclk      => bclk,
+      reset_n   => reset_n,
+      init_n    => '1',
+      bit_count => bit_count);
 
   -- instance "i2s_decoder_1"
   i2s_decoder_1: i2s_decoder
     port map (
-      bit_count_i => bit_count,
-      load_o      => load,
-      shift_l_o   => shift_l,
-      shift_r_o   => shift_r,
-      ws_o        => ws);
+      bit_count => bit_count,
+      load      => load,
+      shift_l   => shift_l,
+      shift_r   => shift_r,
+      ws        => ws);
 
   -- instance "shiftreg_p2s_1"  LEFT
   shiftreg_p2s_1: shiftreg_p2s
     generic map (
       width => 16)
     port map (
-      clk_i => clk_i,
-      reset_n_i => reset_n_i,
-      load_i    => load,
-      shift_i   => shift_l,
-      enable_i  => bclk,
+      clk_12m => clk_12m,
+      reset_n => reset_n,
+      load    => load,
+      shift   => shift_l,
+      enable  => bclk,
       par_in  => dacdat_pl_i,
       ser_out => serout_l);
 	  
@@ -165,11 +158,11 @@ begin  -- architecture rtl
     generic map (
       width => 16)
     port map (
-      clk_i => clk_i,
-      reset_n_i => reset_n_i,
-      load_i    => load,
-      shift_i   => shift_r,
-      enable_i  => bclk,
+      clk_12m => clk_12m,
+      reset_n => reset_n,
+      load    => load,
+      shift   => shift_r,
+      enable  => bclk,
       par_in  => dacdat_pr_i,
       ser_out => serout_r);
 	  
@@ -178,12 +171,12 @@ begin  -- architecture rtl
     generic map (
       width => 16)
     port map (
-      clk_i => clk_i,
-      reset_n_i => reset_n_i,
-      enable_i  => bclk,
-      shift_i   => shift_l,
+      clk_12m => clk_12m,
+      reset_n => reset_n,
+      enable  => bclk,
+      shift   => shift_l,
       ser_in  => adcdat_s_i,
-      dir_i     => '1',
+      dir     => '1',
       par_out => adcdat_pl_o);
 
   -- instance "shiftreg_s2p_2"  RIGHT
@@ -191,33 +184,33 @@ begin  -- architecture rtl
     generic map (
       width => 16)
     port map (
-      clk_i => clk_i,
-      reset_n_i => reset_n_i,
-      enable_i  => bclk,
-      shift_i  => shift_r,
+      clk_12m => clk_12m,
+      reset_n => reset_n,
+      enable  => bclk,
+      shift   => shift_r,
       ser_in  => adcdat_s_i,
-      dir_i     => '1',
+      dir     => '1',
       par_out => adcdat_pr_o);
 
- -------------------------------------------
- -- multiplexer
- -------------------------------------------
+ 
 register_mux : process(all)
+
   begin
+
     if(ws = '0') then
        dacdat_s_o<= serout_l;
     else
        dacdat_s_o<= serout_r;
+
     end if;
+
   end process register_mux;
   
- ------------------------------------------- 
-  --concurrent  assigments
-------------------------------------------- 
+  
+  --concurrent  assigment
+   
    bclk_o <= bclk;
    load_o <= load;
    ws_o <= ws;
 
 end architecture rtl;
--- end
--------------------------------------------
