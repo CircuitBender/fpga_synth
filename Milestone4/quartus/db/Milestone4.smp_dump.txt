@@ -1,0 +1,30 @@
+
+State Machine - |synthi_top|uart_top:uart_top_1|uart_controller_fsm:uart_controller_fsm_1|uart_state
+Name uart_state.check_rx uart_state.wait_rx_byte uart_state.prepare_rx uart_state.idle 
+uart_state.idle 0 0 0 0 
+uart_state.prepare_rx 0 0 1 1 
+uart_state.wait_rx_byte 0 1 0 1 
+uart_state.check_rx 1 0 0 1 
+
+State Machine - |synthi_top|midi_controller:midi_controller_1|midi_state
+Name midi_state.wait_data2 midi_state.wait_data1 midi_state.wait_status 
+midi_state.wait_status 0 0 0 
+midi_state.wait_data1 0 1 1 
+midi_state.wait_data2 1 0 1 
+
+State Machine - |synthi_top|i2c_master:i2c_master_1|fsm_state
+Name fsm_state.S_STOP fsm_state.S_WAIT_FOR_STOP fsm_state.S_ACK_BYTE fsm_state.S_SEND_BYTE fsm_state.S_WAIT_FOR_NEXT_BYTE fsm_state.S_START fsm_state.S_WAIT_FOR_START fsm_state.S_IDLE 
+fsm_state.S_IDLE 0 0 0 0 0 0 0 0 
+fsm_state.S_WAIT_FOR_START 0 0 0 0 0 0 1 1 
+fsm_state.S_START 0 0 0 0 0 1 0 1 
+fsm_state.S_WAIT_FOR_NEXT_BYTE 0 0 0 0 1 0 0 1 
+fsm_state.S_SEND_BYTE 0 0 0 1 0 0 0 1 
+fsm_state.S_ACK_BYTE 0 0 1 0 0 0 0 1 
+fsm_state.S_WAIT_FOR_STOP 0 1 0 0 0 0 0 1 
+fsm_state.S_STOP 1 0 0 0 0 0 0 1 
+
+State Machine - |synthi_top|codec_controller:codec_controller_1|fsm_reg
+Name fsm_reg.state_wait fsm_reg.state_start_write fsm_reg.state_idle 
+fsm_reg.state_idle 0 0 0 
+fsm_reg.state_start_write 0 1 1 
+fsm_reg.state_wait 1 0 1 
