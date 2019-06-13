@@ -23,18 +23,14 @@ entity i2c_master is
         port(
             clk_i         : in    std_logic;
             reset_n_i     : in    std_logic;
-
             write_i     : in    std_logic;
 			write_data_i: in	std_logic_vector(15 downto 0);
-			
 			sda_io		: inout	std_logic;
 			scl_o		: out   std_logic;
-			
 			write_done_o: out	std_logic;
 			ack_error_o	: out	std_logic
         );
 end entity;
-
 
 -- begin of Architecture
 architecture rtl of i2c_master is
@@ -95,8 +91,6 @@ signal write_done, next_write_done     		: std_logic;
 -- Begin Architecture
 -------------------------------------------------------------------------------
 begin
-
-
 	-------------------------------------------------------------------------------
 	-- Process for combinational logic
 	-------------------------------------------------------------------------------
@@ -107,7 +101,6 @@ begin
 		variable edge_check     : std_logic_vector(1 downto 0);  -- re-check scl-clock-gen later for possible simplification
 
     begin
-
         -----------------------------------------------------------------------
         -- Default Statement, mostly keep current value
         -----------------------------------------------------------------------

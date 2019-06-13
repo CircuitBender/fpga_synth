@@ -6,7 +6,7 @@
 -- Author     : Heinzen
 -- Company    : 
 -- Created    : 2019-03-28
--- Last update: 2019-03-29
+-- Last update: 2019-05-18
 -- Platform   : Windows 10
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -15,72 +15,76 @@
 -- Copyright (c) 2019
 -------------------------------------------------------------------------------
 -- Revisions  :
--- Date        Version  Author  	Description
--- 2019-03-28  1.0      Heinzen 	created
--- 2019-03-29  1.0		Heinzen	added comments
-									
+-- Date        Version  Author          Description
+-- 2019-03-28  1.0      Heinzen         created
+-- 2019-03-29  1.0      Heinzen         added comments
+-- 18.05.2019  1.1      Rutishauser     Debugging
 -------------------------------------------------------------------------------
 
 -- Library & Use Statements
 -------------------------------------------
-LIBRARY ieee;
-USE ieee.std_logic_1164.all;
-USE ieee.numeric_std.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 
 -- Entity Declaration 
 -------------------------------------------
-ENTITY bit_counter IS
-  PORT( clk_12m, bclk, reset_n, init_i	: IN    std_logic;
-    	  bit_count     				: OUT   std_logic_vector(6 downto 0)
-    	);
-END bit_counter;
+entity bit_counter is
+  port(clk_12m, bclk, reset_n, init_n : in  std_logic;
+       bit_count                      : out integer range 0 to 127
+       );
+end bit_counter;
 
 -- Architecture Declaration?
 -------------------------------------------
-ARCHITECTURE rtl OF bit_counter IS
+architecture rtl of bit_counter is
 -- Signals & Constants Declaration?
 -------------------------------------------
-signal count, next_count: unsigned(6 downto 0);	  -- 7 bit to count from 0 to 127 
+  signal count, next_count : integer range 0 to 127;  -- 7 bit to count from 0 to 127 
 
 -- Begin Architecture
 -------------------------------------------
-BEGIN
+begin
 
-  --------------------------------------------------
-  -- PROCESS FOR COMBINATORIAL LOGIC
-  --------------------------------------------------
-  comb_logic: PROCESS(all)
-  BEGIN	
-	IF init_i = '1' THEN
-		count <= to_unsigned(0,7); -- reset counter to 0
-	ELSIF bclk = '1' THEN
-		next_count <= count + 1; 	-- increment 1 if baud clock is high
-	ELSE
-		next_count <= count; 			-- idle / freeze (default) 
-	END IF;	
 
-  END PROCESS comb_logic;   
-  
+  comb_logic : process(all)
+  begin
+
+    --default statement
+    next_count <= count;
+
+    if init_n = '0' then
+      next_count <= 0;       -- reset counter to 0
+    elsif bclk = '1' then
+		if count < 127 then
+			next_count <= count + 1;          -- increment 1 if baud clock is high
+		else 
+			next_count <= 0;
+		end if; 
+    end if;
+
+  end process comb_logic;
+
   --------------------------------------------------
   -- PROCESS FOR REGISTERS
   --------------------------------------------------
-  flip_flops : PROCESS(all)
-  BEGIN	
-  	IF reset_n = '0' THEN
-		count <= to_unsigned(0,7);			-- start counting from 0 
-    ELSIF rising_edge(clk_12m) THEN
-		count <= next_count;
-    END IF;
-  END PROCESS flip_flops;		
-	
+  flip_flops : process(all)
+  begin
+    if reset_n = '0' then
+      count <= 0;       -- start counting from 0 
+    elsif rising_edge(clk_12m) then
+      count <= next_count;
+    end if;
+  end process flip_flops;
+
   --------------------------------------------------
   -- CONCURRENT ASSIGNMENTS
   --------------------------------------------------
-	bit_count <= std_logic_vector(count); --type conversion for output
-  
-  
- -- End Architecture 
+  bit_count <= count;  --type conversion for output
+
+
+-- End Architecture 
 ------------------------------------------- 
-END rtl;
+end rtl;
 

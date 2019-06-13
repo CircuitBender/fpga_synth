@@ -1,0 +1,194 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use std.textio.all;
+use work.std_logic_textio.all;
+use work.simulation_pkg.all;
+
+package user_driver_pkg is
+
+
+  procedure uart_tx_stim
+    (
+      variable tv   : inout test_vect;
+      signal tx_sig : out   std_logic
+      );
+
+  procedure sevseg_check
+    (
+      variable tv  : inout test_vect;
+      signal seg_o : in    std_logic_vector(6 downto 0)
+      );
+
+  procedure i2s_slave
+    (
+      variable tv         : inout test_vect;
+      signal ws           : in    std_logic;
+      signal bclk         : in    std_logic;
+      signal dacdat_s     : in    std_logic
+      --signal dacdat_reg_l : out   std_logic_vector(15 downto 0);
+     -- signal dacdat_reg_r : out   std_logic_vector(15 downto 0)
+      );
+
+
+end user_driver_pkg;
+
+package body user_driver_pkg is
+
+  -- constant baud_period : time := 32us;  -- Baud Rate Midi
+  constant baud_period : time := 8.68us;  -- Baud Rate Bluetooth
+
+  procedure uart_tx_stim
+    (
+      variable tv   : inout test_vect;
+      signal tx_sig : out   std_logic
+      ) is
+
+    variable line_out : line;           -- Line buffers
+
+  begin
+    tx_sig <= '1';  -- set tx signal to one inbetween transmissions
+    wait for 2* baud_period;
+
+    tx_sig <= '0';                      -- This is the start bit
+    wait for baud_period;               --Apply start bit for one baud period
+    txloop : for i in 0 to 7 loop       --Transmit eight Bytes
+      tx_sig <= tv.arg1(i);
+      wait for baud_period;
+    end loop txloop;
+
+    tx_sig <= '1';                      -- This is the stop bit
+    wait for baud_period;
+
+    hwrite(line_out, tv.arg1);
+    write(line_out, string'(" written to serial port "));
+    writeline(OUTPUT, line_out);        -- write the message
+    --writeline(outfile,line_out);
+
+  end procedure uart_tx_stim;
+
+  procedure sevseg_check
+    (
+      variable tv  : inout test_vect;
+      signal seg_o : in    std_logic_vector(6 downto 0)
+      ) is
+
+    variable line_out : line;           -- Line buffers
+
+    constant display_0     : std_logic_vector(6 downto 0) := "1000000";
+    constant display_1     : std_logic_vector(6 downto 0) := "1111001";
+    constant display_2     : std_logic_vector(6 downto 0) := "0100100";
+    constant display_3     : std_logic_vector(6 downto 0) := "0110000";
+    constant display_4     : std_logic_vector(6 downto 0) := "0011001";
+    constant display_5     : std_logic_vector(6 downto 0) := "0010010";
+    constant display_6     : std_logic_vector(6 downto 0) := "0000010";
+    constant display_7     : std_logic_vector(6 downto 0) := "1111000";
+    constant display_8     : std_logic_vector(6 downto 0) := "0000000";
+    constant display_9     : std_logic_vector(6 downto 0) := "0010000";
+    constant display_A     : std_logic_vector(6 downto 0) := "0001000";
+    constant display_B     : std_logic_vector(6 downto 0) := "0000011";
+    constant display_C     : std_logic_vector(6 downto 0) := "1000110";
+    constant display_D     : std_logic_vector(6 downto 0) := "0100001";
+    constant display_E     : std_logic_vector(6 downto 0) := "0000110";
+    constant display_F     : std_logic_vector(6 downto 0) := "0001110";
+    constant display_blank : std_logic_vector(6 downto 0) := (others => '1');
+
+    variable hex_value : natural range 0 to 11;
+
+  begin
+
+    case seg_o is
+      when display_0     => hex_value := 00;
+      when display_1     => hex_value := 01;
+      when display_2     => hex_value := 02;
+      when display_3     => hex_value := 03;
+      when display_4     => hex_value := 04;
+      when display_5     => hex_value := 05;
+      when display_6     => hex_value := 06;
+      when display_7     => hex_value := 07;
+      when display_8     => hex_value := 08;
+      when display_9     => hex_value := 09;
+      when display_blank => hex_value := 10;
+      when others        => hex_value := 11;
+    end case;
+
+
+    if (tv.arg1(7 downto 0) = std_logic_vector(to_unsigned(hex_value, 8))) then
+      tv.fail_flag := false;
+      write(line_out, string'("Display output: "));
+      hwrite(line_out, tv.arg1);
+      writeline(OUTPUT, line_out);      -- write the message
+    --writeline(outfile,line_out);
+    else
+      tv.fail_flag := true;
+      write(line_out, string'(", Wrong data displayed: "));
+      hwrite(line_out, std_logic_vector(to_unsigned(hex_value, 8)));
+      write(line_out, string'(", should be: "));
+      hwrite(line_out, tv.arg1);
+      writeline(OUTPUT, line_out);
+    --writeline(outfile,line_out);
+    end if;
+
+
+  end sevseg_check;
+
+  -----------------------------------------------------------------------------
+  -- I2S BFM Serial Receive
+  -----------------------------------------------------------------------------
+  procedure i2s_slave
+    (
+      variable tv         : inout test_vect;
+      signal ws           : in    std_logic;
+      signal bclk         : in    std_logic;
+      signal dacdat_s     : in    std_logic
+     
+      --signal dacdat_reg_r : out   std_logic_vector(15 downto 0)
+      ) is
+
+    variable line_out : line;
+    variable dacdat_reg_l :   std_logic_vector(15 downto 0);
+     variable dacdat_reg_r :   std_logic_vector(15 downto 0);
+    
+  begin
+    wait until ws = '0';
+    wait until bclk = '1';
+    wait until bclk = '0';
+    wait until bclk = '1';
+    for abit in 15 downto 0 loop
+      dacdat_reg_l(abit) := dacdat_s;
+      wait until bclk = '0';
+      wait until bclk = '1';
+
+    end loop;  -- abit
+
+    wait until ws = '1';
+    wait until bclk = '1';
+    wait until bclk = '0';
+    wait until bclk = '1';
+    for abit in 15 downto 0 loop
+      dacdat_reg_r(abit) := dacdat_s;
+      wait until bclk = '0';
+      wait until bclk = '1';
+    end loop;
+
+     if (tv.arg1(31 downto 0) = dacdat_reg_l & dacdat_reg_r )  then
+      tv.fail_flag := false;
+      write(line_out, string'("Audio data sent to codec: "));
+      hwrite(line_out, tv.arg1);
+      writeline(OUTPUT, line_out);      -- write the message
+    --writeline(outfile,line_out);
+    else
+      tv.fail_flag := true;
+      write(line_out, string'("Wrong data sent to codec: "));
+      hwrite(line_out, dacdat_reg_l & dacdat_reg_r);
+      write(line_out, string'(", should be: "));
+      hwrite(line_out, tv.arg1);
+      writeline(OUTPUT, line_out);
+    --writeline(outfile,line_out);
+    end if;
+
+
+  end procedure i2s_slave;
+
+
+end user_driver_pkg;

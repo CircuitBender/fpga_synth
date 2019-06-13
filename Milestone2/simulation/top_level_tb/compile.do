@@ -7,6 +7,7 @@ vcom -2008 -explicit -work work ../../support/standard_driver_pkg.vhd
 vcom -2008 -explicit -work work ../../support/user_driver_pkg.vhd
 vcom -2008 -explicit -work work ../../../source/reg_table_pkg.vhd
 
+vcom -2008 -explicit -work work ../../../source/BCLK_GEN.vhd
 vcom -2008 -explicit -work work ../../../source/bit_counter.vhd
 vcom -2008 -explicit -work work ../../../source/codec_controller.vhd
 vcom -2008 -explicit -work work ../../../source/i2c_master.vhd
@@ -17,8 +18,8 @@ vcom -2008 -explicit -work work ../../../source/infrastructure.vhd
 vcom -2008 -explicit -work work ../../../source/modulo_divider.vhd
 vcom -2008 -explicit -work work ../../../source/path_control.vhd
 vcom -2008 -explicit -work work ../../../source/reg_table_pkg.vhd
-vcom -2008 -explicit -work work ../../../source/shiftreg_p2s_i2s.vhd
-vcom -2008 -explicit -work work ../../../source/shiftreg_s2p_i2s.vhd
+vcom -2008 -explicit -work work ../../../source/shiftreg_p2s.vhd
+vcom -2008 -explicit -work work ../../../source/shiftreg_s2p.vhd
 vcom -2008 -explicit -work work ../../../source/synchronize.vhd
 
 

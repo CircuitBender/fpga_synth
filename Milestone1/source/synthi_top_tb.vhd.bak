@@ -33,6 +33,7 @@ use work.reg_table_pkg.all;
 -------------------------------------------------------------------------------
 
 entity synthi_top_tb is
+
 end entity synthi_top_tb;
 
 -------------------------------------------------------------------------------
@@ -42,30 +43,30 @@ architecture struct of synthi_top_tb is
   component synthi_top is
     port (
       CLOCK_50    : in    std_logic;
-      KEY         : in    std_logic_vector(3 downto 0);
+      KEY         : in    std_logic_vector(1 downto 0);
       SW          : in    std_logic_vector(17 downto 0);
       GPIO_26     : in    std_logic;
       AUD_XCK     : out   std_logic;
- --     AUD_DACDAT  : out   std_logic;
-   --   AUD_BCLK    : out   std_logic;
- --     AUD_DACLRCK : out   std_logic;
-   --   AUD_ADCLRCK : out   std_logic;
- --     AUD_ADCDAT  : in    std_logic;
+    --  AUD_DACDAT  : out   std_logic;
+    --  AUD_BCLK    : out   std_logic;
+      AUD_DACLRCK : out   std_logic;
+      AUD_ADCLRCK : out   std_logic;
+      AUD_ADCDAT  : in    std_logic;
       I2C_SCLK    : out   std_logic;
       I2C_SDAT    : inout std_logic);
   end component synthi_top;
 
   -- component ports
   signal CLOCK_50    : std_logic;
-  signal KEY         : std_logic_vector(3 downto 0);
+  signal KEY         : std_logic_vector(1 downto 0);
   signal SW          : std_logic_vector(17 downto 0);
   signal GPIO_26     : std_logic;
   signal AUD_XCK     : std_logic;
  -- signal AUD_DACDAT  : std_logic;
  -- signal AUD_BCLK    : std_logic;
- -- signal AUD_DACLRCK : std_logic;
- -- signal AUD_ADCLRCK : std_logic;
- -- signal AUD_ADCDAT  : std_logic;
+  signal AUD_DACLRCK : std_logic;
+  signal AUD_ADCLRCK : std_logic;
+  signal AUD_ADCDAT  : std_logic;
   signal I2C_SCLK    : std_logic;
   signal I2C_SDAT    : std_logic;
   signal reg_data0   : std_logic_vector(31 downto 0);
@@ -113,11 +114,11 @@ begin  -- architecture struct
       SW          => SW,
       GPIO_26     => GPIO_26,
       AUD_XCK     => AUD_XCK,
-     -- AUD_DACDAT  => AUD_DACDAT,
-      --AUD_BCLK    => AUD_BCLK,
-     -- AUD_DACLRCK => AUD_DACLRCK,
-     -- AUD_ADCLRCK => AUD_ADCLRCK,
-     -- AUD_ADCDAT  => AUD_ADCDAT,
+      AUD_DACDAT  => AUD_DACDAT,
+      AUD_BCLK    => AUD_BCLK,
+      AUD_DACLRCK => AUD_DACLRCK,
+      AUD_ADCLRCK => AUD_ADCLRCK,
+      AUD_ADCDAT  => AUD_ADCDAT,
       I2C_SCLK    => I2C_SCLK,
       I2C_SDAT    => I2C_SDAT);
 
@@ -146,24 +147,33 @@ begin  -- architecture struct
     -------------------------------------
     -- Start the loop
     -------------------------------------
+
+
     loop
+
       --------------------------------------------------------------------------
       -- Check for end of test file and print out results at the end
       --------------------------------------------------------------------------
+
+
       if endfile(cmdfile) then          -- Check EOF
         end_simulation(fail_counter);
         exit;
       end if;
+
       --------------------------------------------------------------------------
       -- Read all the argumnents and commands
       --------------------------------------------------------------------------
+
       readline(cmdfile, line_in);       -- Read a line from the file
       lincnt := lincnt + 1;
+
 
       next when line_in'length = 0;     -- Skip empty lines
 
       read_arguments(tv, line_in, cmd);
       tv.clock_period := clock_period;  -- set clock period for driver calls
+
       -------------------------------------
       -- Reset the circuit
       -------------------------------------
@@ -172,8 +182,8 @@ begin  -- architecture struct
         rst_sim(tv, key(0));
 
       elsif cmd = string'("ini_cod") then
-		ini_cod(tv, SW(17 downto 0), KEY(1));
-		
+        ini_cod(tv, SW(2 downto 0), KEY(1));
+
       elsif cmd = string'("i2c_ch0") then
         gpo_chk(tv, reg_data0);
       elsif cmd = string'("i2c_ch1") then
@@ -223,6 +233,7 @@ begin  -- architecture struct
     wait for clock_period/2;
     clock_50 <= '1';
     wait for clock_period/2;
+
   end process clkgen;
 
   -- instance "i2c_slave_bfm_1"
@@ -252,14 +263,17 @@ begin  -- architecture struct
       KEY         => KEY,
       SW          => SW,
       AUD_XCK     => AUD_XCK,
-     -- AUD_ADCDAT  => AUD_ADCDAT,
+      AUD_ADCDAT  => AUD_ADCDAT,
       I2C_SCLK    => I2C_SCLK,
-      I2C_SDAT    => I2C_SDAT
-  --    AUD_DACDAT  => AUD_DACDAT,
-  --    AUD_BCLK    => AUD_BCLK,
-  --    AUD_DACLRCK => AUD_DACLRCK,
-  --    AUD_ADCLRCK => AUD_ADCLRCK
-);
+      I2C_SDAT    => I2C_SDAT,
+      AUD_DACDAT  => AUD_DACDAT,
+      AUD_BCLK    => AUD_BCLK,
+      AUD_DACLRCK => AUD_DACLRCK,
+      AUD_ADCLRCK => AUD_ADCLRCK);
+
+
+ 
+
 
 end architecture struct;
 

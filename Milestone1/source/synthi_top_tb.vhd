@@ -43,12 +43,12 @@ architecture struct of synthi_top_tb is
   component synthi_top is
     port (
       CLOCK_50    : in    std_logic;
-      KEY         : in    std_logic_vector(3 downto 0);
+      KEY         : in    std_logic_vector(1 downto 0);
       SW          : in    std_logic_vector(17 downto 0);
       GPIO_26     : in    std_logic;
       AUD_XCK     : out   std_logic;
-      AUD_DACDAT  : out   std_logic;
-      AUD_BCLK    : out   std_logic;
+    --  AUD_DACDAT  : out   std_logic;
+    --  AUD_BCLK    : out   std_logic;
       AUD_DACLRCK : out   std_logic;
       AUD_ADCLRCK : out   std_logic;
       AUD_ADCDAT  : in    std_logic;
@@ -58,12 +58,12 @@ architecture struct of synthi_top_tb is
 
   -- component ports
   signal CLOCK_50    : std_logic;
-  signal KEY         : std_logic_vector(3 downto 0);
+  signal KEY         : std_logic_vector(1 downto 0);
   signal SW          : std_logic_vector(17 downto 0);
   signal GPIO_26     : std_logic;
   signal AUD_XCK     : std_logic;
-  signal AUD_DACDAT  : std_logic;
-  signal AUD_BCLK    : std_logic;
+ -- signal AUD_DACDAT  : std_logic;
+ -- signal AUD_BCLK    : std_logic;
   signal AUD_DACLRCK : std_logic;
   signal AUD_ADCLRCK : std_logic;
   signal AUD_ADCDAT  : std_logic;
@@ -114,8 +114,8 @@ begin  -- architecture struct
       SW          => SW,
       GPIO_26     => GPIO_26,
       AUD_XCK     => AUD_XCK,
-      AUD_DACDAT  => AUD_DACDAT,
-      AUD_BCLK    => AUD_BCLK,
+--      AUD_DACDAT  => AUD_DACDAT,
+--      AUD_BCLK    => AUD_BCLK,
       AUD_DACLRCK => AUD_DACLRCK,
       AUD_ADCLRCK => AUD_ADCLRCK,
       AUD_ADCDAT  => AUD_ADCDAT,
@@ -266,8 +266,8 @@ begin  -- architecture struct
       AUD_ADCDAT  => AUD_ADCDAT,
       I2C_SCLK    => I2C_SCLK,
       I2C_SDAT    => I2C_SDAT,
-      AUD_DACDAT  => AUD_DACDAT,
-      AUD_BCLK    => AUD_BCLK,
+     -- AUD_DACDAT  => AUD_DACDAT,
+     -- AUD_BCLK    => AUD_BCLK,
       AUD_DACLRCK => AUD_DACLRCK,
       AUD_ADCLRCK => AUD_ADCLRCK);
 

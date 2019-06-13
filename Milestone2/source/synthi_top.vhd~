@@ -35,7 +35,7 @@ entity synthi_top is
     -- Infrastructure --
     CLOCK_50    : in  std_logic;
     GPIO_26     : in  std_logic;
-    KEY         : in  std_logic_vector (3 downto 0);
+    KEY         : in  std_logic_vector (1 downto 0);
     SW          : in  std_logic_vector (17 downto 0);
     AUD_XCK     : out std_logic;
 	
@@ -64,7 +64,7 @@ architecture rtl of synthi_top is
 
   -- output infrastructure --
   signal clk_12m_sync   : std_logic;
-  signal key_sync_2     : std_logic_vector (3 downto 0);
+  signal key_sync_2     : std_logic;
   signal sw_sync_2      : std_logic_vector (17 downto 0);
   signal gpio_26_sync_2 : std_logic;
 
@@ -84,13 +84,13 @@ architecture rtl of synthi_top is
     port (
       CLOCK_50     : in  std_logic;
       GPIO_26      : in  std_logic;
-      KEY          : in  std_logic_vector (3 downto 0);
+      KEY          : in  std_logic_vector (1 downto 0);
       SW           : in  std_logic_vector (17 downto 0);
-      key_sync     : out std_logic_vector (3 downto 0);
-      sw_sync      : out std_logic_vector (17 downto 0);
-      gpio_26_sync : out std_logic;
-      clk_12m      : out std_logic;
-      reset_n      : out std_logic);
+      key_sync_o     : out std_logic;
+      sw_sync_o      : out std_logic_vector (17 downto 0);
+      gpio_26_sync_o : out std_logic;
+      clk_12m_o      : out std_logic;
+      reset_n_o      : out std_logic);
   end component infrastructure;
 
   component codec_controller is
@@ -130,11 +130,11 @@ begin  -- architecture rtl
       GPIO_26      => GPIO_26,
       KEY          => KEY,
       SW           => SW,
-      key_sync     => key_sync_2(3 downto 0),
-      sw_sync      => sw_sync_2,
-      gpio_26_sync => gpio_26_sync_2,
-      clk_12m      => clk_12m_sync,
-      reset_n      => reset_n);
+      key_sync_o     => key_sync_2,
+      sw_sync_o      => sw_sync_2,
+      gpio_26_sync_o => gpio_26_sync_2,
+      clk_12m_o      => clk_12m_sync,
+      reset_n_o      => reset_n);
 
   -- instance "codec_controller_1"
   codec_controller_1 : codec_controller
@@ -142,7 +142,7 @@ begin  -- architecture rtl
       clk          => clk_12m_sync,
       reset_n      => reset_n,
       event_ctrl_i   => sw_sync_2(2 downto 0),
-      initialize_i   => key_sync_2(1),
+      initialize_i   => key_sync_2,
       write_done_i => write_done_sync,
       ack_error_i  => ack_error_sync,
       write_data_o => write_data_sync,

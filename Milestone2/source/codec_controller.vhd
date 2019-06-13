@@ -35,8 +35,8 @@ use work.reg_table_pkg.all; -- Import registry tables for different Audio Setups
 -- Entity Declaration 
 -------------------------------------------
 entity codec_controller is
-  port(clk_12m_i, reset_n_i : in std_logic; -- clock signal input , reset signal input
-       sw_sync_i : in std_logic_vector(2 downto 0);   -- 3bit vector for 3 input switches to control the fsm
+  port(clk, reset_n : in std_logic; -- clock signal input , reset signal input
+       sw_sync_i    : in std_logic_vector(2 downto 0);   -- 3bit vector for 3 input switches to control the fsm
        initialize_i : in std_logic; 
        write_done_i : in std_logic; -- write done signal input
        ack_error_i  : in std_logic; -- acknoledgment bit error  signal input
@@ -57,11 +57,11 @@ architecture rtl of codec_controller is
 -------------------------------------------
 
   signal count, next_count : integer range 0 to 9; -- internal signal count , next count
-  signal write_done_sig     : std_logic; -- output signal write done output
-  signal ack_error_sig      : std_logic; --- output signal acknowledgement error output
+  signal write_done_o      : std_logic; -- output signal write done output
+  signal ack_error_o       : std_logic; --- output signal acknowledgement error output
   type fsm_states is (state_idle, state_start_write, state_wait);  -- type declaration for different fsm states
-  signal fsm_state           : fsm_states; -- signal for state
-  signal next_fsm_state      : fsm_states; -- signal for next state
+  signal fsm_reg           : fsm_states; -- signal for state
+  signal next_fsm_reg      : fsm_states; -- signal for next state
 
 
 -- Begin Architecture
@@ -83,20 +83,20 @@ begin
  
  write_o <= '0'; -- default for write out bit '0'
 
-    case fsm_state is --- case statement for fsm 
+    case fsm_reg is --- case statement for fsm 
       when state_idle => -- idle state definition
         if initialize_i = '0' then -- one cycle start_write state
-          next_fsm_state <= state_start_write; 
+          next_fsm_reg <= state_start_write; 
         else
-          next_fsm_state <= fsm_state; -- default, idle state / stay at actual state
+          next_fsm_reg <= fsm_reg; -- default, idle state / stay at actual state
         end if;
 
       when state_start_write => 
         write_o <= '1'; -- write output signal HIGH
         if write_done_i = '0' then -- wait while transmitting data
-          next_fsm_state <= state_wait;
+          next_fsm_reg <= state_wait;
         else
-          next_fsm_state <= fsm_state; -- default, idle state / stay at actual state
+          next_fsm_reg <= fsm_reg; -- default, idle state / stay at actual state
 
         end if;
 		
@@ -108,16 +108,16 @@ begin
       when state_wait => 
         if write_done_i = '1' then
           if count < 9 then
-            next_fsm_state <= state_start_write;
+            next_fsm_reg <= state_start_write;
           else
-            next_fsm_state <= state_idle;
+            next_fsm_reg <= state_idle;
           end if;
         else
-          next_fsm_state <= fsm_state; -- default, idle state / stay at actual state
+          next_fsm_reg <= fsm_reg; -- default, idle state / stay at actual state
         end if;
 
       when others =>
-        next_fsm_state <= state_idle;  -- default, idle state / stay at actual state
+        next_fsm_reg <= state_idle;  -- default, idle state / stay at actual state
     end case;
   end process codec_controller_fsm;
 
@@ -132,12 +132,12 @@ begin
 
   flip_flops : process(all)
   begin
-    if reset_n_i = '0' or ack_error_i = '1' then
+    if reset_n = '0' or ack_error_i = '1' then
       count   <= 0;  
-      fsm_state <= state_idle;
-    elsif rising_edge(clk_12m_i) then  -- shifting states on rising edge
+      fsm_reg <= state_idle;
+    elsif rising_edge(clk) then  -- shifting states on rising edge
       count   <= next_count; -- shift count register
-      fsm_state <= next_fsm_state; -- shift fsm  register
+      fsm_reg <= next_fsm_reg; -- shift fsm  register
     end if;
   end process flip_flops;
 
@@ -146,7 +146,7 @@ begin
  -- while in white state counter counts up from 0 to 8 (for the different adresses in the array) after 8 counter is reset to 0
    counter : process(all)
   begin
-    if write_done_i = '1' and fsm_state = state_wait then
+    if write_done_i = '1' and fsm_reg = state_wait then
 		if count < 9 then
         next_count <= count + 1; -- counter increment
 		else

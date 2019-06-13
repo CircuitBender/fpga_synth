@@ -1,0 +1,311 @@
+-------------------------------------------------------------------------------
+-- Title      : synthi_top
+-- Project    : fpga_synth
+-------------------------------------------------------------------------------
+-- File       : synthi_top.vhd
+-- Author     : Rutishauser / Heinzen
+-- Company    : 
+-- Created    : 2019-03-08
+-- Last update: 2019-05-19
+-- Platform   : 
+-- Standard   : VHDL'08
+-------------------------------------------------------------------------------
+-- Description: top level entity
+-------------------------------------------------------------------------------
+-- Copyright (c) 2019
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date        Version  	Author  	Description
+-- 2019-03-08  1.0      	Schawan   	Created
+-- 2019-03-08  1.1      	Heinzen   	Debugged
+-- 2019-05-22  1.2     		Heinzen	  	Ms1-Ms2 integrated, debugged, nomenclatura
+-- 2019-05-22  1.3-1.4 		Rutishauser Ms3-ms4 added
+-- 2019-05-23  1.5			Heinzen		Ms-3-Ms4 integrated 2, debugged, nomenclatura
+-------------------------------------------------------------------------------
+-- Libraries
+-------------------------------------------------------------------------------
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.reg_table_pkg.all;
+use ieee.std_logic_unsigned.all;
+use work.tone_gen_pkg.all;
+
+-------------------------------------------------------------------------------
+-- entity declarations
+-------------------------------------------------------------------------------
+entity synthi_top is
+  port (
+    -- Infrastructure --
+    CLOCK_50 : in  std_logic;
+    GPIO_26  : in  std_logic;
+    -- KEY      : in  std_logic_vector (1 downto 0);
+    KEY_0    : in  std_logic;   
+    KEY_1    : in  std_logic;
+    SW       : in  std_logic_vector (17 downto 0);
+    AUD_XCK  : out std_logic;
+    AUD_ADCDAT  : in    std_logic;
+    I2C_SCLK    : out   std_logic;
+    I2C_SDAT    : inout std_logic;
+    AUD_DACDAT  : out   std_logic;
+    AUD_BCLK    : out   std_logic;
+    AUD_DACLRCK : out   std_logic;
+    AUD_ADCLRCK : out   std_logic
+    );
+
+end entity synthi_top;
+
+-------------------------------------------------------------------------------
+-- architecture declaration
+-------------------------------------------------------------------------------
+architecture rtl of synthi_top is
+
+  -----------------------------------------------------------------------------
+  -- Internal signal declarations
+  -----------------------------------------------------------------------------
+
+  signal reset_n_sig : std_logic;
+
+  -- output infrastructure --
+  signal clk_12m_sync_sig : std_logic;
+  signal key_sync_sig   : std_logic;
+  signal sw_sync_sig    : std_logic_vector (17 downto 0);
+  signal gpio_26_sync_sig : std_logic;
+
+  -- signals between codec_controller and i2c_master
+  signal write_sync_sig      : std_logic;
+  signal write_data_sync_sig : std_logic_vector (15 downto 0);
+  signal ack_error_sync_sig  : std_logic;
+  signal write_done_sync_sig : std_logic;
+  -- signal between codec_control amd i2s
+  signal mute_sig          : std_logic;
+  signal ws_sig            : std_logic;
+  -- signal between path control i2s_master
+  signal adcdat_pl_o_sig     : std_logic_vector (15 downto 0);
+  signal adcdat_pr_o_sig     : std_logic_vector (15 downto 0);
+  signal dacdat_pl_i_sig     : std_logic_vector (15 downto 0);
+  signal dacdat_pr_i_sig     : std_logic_vector (15 downto 0);
+  -- signal Tone_Gen
+  signal dds_sig            : std_logic_vector (15 downto 0);
+  signal load_sig            : std_logic;
+  -- signal MIDI UART and MIDI controller
+  signal rx_data_sig         : std_logic_vector (7 downto 0);
+  signal rx_data_valid_sig   : std_logic;
+  signal reg_note_on_o_sig   : std_logic_vector(9 downto 0);
+  signal note_vector_sig     : t_tone_array;
+
+  -----------------------------------------------------------------------------
+  -- Component declarations
+  -----------------------------------------------------------------------------
+
+  component infrastructure is
+    port (
+      CLOCK_50       : in  std_logic;
+      GPIO_26        : in  std_logic;
+      KEY            : in  std_logic_vector (1 downto 0);
+      SW             : in  std_logic_vector (17 downto 0);
+      key_sync_o     : out std_logic;
+      sw_sync_o      : out std_logic_vector (17 downto 0);
+      gpio_26_sync_o : out std_logic;
+      clk_12m_o      : out std_logic;
+      reset_n_o      : out std_logic);
+  end component infrastructure;
+
+  component codec_controller is
+    port (
+      clk_i         : in  std_logic;
+      reset_n_i      : in  std_logic;
+      sw_sync_i    : in  std_logic_vector(2 downto 0);
+      initialize_i : in  std_logic;
+      write_done_i : in  std_logic;
+      ack_error_i  : in  std_logic;
+      write_data_o : out std_logic_vector(15 downto 0);
+      write_o      : out std_logic;
+      mute_o       : out std_logic);
+  end component codec_controller;
+
+  component i2c_master is
+    port (
+      clk_i          : in    std_logic;
+      reset_n_i      : in    std_logic;
+      write_i      : in    std_logic;
+      write_data_i : in    std_logic_vector(15 downto 0);
+      sda_io       : inout std_logic;
+      scl_o        : out   std_logic;
+      write_done_o : out   std_logic;
+      ack_error_o  : out   std_logic);
+  end component i2c_master;
+
+  component path_control is
+    port (
+      sw_i     : in  std_logic;
+      dds_l_i     : in  std_logic_vector(15 downto 0);
+      dds_r_i     : in  std_logic_vector(15 downto 0);
+      adcdat_pl_i : in  std_logic_vector(15 downto 0);
+      adcdat_pr_i : in  std_logic_vector(15 downto 0);
+      dacdat_pl_o : out std_logic_vector(15 downto 0);
+      dacdat_pr_o : out std_logic_vector(15 downto 0));
+  end component path_control;
+
+  component i2s_master is
+    port (
+      clk_i     : in  std_logic;
+      reset_n_i     : in  std_logic;
+      load_o      : out std_logic;
+      adcdat_pl_o : out std_logic_vector(15 downto 0);
+      adcdat_pr_o : out std_logic_vector(15 downto 0);
+      dacdat_pl_i : in  std_logic_vector(15 downto 0);
+      dacdat_pr_i : in  std_logic_vector(15 downto 0);
+      dacdat_s_o  : out std_logic;
+      bclk_o      : out std_logic;
+      ws_o        : out std_logic;
+      adcdat_s_i  : in  std_logic);
+  end component i2s_master;
+
+  component tone_generator is
+    port (
+      clk_i    : in  std_logic;
+      reset_n_i    : in  std_logic;
+      load_i     : in  std_logic;
+      --tone_on_i  : in  std_logic;
+      note_on_i    : in  std_logic_vector(9 downto 0);
+      note_array_i : in  t_tone_array;
+      strobe_i     : in  std_logic;
+      dds_o      : out std_logic_vector(N_AUDIO -1 downto 0));
+  end component tone_generator;
+
+  component midi_controller is
+    port (
+      clk_i        : in  std_logic;
+      reset_n_i        : in  std_logic;
+      rx_data_i        : in  std_logic_vector(7 downto 0);
+      rx_data_valid_i  : in  std_logic;
+      reg_note_on_o  : out std_logic_vector(9 downto 0);
+      reg_note_o     : out t_tone_array;
+      reg_velocity_o : out t_tone_array);
+  end component midi_controller;
+
+  component uart_top is
+    port (
+      clk_i         : in  std_logic;
+      reset_n_i      : in  std_logic;
+      serial_in    : in  std_logic;
+      parallel_out : out std_logic_vector(7 downto 0);
+      data_valid_o  : out std_logic);
+  end component uart_top;
+
+ 
+
+begin  -- architecture rtl
+
+  -----------------------------------------------------------------------------
+  -- Component instantiations
+  -----------------------------------------------------------------------------
+
+  -- instance "infrastructure_1"
+  infrastructure_1 : infrastructure
+    port map (
+      CLOCK_50   => CLOCK_50,
+      GPIO_26    => GPIO_26,
+      KEY        => (KEY_1 & KEY_0),
+      SW         => SW,
+      key_sync_o => key_sync_sig,
+      sw_sync_o  => sw_sync_sig,
+      gpio_26_sync_o => gpio_26_sync_sig, 
+      clk_12m_o  => clk_12m_sync_sig,
+      reset_n_o  => reset_n_sig);
+
+  -- instance "codec_controller_1"
+  codec_controller_1 : codec_controller
+    port map (
+      clk_i          => clk_12m_sync_sig,
+      reset_n_i      => reset_n_sig,
+      sw_sync_i    => sw_sync_sig(2 downto 0),
+      initialize_i => key_sync_sig,
+      write_done_i => write_done_sync_sig,
+      ack_error_i  => ack_error_sync_sig,
+      write_data_o => write_data_sync_sig,
+      write_o      => write_sync_sig,
+      mute_o       => mute_sig);
+
+  -- instance "i2c_master_1"
+  i2c_master_1 : i2c_master
+    port map (
+      clk_i          => clk_12m_sync_sig,
+      reset_n_i      => reset_n_sig,
+      write_i      => write_sync_sig,
+      write_data_i => write_data_sync_sig,
+      sda_io       => I2C_SDAT,
+      scl_o        => I2C_SCLK,
+      write_done_o => write_done_sync_sig,
+      ack_error_o  => ack_error_sync_sig);
+
+  -- instance "path_control_1"
+  path_control_1 : path_control
+    port map (
+      sw_i     => sw_sync_sig(3),
+      dds_l_i     => dds_sig,
+      dds_r_i     => dds_sig,
+      adcdat_pl_i => adcdat_pl_o_sig,
+      adcdat_pr_i => adcdat_pr_o_sig,
+      dacdat_pl_o => dacdat_pl_i_sig,
+      dacdat_pr_o => dacdat_pr_i_sig);
+
+  -- instance "i2s_master_1"
+  i2s_master_1 : i2s_master
+    port map (
+      clk_i     => clk_12m_sync_sig,
+      reset_n_i     => reset_n_sig,
+      load_o      => load_sig,
+      adcdat_pl_o => adcdat_pl_o_sig,
+      adcdat_pr_o => adcdat_pr_o_sig,
+      dacdat_pl_i => dacdat_pl_i_sig,
+      dacdat_pr_i => dacdat_pr_i_sig,
+      dacdat_s_o  => AUD_DACDAT,
+      bclk_o      => AUD_BCLK,
+      ws_o        => ws_sig,
+      adcdat_s_i  => AUD_ADCDAT);
+
+  -- instance "tone_generator_1"
+  tone_generator_1 : tone_generator
+    port map (
+      clk_i    => clk_12m_sync_sig,
+      reset_n_i    => reset_n_sig,
+      --tone_on_i  => reg_note_on_o,
+      load_i     => load_sig,
+      note_on_i    => reg_note_on_o_sig,
+      strobe_i     => load_sig,
+      note_array_i => note_vector_sig,
+      dds_o      => dds_sig);
+
+  -- instance "midi_controller_1"
+  midi_controller_1 : midi_controller
+    port map (
+      clk_i        => clk_12m_sync_sig,   
+      reset_n_i       => reset_n_sig,
+      rx_data_i        => rx_data_sig,
+      rx_data_valid_i  => rx_data_valid_sig,
+      reg_note_on_o  => reg_note_on_o_sig,
+      reg_note_o     => note_vector_sig,
+      reg_velocity_o => open);          
+
+  -- instance "uart_top_1"
+  uart_top_1: uart_top
+    port map (
+      clk_i          => clk_12m_sync_sig,
+      reset_n_i      => reset_n_sig,
+      serial_in    => gpio_26_sync_sig,
+      parallel_out => rx_data_sig,
+      data_valid_o   => rx_data_valid_sig);
+
+  -----------------------------------------------------------------------------
+  -- concurrent assignments / output
+  -----------------------------------------------------------------------------
+  AUD_XCK     <= clk_12m_sync_sig;
+  AUD_DACLRCK <= ws_sig;
+  AUD_ADCLRCK <= ws_sig;
+
+
+end architecture rtl;
+
+-------------------------------------------------------------------------------

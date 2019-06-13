@@ -5,7 +5,6 @@ vlib work
 vcom -2008 -explicit -work work ../../support/simulation_pkg.vhd
 vcom -2008 -explicit -work work ../../support/standard_driver_pkg.vhd
 vcom -2008 -explicit -work work ../../support/user_driver_pkg.vhd
-#vcom -2008 -explicit -work work ../../../tone_gen_pkg.vhd
 
 
 vcom -2008 -explicit -work work ../../../source/codec_controller.vhd
@@ -21,5 +20,5 @@ vcom -2008 -explicit -work work ../../../source/synthi_top_tb.vhd
 
 # run the simulation
 vsim -novopt -t 1ns -lib work work.synthi_top_tb
-# do ./wave.do
-run 300 ns
+do ./wave.do
+run 900 ns

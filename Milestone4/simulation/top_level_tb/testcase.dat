@@ -1,0 +1,7 @@
+rst_sim
+dds_pon 01
+fms_stm 06 FF 00 00 
+mid_stm 90 01
+mid_stm 7F 01
+mid_stm 7F 01
+

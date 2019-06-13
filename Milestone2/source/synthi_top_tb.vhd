@@ -44,7 +44,7 @@ architecture struct of synthi_top_tb is
   component synthi_top is
     port (
       CLOCK_50    : in    std_logic;
-      KEY         : in    std_logic_vector(3 downto 0);
+      KEY         : in    std_logic_vector(1 downto 0);
       SW          : in    std_logic_vector(17 downto 0);
       GPIO_26     : in    std_logic;
       AUD_XCK     : out   std_logic;
@@ -79,7 +79,7 @@ architecture struct of synthi_top_tb is
 
   -- component ports
   signal CLOCK_50    : std_logic;
-  signal KEY         : std_logic_vector(3 downto 0);
+  signal KEY         : std_logic_vector(1 downto 0);
   signal SW          : std_logic_vector(17 downto 0):= (others => '0');
   signal SWI          : std_logic_vector(2 downto 0):= (others => '0');
 

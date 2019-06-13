@@ -1,19 +1,34 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /synthi_top_tb/DUT/path_control_1/sw_sync_i
-add wave -noupdate /synthi_top_tb/DUT/path_control_1/dds_l_i
-add wave -noupdate /synthi_top_tb/DUT/path_control_1/dds_r_i
-add wave -noupdate -radix hexadecimal -childformat {{/synthi_top_tb/DUT/path_control_1/adcdat_pl_i(15) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pl_i(14) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pl_i(13) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pl_i(12) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pl_i(11) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pl_i(10) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pl_i(9) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pl_i(8) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pl_i(7) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pl_i(6) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pl_i(5) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pl_i(4) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pl_i(3) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pl_i(2) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pl_i(1) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pl_i(0) -radix hexadecimal}} -expand -subitemconfig {/synthi_top_tb/DUT/path_control_1/adcdat_pl_i(15) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pl_i(14) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pl_i(13) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pl_i(12) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pl_i(11) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pl_i(10) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pl_i(9) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pl_i(8) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pl_i(7) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pl_i(6) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pl_i(5) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pl_i(4) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pl_i(3) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pl_i(2) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pl_i(1) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pl_i(0) {-radix hexadecimal}} /synthi_top_tb/DUT/path_control_1/adcdat_pl_i
-add wave -noupdate -radix hexadecimal -childformat {{/synthi_top_tb/DUT/path_control_1/adcdat_pr_i(15) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pr_i(14) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pr_i(13) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pr_i(12) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pr_i(11) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pr_i(10) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pr_i(9) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pr_i(8) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pr_i(7) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pr_i(6) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pr_i(5) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pr_i(4) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pr_i(3) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pr_i(2) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pr_i(1) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/adcdat_pr_i(0) -radix hexadecimal}} -expand -subitemconfig {/synthi_top_tb/DUT/path_control_1/adcdat_pr_i(15) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pr_i(14) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pr_i(13) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pr_i(12) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pr_i(11) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pr_i(10) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pr_i(9) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pr_i(8) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pr_i(7) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pr_i(6) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pr_i(5) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pr_i(4) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pr_i(3) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pr_i(2) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pr_i(1) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/adcdat_pr_i(0) {-radix hexadecimal}} /synthi_top_tb/DUT/path_control_1/adcdat_pr_i
-add wave -noupdate -radix hexadecimal -childformat {{/synthi_top_tb/DUT/path_control_1/dacdat_pl_o(15) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/dacdat_pl_o(14) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/dacdat_pl_o(13) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/dacdat_pl_o(12) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/dacdat_pl_o(11) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/dacdat_pl_o(10) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/dacdat_pl_o(9) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/dacdat_pl_o(8) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/dacdat_pl_o(7) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/dacdat_pl_o(6) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/dacdat_pl_o(5) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/dacdat_pl_o(4) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/dacdat_pl_o(3) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/dacdat_pl_o(2) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/dacdat_pl_o(1) -radix hexadecimal} {/synthi_top_tb/DUT/path_control_1/dacdat_pl_o(0) -radix hexadecimal}} -expand -subitemconfig {/synthi_top_tb/DUT/path_control_1/dacdat_pl_o(15) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/dacdat_pl_o(14) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/dacdat_pl_o(13) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/dacdat_pl_o(12) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/dacdat_pl_o(11) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/dacdat_pl_o(10) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/dacdat_pl_o(9) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/dacdat_pl_o(8) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/dacdat_pl_o(7) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/dacdat_pl_o(6) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/dacdat_pl_o(5) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/dacdat_pl_o(4) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/dacdat_pl_o(3) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/dacdat_pl_o(2) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/dacdat_pl_o(1) {-radix hexadecimal} /synthi_top_tb/DUT/path_control_1/dacdat_pl_o(0) {-radix hexadecimal}} /synthi_top_tb/DUT/path_control_1/dacdat_pl_o
-add wave -noupdate -radix hexadecimal /synthi_top_tb/DUT/path_control_1/dacdat_pr_o
-add wave -noupdate /synthi_top_tb/DUT/path_control_1/sw_sync_i
-add wave -noupdate /synthi_top_tb/DUT/path_control_1/sw_sync_i(3)
-add wave -noupdate -radix hexadecimal /synthi_top_tb/dacdat_check
-add wave -noupdate -divider ja
-add wave -noupdate -expand -subitemconfig {/synthi_top_tb/tv_s.obs_data -expand} /synthi_top_tb/tv_s
+add wave -noupdate /synthi_top_tb/DUT/ack_error_sync
+add wave -noupdate /synthi_top_tb/DUT/adcdat_pl_o
+add wave -noupdate /synthi_top_tb/DUT/adcdat_pr_o
+add wave -noupdate /synthi_top_tb/DUT/AUD_ADCDAT
+add wave -noupdate /synthi_top_tb/DUT/AUD_ADCLRCK
+add wave -noupdate /synthi_top_tb/DUT/AUD_BCLK
+add wave -noupdate /synthi_top_tb/DUT/AUD_DACDAT
+add wave -noupdate /synthi_top_tb/DUT/AUD_DACLRCK
+add wave -noupdate /synthi_top_tb/DUT/AUD_XCK
+add wave -noupdate /synthi_top_tb/DUT/clk_12m_sync
+add wave -noupdate /synthi_top_tb/DUT/CLOCK_50
+add wave -noupdate /synthi_top_tb/DUT/dacdat_pl_i
+add wave -noupdate /synthi_top_tb/DUT/dacdat_pr_i
+add wave -noupdate /synthi_top_tb/DUT/GPIO_26
+add wave -noupdate /synthi_top_tb/DUT/gpio_26_sync_2
+add wave -noupdate /synthi_top_tb/DUT/I2C_SCLK
+add wave -noupdate /synthi_top_tb/DUT/I2C_SDAT
+add wave -noupdate /synthi_top_tb/DUT/KEY
+add wave -noupdate /synthi_top_tb/DUT/key_sync_2
+add wave -noupdate /synthi_top_tb/DUT/mute_o
+add wave -noupdate /synthi_top_tb/DUT/reset_n
+add wave -noupdate /synthi_top_tb/DUT/SW
+add wave -noupdate /synthi_top_tb/DUT/sw_sync_2
+add wave -noupdate /synthi_top_tb/DUT/write_data_sync
+add wave -noupdate /synthi_top_tb/DUT/write_done_sync
+add wave -noupdate /synthi_top_tb/DUT/write_sync
+add wave -noupdate /synthi_top_tb/DUT/ws_o
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {95230 ns} 0}
+WaveRestoreCursors {{Cursor 1} {8618 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 411
 configure wave -valuecolwidth 100
@@ -29,4 +44,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {5911314 ns} {6205458 ns}
+WaveRestoreZoom {0 ns} {602406912 ns}
