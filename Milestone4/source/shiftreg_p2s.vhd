@@ -1,69 +1,63 @@
 -------------------------------------------------------------------------------
 -- File       : shiftreg_p2s.vhd
--- Authors    : Rutishauser
--- Created    : 14.04.19
+-- Authors    : Rutishasuer
+-- Created    : 12.11.12
 -------------------------------------------------------------------------------
 -- Description: transforms parallel_input to serial_output
 -------------------------------------------------------------------------------
 -- History    :
 -- Date       Author    Description
--- 14.04.19   Rutishasuer      1st version
+-- 14.11.12   Rutishasuer      1st version
 -- 07.04.19   Rutishasuer  Added generic
--- 22.05.19	  Heinzen		debugging, nomenclatura
 -------------------------------------------------------------------------------
 
--------------------------------------------
 -- Library & Use Statements
 -------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
--------------------------------------------
+
 -- Entity Declaration 
 -------------------------------------------
 entity shiftreg_p2s is
   generic(width: positive := 16);
 
-  port(clk_i : in  std_logic;         --12.5 MHz Clock
-       reset_n_i: in  std_logic;         --Reset
-       load_i    : in  std_logic;         --load enable
-       shift_i   : in  std_logic;         --shift-signal from i2s decoder
-       enable_i  : in  std_logic;         --shift_enable
+  port(clk_12m : in  std_logic;         --12.5 MHz Clock
+       reset_n : in  std_logic;         --Reset
+       load    : in  std_logic;         --load enable
+       shift   : in  std_logic;         --shift-signal from i2s decoder
+       enable  : in  std_logic;         --shift_enable
        par_in  : in  std_logic_vector(width-1 downto 0);  --parallel input dacdat
        ser_out : out std_logic          --serial output
        );
 end shiftreg_p2s;
 
--------------------------------------------
--- Architecture Declaration
+
+-- Architecture Declaration?
 -------------------------------------------
 architecture rtl of shiftreg_p2s is
-
--------------------------------------------
 -- Signals & Constants Declaration?
 -------------------------------------------
   signal shiftreg      : std_logic_vector(width-1 downto 0);
   signal next_shiftreg : std_logic_vector(width-1 downto 0);
-  signal zeroes        : std_logic;
+  signal put_in        : std_logic;
 
--------------------------------------------
 -- Begin Architecture
--------------------------------------------  
+-------------------------------------------
+
+  
 begin
-	-------------------------------------------
-	-- default statements
-	-------------------------------------------
-  zeroes <= '0';
+  put_in <= '0';
   --------------------------------------------------
   -- PROCESS FOR COMBINATORIAL LOGIC
   --------------------------------------------------
   logic : process (all)
   begin
-    if load_i = '1' then                  --load input to shiftreg
+    if load = '1' then                  --load input to shiftreg
       next_shiftreg <= par_in;
-    elsif shift_i = '1' and enable_i = '1' then  --shift if bit_clk and shift_l/r '1'
-      next_shiftreg <= shiftreg(14 downto 0) & zeroes;  --shift to MSB (put in '0' to LSB)
+    elsif shift = '1' and enable = '1' then  --shift if bit_clk and shift_l/r '1'
+      next_shiftreg <= shiftreg(14 downto 0) & put_in;  --shift to MSB (put in '0' to LSB)
     else next_shiftreg <= shiftreg;
     end if;
   end process logic;
@@ -73,12 +67,13 @@ begin
   --------------------------------------------------
   flip_flops : process (all)
   begin
-    if reset_n_i = '0' then
+    if reset_n = '0' then
       shiftreg <= (others => '0');
-    elsif rising_edge (clk_i) then
+    elsif rising_edge (clk_12m) then
       shiftreg <= next_shiftreg;
     end if;
   end process flip_flops;
+
 
   --------------------------------------------------
   -- CONCURRENT ASSIGNMENTS

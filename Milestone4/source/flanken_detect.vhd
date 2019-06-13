@@ -13,9 +13,9 @@ use ieee.std_logic_1164.all;
 -- Entity Declaration 
 entity flanken_detect is
   port(serdata_sync : in  std_logic;
-       clk_i          : in  std_logic;
-       reset_n_i      : in  std_logic;
-       fall_edge_o    : out std_logic
+       Clk          : in  std_logic;
+       reset_n      : in  std_logic;
+       fall_edge    : out std_logic
    --data_in    : IN    std_logic;
        --steig      : OUT   std_logic;
        );
@@ -46,9 +46,9 @@ begin
   -------------------------------------------
   reg_proc : process(all)
   begin
-    if reset_n_i = '0' then
+    if reset_n = '0' then
       shiftreg <= (others => '0');
-    elsif (rising_edge(clk_i)) then
+    elsif (rising_edge(Clk)) then
       shiftreg <= next_shiftreg;
     end if;
   end process reg_proc;
@@ -57,6 +57,7 @@ begin
   -- Concurrent Assignments  
   -------------------------------------------
   --steig <=     shiftreg(1)  AND NOT(shiftreg(0));
-  fall_edge_o <= not(shiftreg(1)) and shiftreg(0);
+  fall_edge <= not(shiftreg(1)) and shiftreg(0);
+
 
 end rtl;

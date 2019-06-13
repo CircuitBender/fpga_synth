@@ -5,14 +5,14 @@ use ieee.numeric_std.all;
 
 -- Entity Declaration 
 entity uart_controller_fsm is
-  port(clk_i          : in  std_logic;
+  port(Clk          : in  std_logic;
        baud_tick_i  : in  std_logic;
-       reset_n_i      : in  std_logic;
-       fall_edge_i    : in  std_logic;
+       reset_n      : in  std_logic;
+       fall_edge    : in  std_logic;
        parallel_i   : in  std_logic_vector (9 downto 0);
        start_bit_o  : out std_logic;
        data_valid_o : out std_logic;
-       shift_enable_o : out std_logic
+       shift_enable : out std_logic
        );
 end uart_controller_fsm;
 
@@ -41,7 +41,7 @@ begin
 
     case uart_state is
       when idle =>
-        if fall_edge_i = '1' then next_uart_state <= prepare_rx;
+        if fall_edge = '1' then next_uart_state <= prepare_rx;
         end if;  ----------------------------------------------------blau markiert
       when prepare_rx   => next_uart_state <= wait_rx_byte;  ---violett
       when wait_rx_byte =>              ---------------------------------braun
@@ -53,16 +53,19 @@ begin
     end case;
   end process reg_proc;
 
-  clock_proc : process(all)
+
+  clok : process(all)
   begin
-    if reset_n_i = '0' then
+    if reset_n = '0' then
       uart_state <= idle;
       bit_count  <= (others => '0');
-    elsif rising_edge(clk_i) then
+
+    elsif rising_edge(Clk) then
       bit_count  <= next_bit_count;
       uart_state <= next_uart_state;
+
     end if;
-  end process clock_proc;
+  end process clok;
 
 
   bit_counter : process (all)
@@ -80,14 +83,14 @@ begin
   out_logic : process(all)
   begin
     start_bit_o  <= '0';                -------
-    shift_enable_o <= '0';                ------Anfangsbedingungen
+    shift_enable <= '0';                ------Anfangsbedingungen
     data_valid_o <= '0';                ------
 
     case uart_state is
       when prepare_rx => start_bit_o <= '1';
       when wait_rx_byte =>
         if baud_tick_i = '1' then
-          shift_enable_o <= '1';
+          shift_enable <= '1';
         end if;
       when check_rx =>
         if parallel_i (0) = '0' and parallel_i (9) = '1' then
@@ -95,6 +98,7 @@ begin
         end if;
       when others => null;
     end case;
+
   end process out_logic;
 
 

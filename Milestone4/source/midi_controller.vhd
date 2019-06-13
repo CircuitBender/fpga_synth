@@ -1,50 +1,39 @@
 -------------------------------------------------------------------------------
--- Title      : midi controller
--- Project    : fpga_synth
--------------------------------------------------------------------------------
--- File       : midi_controller.vhd
--- Author     : rutiscla
--- Company    : ZHAW
+-- File       : midi_cntroller.vhd
+-- Authors    : rutiscla
 -- Created    : 21.05.19
--- Last update: 22.05.19
--- Platform   : Windows 10
--- Standard   : VHDL'08
 -------------------------------------------------------------------------------
--- Description:  midi controller
+-- Description: 
 -------------------------------------------------------------------------------
--- Copyright (c) 2019
--------------------------------------------------------------------------------
--- Revisions  :
--- Date        Version  Author          Description
--- 14.Nov.2012 1.0 		 (rutiscla)		created
--- 2019-05-22  1.2      Heinzen         debugging, nomenclatura
--------------------------------------------------------------------------------
-----------------------------------------
+-- History    :
+-- Date       Author    Description
+-- 21.05.19   rutiscla  
+------------------------------------------------------------------------------
+
 -- Library & Use Statements
-----------------------------------------
+------------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.tone_gen_pkg.all;
 
-----------------------------------------
--- entity declaration
-----------------------------------------
+-------------------------------------------------------------------------------
+
 entity midi_controller is
   port (
-    clk_i        : in  std_logic;
-    reset_n_i       : in  std_logic;
-    rx_data_i        : in  std_logic_vector(7 downto 0);
-    rx_data_valid_i  : in  std_logic;
+    clk_12m        : in  std_logic;
+    reset_n        : in  std_logic;
+    rx_data        : in  std_logic_vector(7 downto 0);
+    rx_data_valid  : in  std_logic;
     reg_note_on_o  : out std_logic_vector(9 downto 0);	
     reg_note_o     : out t_tone_array;
     reg_velocity_o : out t_tone_array);
-	
+
+
 end entity midi_controller;
 
-----------------------------------------
--- Architecture Declaration
-----------------------------------------
+-------------------------------------------------------------------------------
+
 architecture rtl of midi_controller is
 
   ----------------------------------------
@@ -84,23 +73,23 @@ begin
 
     case midi_state is
       when wait_status =>
-        if rx_data_i(7) = '1' and rx_data_valid_i = '1' then   
-          next_status_reg <= rx_data_i(7 downto 4);
+        if rx_data(7) = '1' and rx_data_valid = '1' then   
+          next_status_reg <= rx_data(7 downto 4);
           midi_next_state <= wait_data1;
-        elsif rx_data_i(7) = '0'and rx_data_valid_i = '1' then 
-          next_data1_reg  <= rx_data_i(6 downto 0);
+        elsif rx_data(7) = '0'and rx_data_valid = '1' then 
+          next_data1_reg  <= rx_data(6 downto 0);
           midi_next_state <= wait_data2;
         end if;
 
       when wait_data1 =>
-         if rx_data_i(7) = '0' and rx_data_valid_i = '1' then 
-          next_data1_reg  <= rx_data_i(6 downto 0);
+         if rx_data(7) = '0' and rx_data_valid = '1' then 
+          next_data1_reg  <= rx_data(6 downto 0);
           midi_next_state <= wait_data2;
         end if;
 
       when wait_data2 =>
-        if rx_data_i(7) = '0' and rx_data_valid_i = '1' then 
-          next_data2_reg     <= rx_data_i(6 downto 0);
+        if rx_data(7) = '0' and rx_data_valid = '1' then 
+          next_data2_reg     <= rx_data(6 downto 0);
           next_new_data_flag <= '1';
           midi_next_state    <= wait_status;
         end if;
@@ -150,7 +139,7 @@ begin
           end if;
         end loop;
        end if;
-	   
+     
     end if;
   end process array_logic;
   
@@ -159,14 +148,14 @@ begin
   -------------------------------------------
   clk_proc : process(all)
   begin
-    if reset_n_i = '0' then
+    if reset_n = '0' then
       midi_state  <= wait_status;
       reg_note_on <= (others => '0');
       for i in 0 to 9 loop
         reg_note(i)     <= (others => '0');
         reg_velocity(i) <= (others => '0');
       end loop;
-    elsif rising_edge(clk_i) then
+    elsif rising_edge(clk_12m) then
       midi_state    <= midi_next_state;
       data1_reg     <= next_data1_reg;
       data2_reg     <= next_data2_reg;
