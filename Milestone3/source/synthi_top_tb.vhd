@@ -214,7 +214,7 @@ begin  -- architecture struct
       elsif cmd = string'("gpi_stm") then
         gpi_stm(tv, switch);
 	  elsif cmd = string'("dds_stm") then
-	  --run_sim(tv);
+	   run_sim(tv);
        wait for 20 ms;
 
         -- add further test commands below here
