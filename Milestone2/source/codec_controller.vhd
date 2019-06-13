@@ -36,7 +36,7 @@ use work.reg_table_pkg.all; -- Import registry tables for different Audio Setups
 -------------------------------------------
 entity codec_controller is
   port(clk, reset_n : in std_logic; -- clock signal input , reset signal input
-       event_ctrl_i : in std_logic_vector(2 downto 0);   -- 3bit vector for 3 input switches to control the fsm
+       sw_sync_i    : in std_logic_vector(2 downto 0);   -- 3bit vector for 3 input switches to control the fsm
        initialize_i : in std_logic; 
        write_done_i : in std_logic; -- write done signal input
        ack_error_i  : in std_logic; -- acknoledgment bit error  signal input
@@ -168,7 +168,7 @@ begin
 	 --case for switching between different commands(from reg.table_pkg)
 	 -- convert count from unsigned to std_logic for array 
 
-    case event_ctrl_i is
+    case sw_sync_i is
     when "001"  => write_data_o <= "000" & std_logic_vector(to_unsigned(count, 4)) & C_W8731_ANALOG_BYPASS(count); -- setup for analog bypass
       when "011"  => write_data_o <= "000" & std_logic_vector(to_unsigned(count, 4)) & C_W8731_ANALOG_MUTE_RIGHT(count); -- setup for right mute
       when "101"  => write_data_o <= "000" & std_logic_vector(to_unsigned(count, 4)) & C_W8731_ANALOG_MUTE_LEFT(count); -- setup for left mute

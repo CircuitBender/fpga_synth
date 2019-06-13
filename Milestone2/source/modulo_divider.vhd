@@ -15,7 +15,7 @@ use ieee.numeric_std.all;
 -- Entity Declaration 
 -------------------------------------------
 entity modulo_divider is
-  generic (width : positive := 5);
+  generic (width : positive := 2);
   port(clk, reset_n : in  std_logic;
        clk_12m      : out std_logic
        );

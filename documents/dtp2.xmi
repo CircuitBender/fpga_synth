@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_PEo2gIDFEemqYcNJ4hWR7Q" name="dtp2">
+  <eAnnotations xmi:id="_PEo2gYDFEemqYcNJ4hWR7Q" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_PEo2goDFEemqYcNJ4hWR7Q" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEo2g4DFEemqYcNJ4hWR7Q" value="3.0.0"/>
+    </contents>
+    <contents xmi:type="uml:Property" xmi:id="_PEo2hIDFEemqYcNJ4hWR7Q" name="isRoundTrip"/>
+    <contents xmi:type="uml:Property" xmi:id="_PEo2hYDFEemqYcNJ4hWR7Q" name="Visibility">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEo2hoDFEemqYcNJ4hWR7Q" value="0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_PEo2h4DFEemqYcNJ4hWR7Q" name="Midi State Machine">
+    <region xmi:id="_PEo2iIDFEemqYcNJ4hWR7Q">
+      <subvertex xmi:type="uml:State" xmi:id="_PEo2iYDFEemqYcNJ4hWR7Q" name="wait_data1"/>
+      <subvertex xmi:type="uml:State" xmi:id="_PEo2ioDFEemqYcNJ4hWR7Q" name="wait_data2"/>
+      <subvertex xmi:type="uml:State" xmi:id="_PEo2i4DFEemqYcNJ4hWR7Q" name="wait_status"/>
+      <transition xmi:id="_PEo2jIDFEemqYcNJ4hWR7Q" name="valid &amp; !MSB" source="_PEo2iYDFEemqYcNJ4hWR7Q" target="_PEo2ioDFEemqYcNJ4hWR7Q">
+        <eAnnotations xmi:id="_PEo2jYDFEemqYcNJ4hWR7Q" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_PEo2joDFEemqYcNJ4hWR7Q" name="postCondition">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEo2j4DFEemqYcNJ4hWR7Q" value="valid &amp; !MSB"/>
+          </contents>
+        </eAnnotations>
+      </transition>
+      <transition xmi:id="_PEo2kIDFEemqYcNJ4hWR7Q" name="!valid or (valid &amp; MSB)" source="_PEo2iYDFEemqYcNJ4hWR7Q" target="_PEo2iYDFEemqYcNJ4hWR7Q">
+        <eAnnotations xmi:id="_PEo2kYDFEemqYcNJ4hWR7Q" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_PEo2koDFEemqYcNJ4hWR7Q" name="postCondition">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEo2k4DFEemqYcNJ4hWR7Q" value="!valid or (valid &amp; MSB)"/>
+          </contents>
+        </eAnnotations>
+      </transition>
+      <transition xmi:id="_PEo2lIDFEemqYcNJ4hWR7Q" name="!valid" source="_PEo2ioDFEemqYcNJ4hWR7Q" target="_PEo2ioDFEemqYcNJ4hWR7Q" guard="_PEo2lYDFEemqYcNJ4hWR7Q">
+        <ownedRule xmi:id="_PEo2lYDFEemqYcNJ4hWR7Q" name="!valid" constrainedElement="_PEo2lIDFEemqYcNJ4hWR7Q">
+          <specification xmi:type="uml:LiteralString" xmi:id="_PEo2loDFEemqYcNJ4hWR7Q" value="!valid"/>
+        </ownedRule>
+      </transition>
+      <transition xmi:id="_PEo2l4DFEemqYcNJ4hWR7Q" name="valid &amp; !MSB" source="_PEo2ioDFEemqYcNJ4hWR7Q" target="_PEo2i4DFEemqYcNJ4hWR7Q">
+        <eAnnotations xmi:id="_PEo2mIDFEemqYcNJ4hWR7Q" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_PEo2mYDFEemqYcNJ4hWR7Q" name="postCondition">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEo2moDFEemqYcNJ4hWR7Q" value="valid &amp; !MSB"/>
+          </contents>
+        </eAnnotations>
+      </transition>
+      <transition xmi:id="_PEo2m4DFEemqYcNJ4hWR7Q" name="valid &amp; MSB" source="_PEo2ioDFEemqYcNJ4hWR7Q" target="_PEo2iYDFEemqYcNJ4hWR7Q">
+        <eAnnotations xmi:id="_PEo2nIDFEemqYcNJ4hWR7Q" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_PEo2nYDFEemqYcNJ4hWR7Q" name="postCondition">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEo2noDFEemqYcNJ4hWR7Q" value="valid &amp; MSB"/>
+          </contents>
+        </eAnnotations>
+      </transition>
+      <transition xmi:id="_PEo2n4DFEemqYcNJ4hWR7Q" name="!valid" source="_PEo2i4DFEemqYcNJ4hWR7Q" target="_PEo2i4DFEemqYcNJ4hWR7Q" guard="_PEo2pIDFEemqYcNJ4hWR7Q">
+        <ownedComment xmi:id="_PEo2oIDFEemqYcNJ4hWR7Q">
+          <eAnnotations xmi:id="_PEo2oYDFEemqYcNJ4hWR7Q" source="Objing">
+            <contents xmi:type="uml:Property" xmi:id="_PEo2ooDFEemqYcNJ4hWR7Q" name="NoteType_Name">
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEo2o4DFEemqYcNJ4hWR7Q" value="description"/>
+            </contents>
+          </eAnnotations>
+          <body>!valid
+</body>
+        </ownedComment>
+        <ownedRule xmi:id="_PEo2pIDFEemqYcNJ4hWR7Q" name="!valid" constrainedElement="_PEo2n4DFEemqYcNJ4hWR7Q">
+          <specification xmi:type="uml:LiteralString" xmi:id="_PEo2pYDFEemqYcNJ4hWR7Q" value="!valid"/>
+        </ownedRule>
+        <effect xmi:type="uml:OpaqueBehavior" xmi:id="_PEo2poDFEemqYcNJ4hWR7Q" redefinedBehavior="_PEo2h4DFEemqYcNJ4hWR7Q"/>
+      </transition>
+      <transition xmi:id="_PEo2p4DFEemqYcNJ4hWR7Q" name="Transition" source="_PEo2i4DFEemqYcNJ4hWR7Q" target="_PEo2iYDFEemqYcNJ4hWR7Q">
+        <eAnnotations xmi:id="_PEo2qIDFEemqYcNJ4hWR7Q" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_PEo2qYDFEemqYcNJ4hWR7Q" name="postCondition">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEo2qoDFEemqYcNJ4hWR7Q" value="valid &amp; MSB"/>
+          </contents>
+        </eAnnotations>
+      </transition>
+      <transition xmi:id="_PEo2q4DFEemqYcNJ4hWR7Q" name="valid &amp; !MSB" source="_PEo2i4DFEemqYcNJ4hWR7Q" target="_PEo2ioDFEemqYcNJ4hWR7Q">
+        <eAnnotations xmi:id="_PEo2rIDFEemqYcNJ4hWR7Q" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_PEo2rYDFEemqYcNJ4hWR7Q" name="postCondition">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEo2roDFEemqYcNJ4hWR7Q" value="valid &amp; !MSB"/>
+          </contents>
+        </eAnnotations>
+      </transition>
+    </region>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_PEo2r4DFEemqYcNJ4hWR7Q" name="Midi Controller Block">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_PEo2sIDFEemqYcNJ4hWR7Q" name="locals">
+      <eAnnotations xmi:id="_PEo2sYDFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEo2soDFEemqYcNJ4hWR7Q" name="Visibility">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEo2s4DFEemqYcNJ4hWR7Q" value="0"/>
+        </contents>
+      </eAnnotations>
+      <ownedAttribute xmi:id="_PEo2tIDFEemqYcNJ4hWR7Q" name="Central Buffer" aggregation="composite"/>
+    </nestedClassifier>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEo2tYDFEemqYcNJ4hWR7Q" name="MIDI FSM" outgoing="_PEpdoIDFEemqYcNJ4hWR7Q _PEpdo4DFEemqYcNJ4hWR7Q" incoming="_PEpdw4DFEemqYcNJ4hWR7Q _PEpdxYDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:CentralBufferNode" xmi:id="_PEo2toDFEemqYcNJ4hWR7Q" name="Data2 Buffer" outgoing="_PEpdpoDFEemqYcNJ4hWR7Q" incoming="_PEpdq4DFEemqYcNJ4hWR7Q _PEpd0YDFEemqYcNJ4hWR7Q">
+      <upperBound xmi:type="uml:LiteralString" xmi:id="_PEo2t4DFEemqYcNJ4hWR7Q" name="UpperBound" value="1"/>
+    </node>
+    <node xmi:type="uml:CentralBufferNode" xmi:id="_PEo2uIDFEemqYcNJ4hWR7Q" name="Data2 Buffer">
+      <upperBound xmi:type="uml:LiteralString" xmi:id="_PEo2uYDFEemqYcNJ4hWR7Q" name="UpperBound" value="1"/>
+    </node>
+    <node xmi:type="uml:CentralBufferNode" xmi:id="_PEo2uoDFEemqYcNJ4hWR7Q" name="Data2 Buffer" outgoing="_PEpdq4DFEemqYcNJ4hWR7Q _PEpdrYDFEemqYcNJ4hWR7Q" incoming="_PEpdsoDFEemqYcNJ4hWR7Q _PEpdzIDFEemqYcNJ4hWR7Q">
+      <upperBound xmi:type="uml:LiteralString" xmi:id="_PEpdkIDFEemqYcNJ4hWR7Q" name="UpperBound" value="1"/>
+    </node>
+    <node xmi:type="uml:CentralBufferNode" xmi:id="_PEpdkYDFEemqYcNJ4hWR7Q" name="Status Buffer" outgoing="_PEpdsoDFEemqYcNJ4hWR7Q _PEpdtIDFEemqYcNJ4hWR7Q" incoming="_PEpdoIDFEemqYcNJ4hWR7Q _PEpdx4DFEemqYcNJ4hWR7Q">
+      <upperBound xmi:type="uml:LiteralString" xmi:id="_PEpdkoDFEemqYcNJ4hWR7Q" name="UpperBound" value="1"/>
+    </node>
+    <node xmi:type="uml:CentralBufferNode" xmi:id="_PEpdk4DFEemqYcNJ4hWR7Q" name="Output Registers (10x)" outgoing="_PEpduYDFEemqYcNJ4hWR7Q" incoming="_PEpdvoDFEemqYcNJ4hWR7Q">
+      <upperBound xmi:type="uml:LiteralString" xmi:id="_PEpdlIDFEemqYcNJ4hWR7Q" name="UpperBound" value="1"/>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEpdlYDFEemqYcNJ4hWR7Q" name="Output Register Logic" outgoing="_PEpdvoDFEemqYcNJ4hWR7Q" incoming="_PEpdo4DFEemqYcNJ4hWR7Q _PEpdpoDFEemqYcNJ4hWR7Q _PEpdrYDFEemqYcNJ4hWR7Q _PEpdtIDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:SendSignalAction" xmi:id="_PEpdloDFEemqYcNJ4hWR7Q" name="valid" outgoing="_PEpdw4DFEemqYcNJ4hWR7Q"/>
+    <node xmi:type="uml:AcceptEventAction" xmi:id="_PEpdl4DFEemqYcNJ4hWR7Q" name="tone array" incoming="_PEpduYDFEemqYcNJ4hWR7Q">
+      <eAnnotations xmi:id="_PEpdmIDFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEpdmYDFEemqYcNJ4hWR7Q" name="Signal">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEpdmoDFEemqYcNJ4hWR7Q" value="signal"/>
+        </contents>
+      </eAnnotations>
+    </node>
+    <node xmi:type="uml:SendSignalAction" xmi:id="_PEpdm4DFEemqYcNJ4hWR7Q" name="Midi data" outgoing="_PEpdxYDFEemqYcNJ4hWR7Q _PEpdx4DFEemqYcNJ4hWR7Q _PEpdzIDFEemqYcNJ4hWR7Q _PEpd0YDFEemqYcNJ4hWR7Q">
+      <ownedComment xmi:id="_PEpdnIDFEemqYcNJ4hWR7Q">
+        <eAnnotations xmi:id="_PEpdnYDFEemqYcNJ4hWR7Q" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_PEpdnoDFEemqYcNJ4hWR7Q" name="NoteType_Name">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEpdn4DFEemqYcNJ4hWR7Q" value="description"/>
+          </contents>
+        </eAnnotations>
+        <body>&lt;Enter note text here></body>
+      </ownedComment>
+    </node>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpdoIDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEo2tYDFEemqYcNJ4hWR7Q" target="_PEpdkYDFEemqYcNJ4hWR7Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_PEpdoYDFEemqYcNJ4hWR7Q">
+        <body>fsm state</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpdooDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpdo4DFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEo2tYDFEemqYcNJ4hWR7Q" target="_PEpdlYDFEemqYcNJ4hWR7Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_PEpdpIDFEemqYcNJ4hWR7Q">
+        <body>fsm state</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpdpYDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_PEpdpoDFEemqYcNJ4hWR7Q" name="ObjectFlow" source="_PEo2toDFEemqYcNJ4hWR7Q" target="_PEpdlYDFEemqYcNJ4hWR7Q">
+      <eAnnotations xmi:id="_PEpdp4DFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEpdqIDFEemqYcNJ4hWR7Q" name="Effect">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEpdqYDFEemqYcNJ4hWR7Q" value="READ_FLOW"/>
+        </contents>
+      </eAnnotations>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpdqoDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpdq4DFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEo2uoDFEemqYcNJ4hWR7Q" target="_PEo2toDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpdrIDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_PEpdrYDFEemqYcNJ4hWR7Q" name="ObjectFlow" source="_PEo2uoDFEemqYcNJ4hWR7Q" target="_PEpdlYDFEemqYcNJ4hWR7Q">
+      <eAnnotations xmi:id="_PEpdroDFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEpdr4DFEemqYcNJ4hWR7Q" name="Effect">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEpdsIDFEemqYcNJ4hWR7Q" value="READ_FLOW"/>
+        </contents>
+      </eAnnotations>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpdsYDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpdsoDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpdkYDFEemqYcNJ4hWR7Q" target="_PEo2uoDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpds4DFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_PEpdtIDFEemqYcNJ4hWR7Q" name="ObjectFlow" source="_PEpdkYDFEemqYcNJ4hWR7Q" target="_PEpdlYDFEemqYcNJ4hWR7Q">
+      <eAnnotations xmi:id="_PEpdtYDFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEpdtoDFEemqYcNJ4hWR7Q" name="Effect">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEpdt4DFEemqYcNJ4hWR7Q" value="READ_FLOW"/>
+        </contents>
+      </eAnnotations>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpduIDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_PEpduYDFEemqYcNJ4hWR7Q" name="ObjectFlow" source="_PEpdk4DFEemqYcNJ4hWR7Q" target="_PEpdl4DFEemqYcNJ4hWR7Q">
+      <eAnnotations xmi:id="_PEpduoDFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEpdu4DFEemqYcNJ4hWR7Q" name="Effect">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEpdvIDFEemqYcNJ4hWR7Q" value="READ_FLOW"/>
+        </contents>
+      </eAnnotations>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpdvYDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_PEpdvoDFEemqYcNJ4hWR7Q" name="ObjectFlow" source="_PEpdlYDFEemqYcNJ4hWR7Q" target="_PEpdk4DFEemqYcNJ4hWR7Q">
+      <eAnnotations xmi:id="_PEpdv4DFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEpdwIDFEemqYcNJ4hWR7Q" name="Effect">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEpdwYDFEemqYcNJ4hWR7Q" value="READ_FLOW"/>
+        </contents>
+      </eAnnotations>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpdwoDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpdw4DFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpdloDFEemqYcNJ4hWR7Q" target="_PEo2tYDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpdxIDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpdxYDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpdm4DFEemqYcNJ4hWR7Q" target="_PEo2tYDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpdxoDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_PEpdx4DFEemqYcNJ4hWR7Q" name="ObjectFlow" source="_PEpdm4DFEemqYcNJ4hWR7Q" target="_PEpdkYDFEemqYcNJ4hWR7Q">
+      <eAnnotations xmi:id="_PEpdyIDFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEpdyYDFEemqYcNJ4hWR7Q" name="Effect">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEpdyoDFEemqYcNJ4hWR7Q" value="READ_FLOW"/>
+        </contents>
+      </eAnnotations>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpdy4DFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_PEpdzIDFEemqYcNJ4hWR7Q" name="ObjectFlow" source="_PEpdm4DFEemqYcNJ4hWR7Q" target="_PEo2uoDFEemqYcNJ4hWR7Q">
+      <eAnnotations xmi:id="_PEpdzYDFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEpdzoDFEemqYcNJ4hWR7Q" name="Effect">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEpdz4DFEemqYcNJ4hWR7Q" value="READ_FLOW"/>
+        </contents>
+      </eAnnotations>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpd0IDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_PEpd0YDFEemqYcNJ4hWR7Q" name="ObjectFlow" source="_PEpdm4DFEemqYcNJ4hWR7Q" target="_PEo2toDFEemqYcNJ4hWR7Q">
+      <eAnnotations xmi:id="_PEpd0oDFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEpd04DFEemqYcNJ4hWR7Q" name="Effect">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEpd1IDFEemqYcNJ4hWR7Q" value="READ_FLOW"/>
+        </contents>
+      </eAnnotations>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpd1YDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_PEpd1oDFEemqYcNJ4hWR7Q" name="tone generator block">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_PEpd14DFEemqYcNJ4hWR7Q" name="locals">
+      <eAnnotations xmi:id="_PEpd2IDFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEpd2YDFEemqYcNJ4hWR7Q" name="Visibility">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEpd2oDFEemqYcNJ4hWR7Q" value="0"/>
+        </contents>
+      </eAnnotations>
+    </nestedClassifier>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEpd24DFEemqYcNJ4hWR7Q" name=" LUT midi2dds 1" outgoing="_PEpd7IDFEemqYcNJ4hWR7Q" incoming="_PEpd_oDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEpd3IDFEemqYcNJ4hWR7Q" name=" LUT midi2dds 2" outgoing="_PEpd7oDFEemqYcNJ4hWR7Q" incoming="_PEpeAIDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEpd3YDFEemqYcNJ4hWR7Q" name=" LUT midi2dds 3" outgoing="_PEpd8IDFEemqYcNJ4hWR7Q" incoming="_PEpeAoDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEpd3oDFEemqYcNJ4hWR7Q" name="DDS_0" outgoing="_PEpd8oDFEemqYcNJ4hWR7Q" incoming="_PEpd9IDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEpd34DFEemqYcNJ4hWR7Q" name=" LUT midi2dds 0" outgoing="_PEpd9IDFEemqYcNJ4hWR7Q" incoming="_PEpd_IDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEpd4IDFEemqYcNJ4hWR7Q" name="DDS_1" outgoing="_PEpd9oDFEemqYcNJ4hWR7Q" incoming="_PEpd7IDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEpd4YDFEemqYcNJ4hWR7Q" name="DDS_2" outgoing="_PEpd-IDFEemqYcNJ4hWR7Q" incoming="_PEpd7oDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEpd4oDFEemqYcNJ4hWR7Q" name="DDS_3" outgoing="_PEpd-oDFEemqYcNJ4hWR7Q" incoming="_PEpd8IDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:FlowFinalNode" xmi:id="_PEpd44DFEemqYcNJ4hWR7Q" name="Flow Final Node" incoming="_PEpd8oDFEemqYcNJ4hWR7Q _PEpd9oDFEemqYcNJ4hWR7Q _PEpd-IDFEemqYcNJ4hWR7Q _PEpd-oDFEemqYcNJ4hWR7Q"/>
+    <node xmi:type="uml:AcceptEventAction" xmi:id="_PEpd5IDFEemqYcNJ4hWR7Q" name="sum_reg 16 bit Bus">
+      <eAnnotations xmi:id="_PEpd5YDFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEpd5oDFEemqYcNJ4hWR7Q" name="Signal">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEpd54DFEemqYcNJ4hWR7Q" value="signal"/>
+        </contents>
+      </eAnnotations>
+    </node>
+    <node xmi:type="uml:SendSignalAction" xmi:id="_PEpd6IDFEemqYcNJ4hWR7Q" name="note_vector" outgoing="_PEpd_IDFEemqYcNJ4hWR7Q"/>
+    <node xmi:type="uml:SendSignalAction" xmi:id="_PEpd6YDFEemqYcNJ4hWR7Q" name="note_vector" outgoing="_PEpd_oDFEemqYcNJ4hWR7Q"/>
+    <node xmi:type="uml:SendSignalAction" xmi:id="_PEpd6oDFEemqYcNJ4hWR7Q" name="note_vector" outgoing="_PEpeAIDFEemqYcNJ4hWR7Q"/>
+    <node xmi:type="uml:SendSignalAction" xmi:id="_PEpd64DFEemqYcNJ4hWR7Q" name="note_vector" outgoing="_PEpeAoDFEemqYcNJ4hWR7Q"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpd7IDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpd24DFEemqYcNJ4hWR7Q" target="_PEpd4IDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpd7YDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpd7oDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpd3IDFEemqYcNJ4hWR7Q" target="_PEpd4YDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpd74DFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpd8IDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpd3YDFEemqYcNJ4hWR7Q" target="_PEpd4oDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpd8YDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpd8oDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpd3oDFEemqYcNJ4hWR7Q" target="_PEpd44DFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpd84DFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpd9IDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpd34DFEemqYcNJ4hWR7Q" target="_PEpd3oDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpd9YDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpd9oDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpd4IDFEemqYcNJ4hWR7Q" target="_PEpd44DFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpd94DFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpd-IDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpd4YDFEemqYcNJ4hWR7Q" target="_PEpd44DFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpd-YDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpd-oDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpd4oDFEemqYcNJ4hWR7Q" target="_PEpd44DFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpd-4DFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpd_IDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpd6IDFEemqYcNJ4hWR7Q" target="_PEpd34DFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpd_YDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpd_oDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpd6YDFEemqYcNJ4hWR7Q" target="_PEpd24DFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpd_4DFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpeAIDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpd6oDFEemqYcNJ4hWR7Q" target="_PEpd3IDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpeAYDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpeAoDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpd64DFEemqYcNJ4hWR7Q" target="_PEpd3YDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpeA4DFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_PEpeBIDFEemqYcNJ4hWR7Q" name="DDS">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_PEpeBYDFEemqYcNJ4hWR7Q" name="locals">
+      <eAnnotations xmi:id="_PEpeBoDFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEpeB4DFEemqYcNJ4hWR7Q" name="Visibility">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEpeCIDFEemqYcNJ4hWR7Q" value="0"/>
+        </contents>
+      </eAnnotations>
+    </nestedClassifier>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEpeCYDFEemqYcNJ4hWR7Q" name="counter register" outgoing="_PEpeEYDFEemqYcNJ4hWR7Q" incoming="_PEpeFYDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEpeCoDFEemqYcNJ4hWR7Q" name="lut sinus" outgoing="_PEpeE4DFEemqYcNJ4hWR7Q" incoming="_PEpeEYDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:AcceptEventAction" xmi:id="_PEpeC4DFEemqYcNJ4hWR7Q" name="dds_o" incoming="_PEpeE4DFEemqYcNJ4hWR7Q">
+      <eAnnotations xmi:id="_PEpeDIDFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEpeDYDFEemqYcNJ4hWR7Q" name="Signal">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEpeDoDFEemqYcNJ4hWR7Q" value="signal"/>
+        </contents>
+      </eAnnotations>
+    </node>
+    <node xmi:type="uml:SendSignalAction" xmi:id="_PEpeD4DFEemqYcNJ4hWR7Q" name="phi_incr" outgoing="_PEpeFYDFEemqYcNJ4hWR7Q"/>
+    <node xmi:type="uml:StructuredActivityNode" xmi:id="_PEpeEIDFEemqYcNJ4hWR7Q" name="DDS"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpeEYDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeCYDFEemqYcNJ4hWR7Q" target="_PEpeCoDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpeEoDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpeE4DFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeCoDFEemqYcNJ4hWR7Q" target="_PEpeC4DFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpeFIDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEpeFYDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeD4DFEemqYcNJ4hWR7Q" target="_PEpeCYDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEpeFoDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_PEpeF4DFEemqYcNJ4hWR7Q" name="I2S">
+    <ownedComment xmi:id="_PEpeGIDFEemqYcNJ4hWR7Q">
+      <eAnnotations xmi:id="_PEpeGYDFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEpeGoDFEemqYcNJ4hWR7Q" name="NoteType_Name">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEpeG4DFEemqYcNJ4hWR7Q" value="description"/>
+        </contents>
+      </eAnnotations>
+      <body>&lt;Enter note text here></body>
+    </ownedComment>
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_PEpeHIDFEemqYcNJ4hWR7Q" name="locals">
+      <eAnnotations xmi:id="_PEpeHYDFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEpeHoDFEemqYcNJ4hWR7Q" name="Visibility">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEpeH4DFEemqYcNJ4hWR7Q" value="0"/>
+        </contents>
+      </eAnnotations>
+    </nestedClassifier>
+    <node xmi:type="uml:SendSignalAction" xmi:id="_PEpeIIDFEemqYcNJ4hWR7Q" name="dacdat_pl_i" outgoing="_PEqEroDFEemqYcNJ4hWR7Q"/>
+    <node xmi:type="uml:SendSignalAction" xmi:id="_PEpeIYDFEemqYcNJ4hWR7Q" name="dacdat_pr_i" outgoing="_PEqEsIDFEemqYcNJ4hWR7Q"/>
+    <node xmi:type="uml:SendSignalAction" xmi:id="_PEpeIoDFEemqYcNJ4hWR7Q" name="clk_12m" outgoing="_PEqEsoDFEemqYcNJ4hWR7Q"/>
+    <node xmi:type="uml:SendSignalAction" xmi:id="_PEpeI4DFEemqYcNJ4hWR7Q" name="acdat_s_i" outgoing="_PEqEtIDFEemqYcNJ4hWR7Q _PEqEtoDFEemqYcNJ4hWR7Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEpeJIDFEemqYcNJ4hWR7Q" name="modulo divider" outgoing="_PEqEuIDFEemqYcNJ4hWR7Q _PEqEuoDFEemqYcNJ4hWR7Q _PEqEvIDFEemqYcNJ4hWR7Q _PEqEvoDFEemqYcNJ4hWR7Q _PEqEwYDFEemqYcNJ4hWR7Q _PEqExIDFEemqYcNJ4hWR7Q" incoming="_PEqEsoDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEpeJYDFEemqYcNJ4hWR7Q" name="bit counter" outgoing="_PEqExoDFEemqYcNJ4hWR7Q" incoming="_PEqE3YDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEpeJoDFEemqYcNJ4hWR7Q" name="I2S Decoder" outgoing="_PEqEyYDFEemqYcNJ4hWR7Q _PEqEy4DFEemqYcNJ4hWR7Q _PEqEzYDFEemqYcNJ4hWR7Q" incoming="_PEqEwYDFEemqYcNJ4hWR7Q _PEqExoDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEpeJ4DFEemqYcNJ4hWR7Q" name="P2S right" outgoing="_PEqE0IDFEemqYcNJ4hWR7Q" incoming="_PEqEsIDFEemqYcNJ4hWR7Q _PEqEuIDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEpeKIDFEemqYcNJ4hWR7Q" name="P2S left" outgoing="_PEqE04DFEemqYcNJ4hWR7Q" incoming="_PEqEroDFEemqYcNJ4hWR7Q _PEqEuoDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEpeKYDFEemqYcNJ4hWR7Q" name="S2P left¨" outgoing="_PEqE1YDFEemqYcNJ4hWR7Q" incoming="_PEqEtoDFEemqYcNJ4hWR7Q _PEqEvIDFEemqYcNJ4hWR7Q _PEqEyYDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEpeKoDFEemqYcNJ4hWR7Q" name="S2P right" outgoing="_PEqE14DFEemqYcNJ4hWR7Q" incoming="_PEqEtIDFEemqYcNJ4hWR7Q _PEqEvoDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:AcceptEventAction" xmi:id="_PEpeK4DFEemqYcNJ4hWR7Q" name="dacdat_s_o" incoming="_PEqE2YDFEemqYcNJ4hWR7Q">
+      <eAnnotations xmi:id="_PEpeLIDFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEpeLYDFEemqYcNJ4hWR7Q" name="Signal">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEpeLoDFEemqYcNJ4hWR7Q" value="signal"/>
+        </contents>
+      </eAnnotations>
+    </node>
+    <node xmi:type="uml:MergeNode" xmi:id="_PEpeL4DFEemqYcNJ4hWR7Q" name="Decision-Merge" outgoing="_PEqE2YDFEemqYcNJ4hWR7Q" incoming="_PEqEy4DFEemqYcNJ4hWR7Q _PEqE0IDFEemqYcNJ4hWR7Q _PEqE04DFEemqYcNJ4hWR7Q"/>
+    <node xmi:type="uml:AcceptEventAction" xmi:id="_PEpeMIDFEemqYcNJ4hWR7Q" name="ws_o word select out" incoming="_PEqEzYDFEemqYcNJ4hWR7Q">
+      <eAnnotations xmi:id="_PEpeMYDFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEpeMoDFEemqYcNJ4hWR7Q" name="Signal">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEpeM4DFEemqYcNJ4hWR7Q" value="signal"/>
+        </contents>
+      </eAnnotations>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_PEqEoIDFEemqYcNJ4hWR7Q" name="BCLK Baud Clock Generator" outgoing="_PEqE24DFEemqYcNJ4hWR7Q _PEqE3YDFEemqYcNJ4hWR7Q" incoming="_PEqExIDFEemqYcNJ4hWR7Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:AcceptEventAction" xmi:id="_PEqEoYDFEemqYcNJ4hWR7Q" name="bclk_o" incoming="_PEqE24DFEemqYcNJ4hWR7Q">
+      <eAnnotations xmi:id="_PEqEooDFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEqEo4DFEemqYcNJ4hWR7Q" name="Signal">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEqEpIDFEemqYcNJ4hWR7Q" value="signal"/>
+        </contents>
+      </eAnnotations>
+    </node>
+    <node xmi:type="uml:AcceptEventAction" xmi:id="_PEqEpYDFEemqYcNJ4hWR7Q" name="adcdat_pl_o" incoming="_PEqE1YDFEemqYcNJ4hWR7Q">
+      <eAnnotations xmi:id="_PEqEpoDFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEqEp4DFEemqYcNJ4hWR7Q" name="Signal">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEqEqIDFEemqYcNJ4hWR7Q" value="signal"/>
+        </contents>
+      </eAnnotations>
+    </node>
+    <node xmi:type="uml:AcceptEventAction" xmi:id="_PEqEqYDFEemqYcNJ4hWR7Q" name="adcdat_pr_o" incoming="_PEqE14DFEemqYcNJ4hWR7Q">
+      <eAnnotations xmi:id="_PEqEqoDFEemqYcNJ4hWR7Q" source="Objing">
+        <contents xmi:type="uml:Property" xmi:id="_PEqEq4DFEemqYcNJ4hWR7Q" name="Signal">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_PEqErIDFEemqYcNJ4hWR7Q" value="signal"/>
+        </contents>
+      </eAnnotations>
+    </node>
+    <node xmi:type="uml:StructuredActivityNode" xmi:id="_PEqErYDFEemqYcNJ4hWR7Q" name="I2S"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqEroDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeIIDFEemqYcNJ4hWR7Q" target="_PEpeKIDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqEr4DFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqEsIDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeIYDFEemqYcNJ4hWR7Q" target="_PEpeJ4DFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqEsYDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqEsoDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeIoDFEemqYcNJ4hWR7Q" target="_PEpeJIDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqEs4DFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqEtIDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeI4DFEemqYcNJ4hWR7Q" target="_PEpeKoDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqEtYDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqEtoDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeI4DFEemqYcNJ4hWR7Q" target="_PEpeKYDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqEt4DFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqEuIDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeJIDFEemqYcNJ4hWR7Q" target="_PEpeJ4DFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqEuYDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqEuoDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeJIDFEemqYcNJ4hWR7Q" target="_PEpeKIDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqEu4DFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqEvIDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeJIDFEemqYcNJ4hWR7Q" target="_PEpeKYDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqEvYDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqEvoDFEemqYcNJ4hWR7Q" name="enable" source="_PEpeJIDFEemqYcNJ4hWR7Q" target="_PEpeKoDFEemqYcNJ4hWR7Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_PEqEv4DFEemqYcNJ4hWR7Q">
+        <body>enable</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqEwIDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqEwYDFEemqYcNJ4hWR7Q" name="clk_div" source="_PEpeJIDFEemqYcNJ4hWR7Q" target="_PEpeJoDFEemqYcNJ4hWR7Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_PEqEwoDFEemqYcNJ4hWR7Q">
+        <body>clk_div</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqEw4DFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqExIDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeJIDFEemqYcNJ4hWR7Q" target="_PEqEoIDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqExYDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqExoDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeJYDFEemqYcNJ4hWR7Q" target="_PEpeJoDFEemqYcNJ4hWR7Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_PEqEx4DFEemqYcNJ4hWR7Q">
+        <body>bit_count</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqEyIDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqEyYDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeJoDFEemqYcNJ4hWR7Q" target="_PEpeKYDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqEyoDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqEy4DFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeJoDFEemqYcNJ4hWR7Q" target="_PEpeL4DFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqEzIDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqEzYDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeJoDFEemqYcNJ4hWR7Q" target="_PEpeMIDFEemqYcNJ4hWR7Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_PEqEzoDFEemqYcNJ4hWR7Q">
+        <body>ws</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqEz4DFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqE0IDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeJ4DFEemqYcNJ4hWR7Q" target="_PEpeL4DFEemqYcNJ4hWR7Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_PEqE0YDFEemqYcNJ4hWR7Q">
+        <body>ser_o</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqE0oDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqE04DFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeKIDFEemqYcNJ4hWR7Q" target="_PEpeL4DFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqE1IDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqE1YDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeKYDFEemqYcNJ4hWR7Q" target="_PEqEpYDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqE1oDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqE14DFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeKoDFEemqYcNJ4hWR7Q" target="_PEqEqYDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqE2IDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqE2YDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEpeL4DFEemqYcNJ4hWR7Q" target="_PEpeK4DFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqE2oDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqE24DFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEqEoIDFEemqYcNJ4hWR7Q" target="_PEqEoYDFEemqYcNJ4hWR7Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqE3IDFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PEqE3YDFEemqYcNJ4hWR7Q" name="ControlFlow" source="_PEqEoIDFEemqYcNJ4hWR7Q" target="_PEpeJYDFEemqYcNJ4hWR7Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_PEqE3oDFEemqYcNJ4hWR7Q">
+        <body>bclk</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_PEqE34DFEemqYcNJ4hWR7Q" value="1"/>
+    </edge>
+  </packagedElement>
+</uml:Model>

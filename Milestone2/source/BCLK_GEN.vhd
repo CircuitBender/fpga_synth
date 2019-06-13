@@ -6,7 +6,7 @@
 -- Author     : Heinzen
 -- Company    : 
 -- Created    : 2019-03-29
--- Last update: 2019-03-29
+-- Last update: 2019-05-18
 -- Platform   : Windows 10
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -17,7 +17,7 @@
 -- Revisions  :
 -- Date        Version  Author          Description
 -- 08.03.2019  1.0      Heinzen         Created
-
+-- 18.05.2019  1.1      Rutishauser             Debugging
 -------------------------------------------------------------------------------
 
 
@@ -25,38 +25,56 @@
 -------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+-------------------------------------------------------------------------------
 
-
-
--- Entity Declaration 
--------------------------------------------
 entity BCLK_GEN is
-  port(clk_12m   : in std_logic;            -- 12.5M Clock
-       bclk_o     : out std_logic;      --Bus-Clock out
-       );
-end BCLK_GEN;
 
--------------------------------------------
--- Architecture 
--------------------------------------------
+  port (
+    reset_n : in  std_logic;
+    clk_12m : in  std_logic;
+    bclk    : out std_logic
+    );
+
+end entity BCLK_GEN;
+
+-------------------------------------------------------------------------------
+
 architecture rtl of BCLK_GEN is
--------------------------------------------
--- Signals & Constants Declaration
--------------------------------------------
 
--------------------------------------------
--- Begin Architecture
--------------------------------------------
-begin
-  --------------------------------------------------
-  -- PROCESS FOR COMBINATORIAL LOGIC
-  --------------------------------------------------
-if rising_edge(clk_12m) and  then 
+  
 
- --------------------------------------------------
-  -- PROCESS FOR REGISTERS
-  --------------------------------------------------
+begin  -- architecture rtl
+  CLOCK_DIVIDER : process(all)
+  begin
+    if reset_n = '0' then
+      bclk <= '0';
+    elsif rising_edge(clk_12m)then
+      bclk <= bclk xor '1';
+
+    end if;
+
+
+
+  end process CLOCK_DIVIDER;
   
-  
-end rtl;
+end architecture rtl;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

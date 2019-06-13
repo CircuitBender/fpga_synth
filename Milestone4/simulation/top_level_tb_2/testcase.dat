@@ -1,0 +1,9 @@
+rst_sim
+
+#ini_cod 00
+
+uar_sim 90 01
+uar_sim 55 01
+uar_sim aa 01
+uar_sim 12 01
+uar_sim 34 01

@@ -1,0 +1,25 @@
+rst_sim
+mid_stm 90 01
+mid_stm 60 01
+mid_stm 7F 01
+mid_stm 90 01
+mid_stm 64 01
+mid_stm 7F 01
+mid_stm 90 01
+mid_stm 10 01
+mid_stm 7F 01
+mid_stm 90 01
+mid_stm 55 01
+mid_stm 7F 01
+mid_stm 90 01
+mid_stm 56 01
+mid_stm 7F 01
+mid_stm 80 01
+mid_stm 60 01
+mid_stm 00 01
+mid_stm 80 01
+mid_stm 64 01
+mid_stm 00 01
+mid_stm 90 01
+mid_stm 7F 01
+mid_stm 7F 01

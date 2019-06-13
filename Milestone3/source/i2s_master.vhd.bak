@@ -1,0 +1,223 @@
+-------------------------------------------------------------------------------
+-- Title      : synthi_top
+-- Project    : fpga_synth
+-------------------------------------------------------------------------------
+-- File       : i2s_master.vhd
+-- Author     : Heinzen
+-- Company    : 
+-- Created    : 2014-03-24
+-- Last update: 2019-05-19
+-- Platform   : Windows 10
+-- Standard   : VHDL'08
+-------------------------------------------------------------------------------
+-- Description: I2S Master
+-------------------------------------------------------------------------------
+-- Copyright (c) 2019
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date        Version  Author          Description
+-- 19.05.19     1.1      Rutishauser     Neustart
+-- 22.05.19		1.2		Heinzen			Debugging, nomenclatura
+-------------------------------------------------------------------------------
+
+-------------------------------------------
+-- Library & Use Statements
+-------------------------------------------
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+-------------------------------------------
+-- Entity Declaration 
+-------------------------------------------
+entity i2s_master is
+  port(clk_i : in std_logic;          -- 12.5M Clock
+       reset_n_i : in std_logic;  -- Reset or init used for re-initialisation
+
+       load_o : out std_logic;          -- Pulse once per audio frame 1/48kHz
+
+       --Verbindungen zum audio_controller
+       adcdat_pl_o : out std_logic_vector(15 downto 0);  --Ausgang zum audio_controller
+       adcdat_pr_o : out std_logic_vector(15 downto 0);
+
+       dacdat_pl_i : in std_logic_vector(15 downto 0);  --Eingang vom audio_controller
+       dacdat_pr_i : in std_logic_vector(15 downto 0);
+
+       --Verbindungen zum Audio-Codec
+       dacdat_s_o : out std_logic;      --Serielle Daten Ausgang
+       bclk_o     : out std_logic;      --Bus-Clock
+       ws_o       : out std_logic;      --WordSelect (Links/Rechts)
+       adcdat_s_i : in  std_logic       --Serielle Daten Eingang
+       );
+end i2s_master;
+
+-------------------------------------------
+-- Architecture 
+-------------------------------------------
+architecture rtl of i2s_master is
+
+-------------------------------------------
+-- component declaration
+-------------------------------------------
+  component BCLK_GEN is
+    port (
+      reset_n-i : in  std_logic;
+      clk_i : in  std_logic;
+      bclk_o    : out std_logic);
+  end component BCLK_GEN;
+
+  component bit_counter is
+    port (
+      clk_i, bclk_i, reset_n_i, init_n_i : in  std_logic;
+      bit_count_o                      : out integer range 0 to 127);
+  end component bit_counter;
+
+  component i2s_decoder is
+    port (
+      bit_count_i                  : in integer range 0 to 127;
+      load_o, shift_l_o, shift_r_o, ws_o : out std_logic);
+  end component i2s_decoder;
+
+  component shiftreg_p2s is
+    generic (
+      width : positive);
+    port (
+      clk_i : in  std_logic;
+      reset_n_i : in  std_logic;
+      load_i    : in  std_logic;
+      shift_i   : in  std_logic;
+      enable_i  : in  std_logic;
+      par_in  : in  std_logic_vector(width-1 downto 0);
+      ser_out : out std_logic);
+  end component shiftreg_p2s;
+
+  component shiftreg_s2p is
+    generic (
+      width : positive);
+    port (
+      clk_i : in  std_logic;
+      reset_n_i : in  std_logic;
+      enable_i  : in  std_logic;
+      shift_i   : in  std_logic;
+      ser_in  : in  std_logic;
+      dir_i     : in  std_logic;
+      par_out : out std_logic_vector(width-1 downto 0));
+  end component shiftreg_s2p;
+  
+------------------------------------------- 
+-- Signals
+-------------------------------------------
+  signal bclk      : std_logic;
+  signal bit_count : integer range 0 to 127;
+  signal load      : std_logic;
+  signal shift_l   : std_logic; --Signalverbindung zu Schieberegister LEFT
+  signal shift_r   : std_logic; --Signalverbindung zu Schieberegister RIGHT
+  signal serout_l : std_logic;  --Signalverbindung zum Mux
+  signal serout_r : std_logic;  --Signalverbindung zum Mux
+  signal par_in_l : std_logic_vector(15 downto 0);
+  signal par_in_r : std_logic_vector(15 downto 0);
+  signal ws : std_logic;
+  
+begin  -- architecture rtl
+-------------------------------------------
+-- instance initiation
+-------------------------------------------
+  -- instance "bckl_gen_1"
+  bckl_gen_1: BCLK_GEN
+    port map (
+      reset_n_i => reset_n_i,
+      clk_i => clk_i,
+      bclk_o    => bclk);
+
+  -- instance "bit_counter_1"
+  bit_counter_1: bit_counter
+    port map (
+      clk_i  => clk_i,
+      bclk_i     => bclk,
+      reset_n_i   => reset_n_i,
+      init_n_i    => '1',
+      bit_count_o => bit_count);
+
+  -- instance "i2s_decoder_1"
+  i2s_decoder_1: i2s_decoder
+    port map (
+      bit_count_i => bit_count,
+      load_o      => load,
+      shift_l_o   => shift_l,
+      shift_r_o   => shift_r,
+      ws_o        => ws);
+
+  -- instance "shiftreg_p2s_1"  LEFT
+  shiftreg_p2s_1: shiftreg_p2s
+    generic map (
+      width => 16)
+    port map (
+      clk_i => clk_i,
+      reset_n_i => reset_n_i,
+      load_i    => load,
+      shift_i   => shift_l,
+      enable_i  => bclk,
+      par_in  => dacdat_pl_i,
+      ser_out => serout_l);
+	  
+ -- instance "shiftreg_p2s_2"  RIGHT
+  shiftreg_p2s_2: shiftreg_p2s
+    generic map (
+      width => 16)
+    port map (
+      clk_i => clk_i,
+      reset_n_i => reset_n_i,
+      load_i    => load,
+      shift_i   => shift_r,
+      enable_i  => bclk,
+      par_in  => dacdat_pr_i,
+      ser_out => serout_r);
+	  
+  -- instance "shiftreg_s2p_1"  LEFT
+  shiftreg_s2p_1: shiftreg_s2p
+    generic map (
+      width => 16)
+    port map (
+      clk_i => clk_i,
+      reset_n_i => reset_n_i,
+      enable_i  => bclk,
+      shift_i   => shift_l,
+      ser_in  => adcdat_s_i,
+      dir_i     => '1',
+      par_out => adcdat_pl_o);
+
+  -- instance "shiftreg_s2p_2"  RIGHT
+  shiftreg_s2p_2: shiftreg_s2p
+    generic map (
+      width => 16)
+    port map (
+      clk_i => clk_i,
+      reset_n_i => reset_n_i,
+      enable_i  => bclk,
+      shift_i  => shift_r,
+      ser_in  => adcdat_s_i,
+      dir_i     => '1',
+      par_out => adcdat_pr_o);
+
+ -------------------------------------------
+ -- multiplexer
+ -------------------------------------------
+register_mux : process(all)
+  begin
+    if(ws = '0') then
+       dacdat_s_o<= serout_l;
+    else
+       dacdat_s_o<= serout_r;
+    end if;
+  end process register_mux;
+  
+ ------------------------------------------- 
+  --concurrent  assigments
+------------------------------------------- 
+   bclk_o <= bclk;
+   load_o <= load;
+   ws_o <= ws;
+
+end architecture rtl;
+-- end
+-------------------------------------------
