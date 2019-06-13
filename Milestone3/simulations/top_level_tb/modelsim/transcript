@@ -603,3 +603,6 @@ do ../compile.do
 #    Time: 40136430 ns  Iteration: 0  Instance: /synthi_top_tb
 # SIMULATED FOR XXXXXXXX CLOCKS
 # A time value could not be extracted from the current line
+# BKMARK_ERROR: Unknown client: .main_pane.source
+# End time: 21:50:40 on Jun 13,2019, Elapsed time: 0:41:40
+# Errors: 1, Warnings: 4
