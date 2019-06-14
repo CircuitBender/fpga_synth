@@ -29,7 +29,7 @@ use work.simulation_pkg.all;
 use work.standard_driver_pkg.all;
 use work.user_driver_pkg.all;
 use work.reg_table_pkg.all;
-use work.tone_gen_pkg.all;
+use work.tone_gen_pkg.all
 
 -------------------------------------------------------------------------------
 

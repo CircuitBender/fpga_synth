@@ -513,3 +513,5 @@ do ../compile.do
 # ** Failure: Unknown Command
 #    Time: 400 ns  Iteration: 0  Process: /synthi_top_tb/readcmd File: ../../../source/synthi_top_tb.vhd
 # Break in Process readcmd at ../../../source/synthi_top_tb.vhd line 286
+# End time: 13:18:07 on Jun 14,2019, Elapsed time: 13:39:04
+# Errors: 2, Warnings: 70

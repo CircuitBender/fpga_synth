@@ -1,20 +1,10 @@
 rst_sim
 
-gpi_stm 00 00 00 08
-i2s_stm 11 22 33 44
-i2s_chk 11 22 33 44
-
-i2s_stm 12 34 56 78
-i2s_chk 12 34 56 78
-
-i2s_stm ab cd ef 12
-i2s_chk ab cd ef 12
-
 gpi_stm 00 00 00 00
-dds_stm 
+dds_stm 00 00 00 ff
 
 gpi_stm 00 41 30 40
-dds_stm 
+dds_stm 00 00 BB CC
 
 gpi_stm 00 FF F4 20
-dds_stm 
+dds_stm 00 AA BB CC
