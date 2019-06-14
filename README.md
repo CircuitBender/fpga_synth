@@ -9,11 +9,11 @@ Program in VHDL + integrate and test the following blocks
 • User Interface (reset, tone selection, volume control)
 • Anschluss eines Keyboards (via Midi Interface)
 Extra Features:
-Choose, specify and implement selected feature(s)
-• Melody Box (play predefined tone sequences)
-• FM Synthesizer (modulate tone to vary timbre (Klangfarbe))
-• Recorder (register short sequences and play-back)
-• Sequencer/Sampler (combining tracks and tones)
-• Display (drive LCD for friendly user Interface)
-• etc… (Audio Effects, App via Bluetooth… or your original idea)
-11
+Polyphony
+
+DTP2 Digitaltechnik ZHAW Synthesizer Projekt
+
+authors
+Heinzen heinzma2@students.zhaw.ch
+Rutishauser
+Strübi
