@@ -14,7 +14,6 @@ add wave -noupdate /synthi_top_tb/KEY
 add wave -noupdate /synthi_top_tb/SW
 add wave -noupdate /synthi_top_tb/clock_freq
 add wave -noupdate /synthi_top_tb/clock_period
-add wave -noupdate /synthi_top_tb/dacdat_check
 add wave -noupdate /synthi_top_tb/reg_data0
 add wave -noupdate /synthi_top_tb/reg_data1
 add wave -noupdate /synthi_top_tb/reg_data2
@@ -25,7 +24,6 @@ add wave -noupdate /synthi_top_tb/reg_data6
 add wave -noupdate /synthi_top_tb/reg_data7
 add wave -noupdate /synthi_top_tb/reg_data8
 add wave -noupdate /synthi_top_tb/reg_data9
-add wave -noupdate /synthi_top_tb/switch
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {6205950 ns} 0}
 quietly wave cursor active 1

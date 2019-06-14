@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Milestone3
-Thu Jun 13 22:24:41 2019
+Fri Jun 14 19:20:28 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -27,10 +27,10 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  19. Parameter Settings for User Entity Instance: i2s_master:i2s_master_1|shiftreg_p2s:shiftreg_p2s_2
  20. Parameter Settings for User Entity Instance: i2s_master:i2s_master_1|shiftreg_s2p:shiftreg_s2p_1
  21. Parameter Settings for User Entity Instance: i2s_master:i2s_master_1|shiftreg_s2p:shiftreg_s2p_2
- 22. Port Connectivity Checks: "i2s_master:i2s_master_1|shiftreg_s2p:shiftreg_s2p_2"
- 23. Port Connectivity Checks: "i2s_master:i2s_master_1|shiftreg_s2p:shiftreg_s2p_1"
- 24. Port Connectivity Checks: "i2s_master:i2s_master_1|bit_counter:bit_counter_1"
- 25. Port Connectivity Checks: "i2s_master:i2s_master_1"
+ 22. Port Connectivity Checks: "tone_generator:tone_generator_1|DDS:DDS_1"
+ 23. Port Connectivity Checks: "i2s_master:i2s_master_1|shiftreg_s2p:shiftreg_s2p_2"
+ 24. Port Connectivity Checks: "i2s_master:i2s_master_1|shiftreg_s2p:shiftreg_s2p_1"
+ 25. Port Connectivity Checks: "i2s_master:i2s_master_1|bit_counter:bit_counter_1"
  26. Port Connectivity Checks: "codec_controller:codec_controller_1"
  27. Port Connectivity Checks: "infrastructure:infrastructure_1|modulo_divider:modulo_divider_1"
  28. Port Connectivity Checks: "infrastructure:infrastructure_1"
@@ -62,15 +62,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jun 13 22:24:41 2019       ;
+; Analysis & Synthesis Status        ; Successful - Fri Jun 14 19:20:27 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; Milestone3                                  ;
 ; Top-level Entity Name              ; synthi_top                                  ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 219                                         ;
-;     Total combinational functions  ; 169                                         ;
-;     Dedicated logic registers      ; 144                                         ;
-; Total registers                    ; 144                                         ;
+; Total logic elements               ; 635                                         ;
+;     Total combinational functions  ; 571                                         ;
+;     Dedicated logic registers      ; 177                                         ;
+; Total registers                    ; 177                                         ;
 ; Total pins                         ; 30                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -188,6 +188,8 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                  ; Library ;
 +----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+---------+
+; ../source/tone_generator.vhd     ; yes             ; User VHDL File  ; D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/tone_generator.vhd   ;         ;
+; ../source/tone_gen_pkg.vhd       ; yes             ; User VHDL File  ; D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/tone_gen_pkg.vhd     ;         ;
 ; ../source/synthi_top.vhd         ; yes             ; User VHDL File  ; D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd       ;         ;
 ; ../source/synchronize.vhd        ; yes             ; User VHDL File  ; D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synchronize.vhd      ;         ;
 ; ../source/shiftreg_s2p.vhd       ; yes             ; User VHDL File  ; D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/shiftreg_s2p.vhd     ;         ;
@@ -199,6 +201,7 @@ refer to the applicable agreement for further details.
 ; ../source/i2s_master.vhd         ; yes             ; User VHDL File  ; D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd       ;         ;
 ; ../source/i2s_decoder.vhd        ; yes             ; User VHDL File  ; D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_decoder.vhd      ;         ;
 ; ../source/i2c_master.vhd         ; yes             ; User VHDL File  ; D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2c_master.vhd       ;         ;
+; ../source/dds.vhd                ; yes             ; User VHDL File  ; D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/dds.vhd              ;         ;
 ; ../source/codec_controller.vhd   ; yes             ; User VHDL File  ; D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/codec_controller.vhd ;         ;
 ; ../source/bit_counter.vhd        ; yes             ; User VHDL File  ; D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/bit_counter.vhd      ;         ;
 ; ../source/BCLK_GEN.vhd           ; yes             ; User VHDL File  ; D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/BCLK_GEN.vhd         ;         ;
@@ -210,20 +213,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                    ;
 +---------------------------------------------+--------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 219                                                                      ;
+; Estimated Total logic elements              ; 635                                                                      ;
 ;                                             ;                                                                          ;
-; Total combinational functions               ; 169                                                                      ;
+; Total combinational functions               ; 571                                                                      ;
 ; Logic element usage by number of LUT inputs ;                                                                          ;
-;     -- 4 input functions                    ; 106                                                                      ;
-;     -- 3 input functions                    ; 27                                                                       ;
-;     -- <=2 input functions                  ; 36                                                                       ;
+;     -- 4 input functions                    ; 427                                                                      ;
+;     -- 3 input functions                    ; 101                                                                      ;
+;     -- <=2 input functions                  ; 43                                                                       ;
 ;                                             ;                                                                          ;
 ; Logic elements by mode                      ;                                                                          ;
-;     -- normal mode                          ; 160                                                                      ;
-;     -- arithmetic mode                      ; 9                                                                        ;
+;     -- normal mode                          ; 544                                                                      ;
+;     -- arithmetic mode                      ; 27                                                                       ;
 ;                                             ;                                                                          ;
-; Total registers                             ; 144                                                                      ;
-;     -- Dedicated logic registers            ; 144                                                                      ;
+; Total registers                             ; 177                                                                      ;
+;     -- Dedicated logic registers            ; 177                                                                      ;
 ;     -- I/O registers                        ; 0                                                                        ;
 ;                                             ;                                                                          ;
 ; I/O pins                                    ; 30                                                                       ;
@@ -231,9 +234,9 @@ refer to the applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0                                                                        ;
 ;                                             ;                                                                          ;
 ; Maximum fan-out node                        ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ;
-; Maximum fan-out                             ; 144                                                                      ;
-; Total fan-out                               ; 1136                                                                     ;
-; Average fan-out                             ; 3.04                                                                     ;
+; Maximum fan-out                             ; 177                                                                      ;
+; Total fan-out                               ; 2823                                                                     ;
+; Average fan-out                             ; 3.49                                                                     ;
 +---------------------------------------------+--------------------------------------------------------------------------+
 
 
@@ -242,21 +245,23 @@ refer to the applicable agreement for further details.
 +------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------+------------------+--------------+
 ; Compilation Hierarchy Node               ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                         ; Entity Name      ; Library Name ;
 +------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------+------------------+--------------+
-; |synthi_top                              ; 169 (0)             ; 144 (0)                   ; 0           ; 0            ; 0       ; 0         ; 30   ; 0            ; |synthi_top                                                                 ; synthi_top       ; work         ;
-;    |codec_controller:codec_controller_1| ; 17 (17)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|codec_controller:codec_controller_1                             ; codec_controller ; work         ;
-;    |i2c_master:i2c_master_1|             ; 96 (96)             ; 51 (51)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|i2c_master:i2c_master_1                                         ; i2c_master       ; work         ;
-;    |i2s_master:i2s_master_1|             ; 54 (1)              ; 72 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|i2s_master:i2s_master_1                                         ; i2s_master       ; work         ;
+; |synthi_top                              ; 571 (0)             ; 177 (0)                   ; 0           ; 0            ; 0       ; 0         ; 30   ; 0            ; |synthi_top                                                                 ; synthi_top       ; work         ;
+;    |codec_controller:codec_controller_1| ; 21 (21)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|codec_controller:codec_controller_1                             ; codec_controller ; work         ;
+;    |i2c_master:i2c_master_1|             ; 88 (88)             ; 51 (51)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|i2c_master:i2c_master_1                                         ; i2c_master       ; work         ;
+;    |i2s_master:i2s_master_1|             ; 53 (1)              ; 72 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|i2s_master:i2s_master_1                                         ; i2s_master       ; work         ;
 ;       |BCLK_GEN:bckl_gen_1|              ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|i2s_master:i2s_master_1|BCLK_GEN:bckl_gen_1                     ; BCLK_GEN         ; work         ;
 ;       |bit_counter:bit_counter_1|        ; 9 (9)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|i2s_master:i2s_master_1|bit_counter:bit_counter_1               ; bit_counter      ; work         ;
 ;       |i2s_decoder:i2s_decoder_1|        ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|i2s_master:i2s_master_1|i2s_decoder:i2s_decoder_1               ; i2s_decoder      ; work         ;
 ;       |shiftreg_p2s:shiftreg_p2s_1|      ; 18 (18)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|i2s_master:i2s_master_1|shiftreg_p2s:shiftreg_p2s_1             ; shiftreg_p2s     ; work         ;
-;       |shiftreg_p2s:shiftreg_p2s_2|      ; 19 (19)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|i2s_master:i2s_master_1|shiftreg_p2s:shiftreg_p2s_2             ; shiftreg_p2s     ; work         ;
+;       |shiftreg_p2s:shiftreg_p2s_2|      ; 18 (18)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|i2s_master:i2s_master_1|shiftreg_p2s:shiftreg_p2s_2             ; shiftreg_p2s     ; work         ;
 ;       |shiftreg_s2p:shiftreg_s2p_1|      ; 1 (1)               ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|i2s_master:i2s_master_1|shiftreg_s2p:shiftreg_s2p_1             ; shiftreg_s2p     ; work         ;
 ;       |shiftreg_s2p:shiftreg_s2p_2|      ; 2 (2)               ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|i2s_master:i2s_master_1|shiftreg_s2p:shiftreg_s2p_2             ; shiftreg_s2p     ; work         ;
-;    |infrastructure:infrastructure_1|     ; 2 (0)               ; 14 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|infrastructure:infrastructure_1                                 ; infrastructure   ; work         ;
+;    |infrastructure:infrastructure_1|     ; 2 (0)               ; 28 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|infrastructure:infrastructure_1                                 ; infrastructure   ; work         ;
 ;       |modulo_divider:modulo_divider_1|  ; 2 (2)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|infrastructure:infrastructure_1|modulo_divider:modulo_divider_1 ; modulo_divider   ; work         ;
 ;       |synchronize:synchronize_1|        ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|infrastructure:infrastructure_1|synchronize:synchronize_1       ; synchronize      ; work         ;
-;       |synchronize:synchronize_2|        ; 0 (0)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|infrastructure:infrastructure_1|synchronize:synchronize_2       ; synchronize      ; work         ;
+;       |synchronize:synchronize_2|        ; 0 (0)               ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|infrastructure:infrastructure_1|synchronize:synchronize_2       ; synchronize      ; work         ;
+;    |tone_generator:tone_generator_1|     ; 407 (139)           ; 19 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|tone_generator:tone_generator_1                                 ; tone_generator   ; work         ;
+;       |DDS:DDS_1|                        ; 268 (268)           ; 19 (19)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |synthi_top|tone_generator:tone_generator_1|DDS:DDS_1                       ; DDS              ; work         ;
 +------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------+------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -290,14 +295,14 @@ Encoding Type:  One-Hot
 +---------------------------+--------------------+---------------------------+--------------------+
 
 
-+---------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                      ;
-+----------------------------------------+----------------------------------------------------------------+
-; Register name                          ; Reason for Removal                                             ;
-+----------------------------------------+----------------------------------------------------------------+
-; i2c_master:i2c_master_1|clk_divider[0] ; Merged with i2s_master:i2s_master_1|BCLK_GEN:bckl_gen_1|bclk_o ;
-; Total Number of Removed Registers = 1  ;                                                                ;
-+----------------------------------------+----------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                    ;
++----------------------------------------+--------------------------------------------------------------+
+; Register name                          ; Reason for Removal                                           ;
++----------------------------------------+--------------------------------------------------------------+
+; i2c_master:i2c_master_1|clk_divider[0] ; Merged with i2s_master:i2s_master_1|BCLK_GEN:bckl_gen_1|bclk ;
+; Total Number of Removed Registers = 1  ;                                                              ;
++----------------------------------------+--------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -305,12 +310,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 144   ;
+; Total registers                              ; 177   ;
 ; Number of registers using Synchronous Clear  ; 9     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 130   ;
+; Number of registers using Synchronous Load   ; 32    ;
+; Number of registers using Asynchronous Clear ; 149   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 98    ;
+; Number of registers using Clock Enable       ; 117   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -422,40 +427,40 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "tone_generator:tone_generator_1|DDS:DDS_1" ;
++--------------------+-------+----------+-------------------------------+
+; Port               ; Type  ; Severity ; Details                       ;
++--------------------+-------+----------+-------------------------------+
+; phi_incr_i[18..17] ; Input ; Info     ; Stuck at GND                  ;
++--------------------+-------+----------+-------------------------------+
+
+
 +---------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "i2s_master:i2s_master_1|shiftreg_s2p:shiftreg_s2p_2" ;
-+-------+-------+----------+------------------------------------------------------+
-; Port  ; Type  ; Severity ; Details                                              ;
-+-------+-------+----------+------------------------------------------------------+
-; dir_i ; Input ; Info     ; Stuck at VCC                                         ;
-+-------+-------+----------+------------------------------------------------------+
++------+-------+----------+-------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                               ;
++------+-------+----------+-------------------------------------------------------+
+; dir  ; Input ; Info     ; Stuck at VCC                                          ;
++------+-------+----------+-------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "i2s_master:i2s_master_1|shiftreg_s2p:shiftreg_s2p_1" ;
-+-------+-------+----------+------------------------------------------------------+
-; Port  ; Type  ; Severity ; Details                                              ;
-+-------+-------+----------+------------------------------------------------------+
-; dir_i ; Input ; Info     ; Stuck at VCC                                         ;
-+-------+-------+----------+------------------------------------------------------+
++------+-------+----------+-------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                               ;
++------+-------+----------+-------------------------------------------------------+
+; dir  ; Input ; Info     ; Stuck at VCC                                          ;
++------+-------+----------+-------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "i2s_master:i2s_master_1|bit_counter:bit_counter_1" ;
-+----------+-------+----------+-------------------------------------------------+
-; Port     ; Type  ; Severity ; Details                                         ;
-+----------+-------+----------+-------------------------------------------------+
-; init_n_i ; Input ; Info     ; Stuck at VCC                                    ;
-+----------+-------+----------+-------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "i2s_master:i2s_master_1"                                                              ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; Port   ; Type   ; Severity ; Details                                                                             ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; load_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
++--------+-------+----------+---------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                           ;
++--------+-------+----------+---------------------------------------------------+
+; init_n ; Input ; Info     ; Stuck at VCC                                      ;
++--------+-------+----------+---------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------+
@@ -469,21 +474,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +---------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "infrastructure:infrastructure_1|modulo_divider:modulo_divider_1" ;
-+-----------+-------+----------+--------------------------------------------------------------+
-; Port      ; Type  ; Severity ; Details                                                      ;
-+-----------+-------+----------+--------------------------------------------------------------+
-; reset_n_i ; Input ; Info     ; Stuck at VCC                                                 ;
-+-----------+-------+----------+--------------------------------------------------------------+
++---------+-------+----------+----------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                        ;
++---------+-------+----------+----------------------------------------------------------------+
+; reset_n ; Input ; Info     ; Stuck at VCC                                                   ;
++---------+-------+----------+----------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "infrastructure:infrastructure_1"                                                                ;
-+------------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port             ; Type   ; Severity ; Details                                                                             ;
-+------------------+--------+----------+-------------------------------------------------------------------------------------+
-; sw_sync_o[17..4] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; gpio_26_sync_o   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------------------+--------+----------+-------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "infrastructure:infrastructure_1"                                                                 ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                             ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; sw_sync_o[17..11] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; gpio_26_sync_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -492,24 +497,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 30                          ;
-; cycloneiii_ff         ; 144                         ;
-;     CLR               ; 32                          ;
-;     ENA CLR           ; 89                          ;
+; cycloneiii_ff         ; 177                         ;
+;     CLR               ; 30                          ;
+;     CLR SLD           ; 2                           ;
+;     ENA CLR           ; 78                          ;
 ;     ENA CLR SCLR      ; 9                           ;
-;     plain             ; 14                          ;
+;     ENA CLR SLD       ; 30                          ;
+;     plain             ; 28                          ;
 ; cycloneiii_io_obuf    ; 1                           ;
-; cycloneiii_lcell_comb ; 170                         ;
-;     arith             ; 9                           ;
-;         2 data inputs ; 8                           ;
-;         3 data inputs ; 1                           ;
-;     normal            ; 161                         ;
-;         1 data inputs ; 5                           ;
-;         2 data inputs ; 24                          ;
-;         3 data inputs ; 26                          ;
-;         4 data inputs ; 106                         ;
+; cycloneiii_lcell_comb ; 572                         ;
+;     arith             ; 27                          ;
+;         2 data inputs ; 9                           ;
+;         3 data inputs ; 18                          ;
+;     normal            ; 545                         ;
+;         1 data inputs ; 6                           ;
+;         2 data inputs ; 29                          ;
+;         3 data inputs ; 83                          ;
+;         4 data inputs ; 427                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 2.23                        ;
+; Max LUT depth         ; 6.80                        ;
+; Average LUT depth     ; 4.09                        ;
 +-----------------------+-----------------------------+
 
 
@@ -518,7 +525,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:08     ;
 +----------------+--------------+
 
 
@@ -528,109 +535,100 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Jun 13 22:24:26 2019
+    Info: Processing started: Fri Jun 14 19:19:41 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Milestone3 -c Milestone3
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/tone_generator.vhd
-    Info (12022): Found design unit 1: tone_generator-struct File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/tone_generator.vhd Line: 56
-    Info (12023): Found entity 1: tone_generator File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/tone_generator.vhd Line: 43
+    Info (12022): Found design unit 1: tone_generator-struct File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/tone_generator.vhd Line: 55
+    Info (12023): Found entity 1: tone_generator File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/tone_generator.vhd Line: 42
 Info (12021): Found 1 design units, including 0 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/tone_gen_pkg.vhd
     Info (12022): Found design unit 1: tone_gen_pkg File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/tone_gen_pkg.vhd Line: 26
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/synthi_top.vhd
-    Info (12022): Found design unit 1: synthi_top-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 54
-    Info (12023): Found entity 1: synthi_top File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 33
+    Info (12022): Found design unit 1: synthi_top-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 58
+    Info (12023): Found entity 1: synthi_top File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 34
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/synchronize.vhd
-    Info (12022): Found design unit 1: synchronize-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synchronize.vhd Line: 48
-    Info (12023): Found entity 1: synchronize File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synchronize.vhd Line: 33
+    Info (12022): Found design unit 1: synchronize-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synchronize.vhd Line: 42
+    Info (12023): Found entity 1: synchronize File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synchronize.vhd Line: 27
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/shiftreg_s2p.vhd
     Info (12022): Found design unit 1: shiftreg_s2p-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/shiftreg_s2p.vhd Line: 41
     Info (12023): Found entity 1: shiftreg_s2p File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/shiftreg_s2p.vhd Line: 25
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/shiftreg_p2s.vhd
-    Info (12022): Found design unit 1: shiftreg_p2s-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/shiftreg_p2s.vhd Line: 41
-    Info (12023): Found entity 1: shiftreg_p2s File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/shiftreg_p2s.vhd Line: 25
+    Info (12022): Found design unit 1: shiftreg_p2s-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/shiftreg_p2s.vhd Line: 39
+    Info (12023): Found entity 1: shiftreg_p2s File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/shiftreg_p2s.vhd Line: 23
 Info (12021): Found 1 design units, including 0 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/reg_table_pkg.vhd
     Info (12022): Found design unit 1: reg_table_pkg File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/reg_table_pkg.vhd Line: 26
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/path_control.vhd
-    Info (12022): Found design unit 1: path_control-comb File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/path_control.vhd Line: 51
-    Info (12023): Found entity 1: path_control File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/path_control.vhd Line: 34
+    Info (12022): Found design unit 1: path_control-comb File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/path_control.vhd Line: 45
+    Info (12023): Found entity 1: path_control File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/path_control.vhd Line: 30
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/modulo_divider.vhd
-    Info (12022): Found design unit 1: modulo_divider-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/modulo_divider.vhd Line: 46
-    Info (12023): Found entity 1: modulo_divider File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/modulo_divider.vhd Line: 36
+    Info (12022): Found design unit 1: modulo_divider-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/modulo_divider.vhd Line: 26
+    Info (12023): Found entity 1: modulo_divider File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/modulo_divider.vhd Line: 17
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/infrastructure.vhd
-    Info (12022): Found design unit 1: infrastructure-str File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/infrastructure.vhd Line: 54
-    Info (12023): Found entity 1: infrastructure File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/infrastructure.vhd Line: 36
+    Info (12022): Found design unit 1: infrastructure-str File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/infrastructure.vhd Line: 26
+    Info (12023): Found entity 1: infrastructure File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/infrastructure.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/i2s_master.vhd
-    Info (12022): Found design unit 1: i2s_master-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd Line: 57
-    Info (12023): Found entity 1: i2s_master File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd Line: 33
+    Info (12022): Found design unit 1: i2s_master-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd Line: 56
+    Info (12023): Found entity 1: i2s_master File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd Line: 32
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/i2s_decoder.vhd
-    Info (12022): Found design unit 1: i2s_decoder-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_decoder.vhd Line: 48
-    Info (12023): Found entity 1: i2s_decoder File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_decoder.vhd Line: 37
-Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/i2c_slave_bfm.vhd
-    Info (12022): Found design unit 1: i2c_slave_bfm-bfm File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2c_slave_bfm.vhd Line: 32
-    Info (12023): Found entity 1: i2c_slave_bfm File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2c_slave_bfm.vhd Line: 7
+    Info (12022): Found design unit 1: i2s_decoder-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_decoder.vhd Line: 46
+    Info (12023): Found entity 1: i2s_decoder File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_decoder.vhd Line: 35
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/i2c_master.vhd
-    Info (12022): Found design unit 1: i2c_master-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2c_master.vhd Line: 36
+    Info (12022): Found design unit 1: i2c_master-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2c_master.vhd Line: 40
     Info (12023): Found entity 1: i2c_master File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2c_master.vhd Line: 22
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/dds.vhd
-    Info (12022): Found design unit 1: DDS-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/dds.vhd Line: 46
-    Info (12023): Found entity 1: DDS File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/dds.vhd Line: 35
+    Info (12022): Found design unit 1: DDS-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/dds.vhd Line: 47
+    Info (12023): Found entity 1: DDS File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/dds.vhd Line: 34
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/codec_controller.vhd
-    Info (12022): Found design unit 1: codec_controller-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/codec_controller.vhd Line: 55
-    Info (12023): Found entity 1: codec_controller File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/codec_controller.vhd Line: 39
+    Info (12022): Found design unit 1: codec_controller-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/codec_controller.vhd Line: 54
+    Info (12023): Found entity 1: codec_controller File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/codec_controller.vhd Line: 37
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/bit_counter.vhd
-    Info (12022): Found design unit 1: bit_counter-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/bit_counter.vhd Line: 43
-    Info (12023): Found entity 1: bit_counter File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/bit_counter.vhd Line: 34
+    Info (12022): Found design unit 1: bit_counter-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/bit_counter.vhd Line: 41
+    Info (12023): Found entity 1: bit_counter File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/bit_counter.vhd Line: 33
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/bclk_gen.vhd
-    Info (12022): Found design unit 1: BCLK_GEN-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/BCLK_GEN.vhd Line: 45
-    Info (12023): Found entity 1: BCLK_GEN File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/BCLK_GEN.vhd Line: 34
+    Info (12022): Found design unit 1: BCLK_GEN-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/BCLK_GEN.vhd Line: 43
+    Info (12023): Found entity 1: BCLK_GEN File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/BCLK_GEN.vhd Line: 31
 Info (12127): Elaborating entity "synthi_top" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at synthi_top.vhd(66): object "gpio_26_sync_sig" assigned a value but never read File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 66
-Warning (10036): Verilog HDL or VHDL warning at synthi_top.vhd(74): object "mute_sig" assigned a value but never read File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 74
-Info (12128): Elaborating entity "infrastructure" for hierarchy "infrastructure:infrastructure_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 157
-Info (12128): Elaborating entity "synchronize" for hierarchy "infrastructure:infrastructure_1|synchronize:synchronize_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/infrastructure.vhd Line: 87
-Info (12128): Elaborating entity "synchronize" for hierarchy "infrastructure:infrastructure_1|synchronize:synchronize_2" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/infrastructure.vhd Line: 96
-Info (12128): Elaborating entity "synchronize" for hierarchy "infrastructure:infrastructure_1|synchronize:synchronize_3" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/infrastructure.vhd Line: 105
-Info (12128): Elaborating entity "modulo_divider" for hierarchy "infrastructure:infrastructure_1|modulo_divider:modulo_divider_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/infrastructure.vhd Line: 114
-Info (12128): Elaborating entity "codec_controller" for hierarchy "codec_controller:codec_controller_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 170
-Info (12128): Elaborating entity "i2c_master" for hierarchy "i2c_master:i2c_master_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 183
-Info (12128): Elaborating entity "path_control" for hierarchy "path_control:path_control_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 195
-Info (12128): Elaborating entity "i2s_master" for hierarchy "i2s_master:i2s_master_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 206
-Info (12128): Elaborating entity "BCLK_GEN" for hierarchy "i2s_master:i2s_master_1|BCLK_GEN:bckl_gen_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd Line: 126
-Info (12128): Elaborating entity "bit_counter" for hierarchy "i2s_master:i2s_master_1|bit_counter:bit_counter_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd Line: 133
-Info (12128): Elaborating entity "i2s_decoder" for hierarchy "i2s_master:i2s_master_1|i2s_decoder:i2s_decoder_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd Line: 142
-Info (12128): Elaborating entity "shiftreg_p2s" for hierarchy "i2s_master:i2s_master_1|shiftreg_p2s:shiftreg_p2s_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd Line: 151
-Info (12128): Elaborating entity "shiftreg_s2p" for hierarchy "i2s_master:i2s_master_1|shiftreg_s2p:shiftreg_s2p_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd Line: 177
-Info (13000): Registers with preset signals will power-up high File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2c_master.vhd Line: 293
+Warning (10036): Verilog HDL or VHDL warning at synthi_top.vhd(79): object "mute_o" assigned a value but never read File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 79
+Info (12128): Elaborating entity "infrastructure" for hierarchy "infrastructure:infrastructure_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 173
+Info (12128): Elaborating entity "synchronize" for hierarchy "infrastructure:infrastructure_1|synchronize:synchronize_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/infrastructure.vhd Line: 66
+Info (12128): Elaborating entity "synchronize" for hierarchy "infrastructure:infrastructure_1|synchronize:synchronize_2" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/infrastructure.vhd Line: 75
+Info (12128): Elaborating entity "synchronize" for hierarchy "infrastructure:infrastructure_1|synchronize:synchronize_3" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/infrastructure.vhd Line: 84
+Info (12128): Elaborating entity "modulo_divider" for hierarchy "infrastructure:infrastructure_1|modulo_divider:modulo_divider_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/infrastructure.vhd Line: 93
+Info (12128): Elaborating entity "codec_controller" for hierarchy "codec_controller:codec_controller_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 186
+Info (12128): Elaborating entity "i2c_master" for hierarchy "i2c_master:i2c_master_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 199
+Info (12128): Elaborating entity "path_control" for hierarchy "path_control:path_control_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 213
+Info (12128): Elaborating entity "i2s_master" for hierarchy "i2s_master:i2s_master_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 224
+Info (12128): Elaborating entity "BCLK_GEN" for hierarchy "i2s_master:i2s_master_1|BCLK_GEN:bckl_gen_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd Line: 119
+Info (12128): Elaborating entity "bit_counter" for hierarchy "i2s_master:i2s_master_1|bit_counter:bit_counter_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd Line: 126
+Info (12128): Elaborating entity "i2s_decoder" for hierarchy "i2s_master:i2s_master_1|i2s_decoder:i2s_decoder_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd Line: 135
+Info (12128): Elaborating entity "shiftreg_p2s" for hierarchy "i2s_master:i2s_master_1|shiftreg_p2s:shiftreg_p2s_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd Line: 144
+Info (12128): Elaborating entity "shiftreg_s2p" for hierarchy "i2s_master:i2s_master_1|shiftreg_s2p:shiftreg_s2p_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd Line: 170
+Info (12128): Elaborating entity "tone_generator" for hierarchy "tone_generator:tone_generator_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 241
+Info (12128): Elaborating entity "DDS" for hierarchy "tone_generator:tone_generator_1|DDS:DDS_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/tone_generator.vhd Line: 71
+Info (13000): Registers with preset signals will power-up high File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2c_master.vhd Line: 300
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 15 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "GPIO_26" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 36
-    Warning (15610): No output dependent on input pin "SW[4]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[5]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[6]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[7]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[8]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[9]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[10]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[11]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[12]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[13]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[14]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[15]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[16]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[17]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 38
-Info (21057): Implemented 250 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 8 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "GPIO_26" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[11]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 41
+    Warning (15610): No output dependent on input pin "SW[12]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 41
+    Warning (15610): No output dependent on input pin "SW[13]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 41
+    Warning (15610): No output dependent on input pin "SW[14]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 41
+    Warning (15610): No output dependent on input pin "SW[15]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 41
+    Warning (15610): No output dependent on input pin "SW[16]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 41
+    Warning (15610): No output dependent on input pin "SW[17]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 41
+Info (21057): Implemented 666 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 6 output pins
     Info (21060): Implemented 1 bidirectional pins
-    Info (21061): Implemented 220 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
-    Info: Peak virtual memory: 4830 megabytes
-    Info: Processing ended: Thu Jun 13 22:24:41 2019
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:30
+    Info (21061): Implemented 636 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
+    Info: Peak virtual memory: 4843 megabytes
+    Info: Processing ended: Fri Jun 14 19:20:28 2019
+    Info: Elapsed time: 00:00:47
+    Info: Total CPU time (on all processors): 00:00:57
 
 

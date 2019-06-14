@@ -1,41 +1,37 @@
 -------------------------------------------------------------------------------
 -- Title      : path_control
--- Project    : fpga_synth
+-- Project    : syntProject_group10
 -------------------------------------------------------------------------------
 -- File       : path_control.vhd
--- Author     : Gelke / Heinzen
+-- Author     : Heinzen
 -- Company    : 
 -- Created    : 2019-03-28
--- Last update: 2019-05-22
+-- Last update: 2019-05-18
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
 -- Description: MUX to choose from 2 parallel signals
 -------------------------------------------------------------------------------
--- Copyright (c) 2019 
+-- Copyright (c) 2018 
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author          Description
 -- 2018-03-01  1.0      Gelke           Created
--- 2019-03-28  1.1      Heinzen         added MUX
--- 2019-05-18  1.1      Rutishauser     debugged
--- 2019-05-23  1.1      Heinzen         nomenclatura / debugging
+-- 2018-03-28  1.1      Heinzen         added MUX
+-- 2018-05-18  1.1      Rutishauser     debugged
+
 -------------------------------------------------------------------------------
 
----------------------------------------
--- libraries
----------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 
----------------------------------------
--- entity declaration
----------------------------------------
+
 entity path_control is
-  port(sw_i     : in  std_logic;     -- path selection
+  port(sw_sync     : in  std_logic;     -- path selection
        -- Audio data generated inside FPGA
-       --dds_l_i     : in  std_logic_vector(15 downto 0);  --Input from synthesizer
-       --dds_r_i     : in  std_logic_vector(15 downto 0);
+       dds_l_i     : in  std_logic_vector(15 downto 0);  --Input from synthesizer
+       dds_r_i     : in  std_logic_vector(15 downto 0);
        -- Audio data coming from codec
        adcdat_pl_i : in  std_logic_vector(15 downto 0);  --Input  i2s_master
        adcdat_pr_i : in  std_logic_vector(15 downto 0);
@@ -45,29 +41,27 @@ entity path_control is
        );
 end path_control;
 
----------------------------------------
--- architecture declaration
----------------------------------------
+
 architecture comb of path_control is
+
+
 
 begin
 
----------------------------------------
--- Multiplexer Path control
----------------------------------------
   mux : process (all)
   begin
     -- mux switch between dds input LOW and feedback loop HIGH
-    if sw_i = '0' then
-      dacdat_pl_o <= (others => '0');
-	  --dds_l_i;
-      dacdat_pr_o <= (others => '0');
-	  --dds_r_i;
+
+    if sw_sync = '0' then
+      dacdat_pl_o <= dds_l_i;
+      dacdat_pr_o <= dds_r_i;
     else
       dacdat_pl_o <= adcdat_pl_i;
       dacdat_pr_o <= adcdat_pr_i;
     end if;
+
   end process mux;
 
 
-end architecture comb;
+end comb;
+

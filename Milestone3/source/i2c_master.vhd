@@ -21,16 +21,20 @@ library ieee;
 
 entity i2c_master is
         port(
-            clk_i         : in    std_logic;
-            reset_n_i     : in    std_logic;
+            clk         : in    std_logic;
+            reset_n     : in    std_logic;
+
             write_i     : in    std_logic;
 			write_data_i: in	std_logic_vector(15 downto 0);
+			
 			sda_io		: inout	std_logic;
 			scl_o		: out   std_logic;
+			
 			write_done_o: out	std_logic;
 			ack_error_o	: out	std_logic
         );
 end entity;
+
 
 -- begin of Architecture
 architecture rtl of i2c_master is
@@ -91,6 +95,8 @@ signal write_done, next_write_done     		: std_logic;
 -- Begin Architecture
 -------------------------------------------------------------------------------
 begin
+
+
 	-------------------------------------------------------------------------------
 	-- Process for combinational logic
 	-------------------------------------------------------------------------------
@@ -101,6 +107,7 @@ begin
 		variable edge_check     : std_logic_vector(1 downto 0);  -- re-check scl-clock-gen later for possible simplification
 
     begin
+
         -----------------------------------------------------------------------
         -- Default Statement, mostly keep current value
         -----------------------------------------------------------------------
@@ -288,9 +295,9 @@ begin
 	-------------------------------------------------------------------------------
 	-- Process for clocked logic (FFs)
 	-------------------------------------------------------------------------------
-    clk_proc: process(clk_i, reset_n_i)
+    clk_proc: process(clk, reset_n)
     begin
-        if reset_n_i = '0' then
+        if reset_n = '0' then
             -- Reset Register (Asynchronous)
             fsm_state       <= S_IDLE;
     		clk_divider     <= (others => '0');
@@ -305,7 +312,7 @@ begin
     		ack_error       <= '0'; 
             write_done      <= '0'; 
             
-        elsif rising_edge(clk_i) then
+        elsif rising_edge(clk) then
             fsm_state       <= next_fsm_state;     
     		clk_divider     <= next_clk_divider;   
     		clk_mask        <= next_clk_mask;      

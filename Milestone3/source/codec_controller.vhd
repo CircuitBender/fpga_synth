@@ -21,27 +21,26 @@
 -- 2019-03-22  1.2      Heinzen   minor changes
 -- 2019-03-28  1.2      Heinzen   comments added
 -- 2019-03-28  1.2      Heinzen   comments changed
--- 2019-05-12  1.3      Heinzen   ack_error_i feature added 
--- 2019-05-23  1.4		Heinzen	  nomenclatura
+-- 2019-03-22  1.3      Heinzen   ack_error_i feature added 
 -------------------------------------------------------------------------------
 
--------------------------------------------
+
 --Library & Use Statements
--------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all; -- Standard Library
 use ieee.numeric_std.all; -- Standard Library
 use work.reg_table_pkg.all; -- Import registry tables for different Audio Setups
+-------------------------------------------------------------------------------
 
--------------------------------------------
 -- Entity Declaration 
 -------------------------------------------
 entity codec_controller is
-  port(clk_i, reset_n_i : in std_logic; -- clock signal input , reset signal input
+  port(clk, reset_n : in std_logic; -- clock signal input , reset signal input
        sw_sync_i    : in std_logic_vector(2 downto 0);   -- 3bit vector for 3 input switches to control the fsm
        initialize_i : in std_logic; 
        write_done_i : in std_logic; -- write done signal input
        ack_error_i  : in std_logic; -- acknoledgment bit error  signal input
+
        --outputs: 
        write_data_o : out std_logic_vector(15 downto 0); -- write parallel data output
        write_o      : out std_logic; -- write out signal 
@@ -49,14 +48,14 @@ entity codec_controller is
        );
 end codec_controller;
 
--------------------------------------------
+
 -- Architecture Declaration?
 -------------------------------------------
 architecture rtl of codec_controller is
 
--------------------------------------------
 -- Signals & Constants Declaration
 -------------------------------------------
+
   signal count, next_count : integer range 0 to 9; -- internal signal count , next count
   signal write_done_o      : std_logic; -- output signal write done output
   signal ack_error_o       : std_logic; --- output signal acknowledgement error output
@@ -85,35 +84,27 @@ begin
  write_o <= '0'; -- default for write out bit '0'
 
     case fsm_reg is --- case statement for fsm 
-	-------------------------------------------
-	-- Idle State
-	-------------------------------------------
       when state_idle => -- idle state definition
         if initialize_i = '0' then -- one cycle start_write state
           next_fsm_reg <= state_start_write; 
         else
           next_fsm_reg <= fsm_reg; -- default, idle state / stay at actual state
         end if;
-		
-	-------------------------------------------
-	-- start write state
-	-------------------------------------------
+
       when state_start_write => 
         write_o <= '1'; -- write output signal HIGH
         if write_done_i = '0' then -- wait while transmitting data
           next_fsm_reg <= state_wait;
         else
           next_fsm_reg <= fsm_reg; -- default, idle state / stay at actual state
-        end if;
 
-	-------------------------------------------
-	-- Wait State
-	-------------------------------------------		
-	-- prestatement:
+        end if;
+		
+   -- prestatement:
 	-- wait_state waits until the write_done_i input signal acknowledges the output of data and switches 
 	-- AND if the counter exceeds 8 counts the transmission is done and the fsm switches to idle
 	-- if the fsm receives an acknowldgement error  the fsm switches back to idle for next try to transmit
-	-------------------------------------------   
+    
       when state_wait => 
         if write_done_i = '1' then
           if count < 9 then
@@ -130,31 +121,29 @@ begin
     end case;
   end process codec_controller_fsm;
 
+
+
 --------------------------------------------------
 -- PROCESS FOR REGISTERS
 --------------------------------------------------
--- flip flop shoft registers  
--- prestatement reset_n LOW resets the fsm to idle and counter to 0
+  -- flip flop shoft registers  
+  -- prestatement reset_n LOW resets the fsm to idle and counter to 0
 -- if the fsm receives an acknowldgement error  the fsm switches back to idle for next try to transmit
--------------------------------------------
+
   flip_flops : process(all)
   begin
-    if reset_n_i = '0' or ack_error_i = '1' then
+    if reset_n = '0' or ack_error_i = '1' then
       count   <= 0;  
       fsm_reg <= state_idle;
-    elsif rising_edge(clk_i) then  -- shifting states on rising edge
+    elsif rising_edge(clk) then  -- shifting states on rising edge
       count   <= next_count; -- shift count register
       fsm_reg <= next_fsm_reg; -- shift fsm  register
     end if;
   end process flip_flops;
 
--------------------------------------------
--- counter
--------------------------------------------
  -- prestatement counter register:
  -- transmission has to be acknowledged by write_done_i
  -- while in white state counter counts up from 0 to 8 (for the different adresses in the array) after 8 counter is reset to 0
- -------------------------------------------
    counter : process(all)
   begin
     if write_done_i = '1' and fsm_reg = state_wait then
@@ -168,9 +157,9 @@ begin
     end if;
   end process counter;
 
--------------------------------------------
+  
   -- Process for sending data to I2C
--------------------------------------------
+
   muxer : process(all)
   begin
     --default statement
@@ -178,12 +167,14 @@ begin
     mute_o       <= '1';
 	 --case for switching between different commands(from reg.table_pkg)
 	 -- convert count from unsigned to std_logic for array 
+
     case sw_sync_i is
     when "001"  => write_data_o <= "000" & std_logic_vector(to_unsigned(count, 4)) & C_W8731_ANALOG_BYPASS(count); -- setup for analog bypass
       when "011"  => write_data_o <= "000" & std_logic_vector(to_unsigned(count, 4)) & C_W8731_ANALOG_MUTE_RIGHT(count); -- setup for right mute
       when "101"  => write_data_o <= "000" & std_logic_vector(to_unsigned(count, 4)) & C_W8731_ANALOG_MUTE_LEFT(count); -- setup for left mute
       when "111"  => write_data_o <= "000" & std_logic_vector(to_unsigned(count, 4)) & C_W8731_ANALOG_MUTE_BOTH(count); -- setup for mute (both)
       when others => write_data_o <= "000" & std_logic_vector(to_unsigned(count, 4)) & C_W8731_ADC_DAC_0DB_48K(count); -- default setup
+
     end case;
   end process muxer;
 
@@ -192,7 +183,8 @@ begin
 -------------------------------------------------
 -- none 
 
--------------------------------------------
 -- End Architecture 
 ------------------------------------------- 
+
 end rtl;
+

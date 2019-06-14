@@ -1,38 +1,10 @@
--------------------------------------------------------------------------------
--- Title      : infrastructure
--- Project    : fpga_synth
--------------------------------------------------------------------------------
--- File       : infrastructure.vhd
--- Author     : Heinzen / Schawan
--- Company    : ZHAW
--- Created    : 2019-03-23
--- Last update: 2019-05-22
--- Platform   : Windows 10
--- Standard   : VHDL'08
--------------------------------------------------------------------------------
--- Description: Controls load and shift event of following P2S and S2P blocks
--------------------------------------------------------------------------------
--- Copyright (c) 2019
--------------------------------------------------------------------------------
--- Revisions  :
--- Date        Version  Author          Description
--- 2019-03-23  1.0      Heinzen         created
--- 2019-03-26  1.1      Heinzen         changed shift direction 
--- 2019-04-28  1.1      Heinzen         added comments
--- 18.05.2019  1.2      Rutishauser     Debugging
--- 2019-05-22  1.2      Heinzen         nomenclatura
 
--------------------------------------------------------------------------------
----------------------------------------
--- Libraries
----------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 -------------------------------------------------------------------------------
--- Entity Declaration
----------------------------------------
+
 entity infrastructure is
 
   port (
@@ -56,40 +28,47 @@ architecture str of infrastructure is
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
+
   signal reset_n_temp : std_logic;
   signal clk_12m_sig  : std_logic;
-  signal key_sync_sig :std_logic_vector (1 downto 0);  
-     
+  signal key_sync_sig :std_logic_vector (1 downto 0);
+  signal g26_i :std_logic;
+  signal g26_o :std_logic;
+
   -----------------------------------------------------------------------------
   -- Component declarations
   -----------------------------------------------------------------------------
+
   component synchronize is
     generic (
       width : positive);
     port (
       signal_i : in  std_logic_vector(width-1 downto 0);
-      clk_i    : in  std_logic;
+      clk_12m    : in  std_logic;
       signal_o : out std_logic_vector(width-1 downto 0));
   end component synchronize;
 
   component modulo_divider is
     generic (width : positive);
     port (
-      clk_i, reset_n_i : in  std_logic;
-      clk_o        : out std_logic);
+      clk, reset_n : in  std_logic;
+      clk_12m        : out std_logic);
   end component modulo_divider;
 
+
 begin  -- architecture str
+
   -----------------------------------------------------------------------------
   -- Component instantiations
   -----------------------------------------------------------------------------
+
   -- instance "synchronize_1"
   synchronize_1 : synchronize
     generic map (
       width => 2)
     port map (
       signal_i => KEY,
-      clk_i    => clk_12m_sig,
+      clk_12m    => clk_12m_sig,
       signal_o => key_sync_sig);
 
   -- instance "synchronize_2"
@@ -98,7 +77,7 @@ begin  -- architecture str
       width => 18)
     port map (
       signal_i => SW,
-      clk_i   => clk_12m_sig,
+      clk_12m   => clk_12m_sig,
       signal_o => sw_sync_o);
 
   -- instance "synchronize_3"
@@ -107,7 +86,7 @@ begin  -- architecture str
       width => 1)
     port map (
       signal_i(0) => GPIO_26,
-      clk_i       => clk_12m_sig,
+      clk_12m       => clk_12m_sig,
       signal_o(0) => gpio_26_sync_o);
 
   -- instance "modulo_divider_1"
@@ -115,13 +94,11 @@ begin  -- architecture str
     generic map (
       width => 2)
     port map (
-      clk_i     => CLOCK_50,
-      reset_n_i => '1',
-      clk_o => clk_12m_sig);
+      clk     => CLOCK_50,
+      reset_n => '1',
+      clk_12m => clk_12m_sig);
 
----------------------------------------
--- concurrent assignments
----------------------------------------
+		--zuweisung
   reset_n_o <= key_sync_sig(0);
   key_sync_o <= key_sync_sig(1);
   clk_12m_o <= clk_12m_sig;

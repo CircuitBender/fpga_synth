@@ -4,7 +4,7 @@
 do ../compile.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:16 on Jun 14,2019
+# Start time: 19:22:46 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../support/simulation_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -14,10 +14,10 @@ do ../compile.do
 # -- Compiling package simulation_pkg
 # -- Compiling package body simulation_pkg
 # -- Loading package simulation_pkg
-# End time: 16:20:17 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:22:46 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:17 on Jun 14,2019
+# Start time: 19:22:46 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../support/standard_driver_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -28,10 +28,10 @@ do ../compile.do
 # -- Compiling package standard_driver_pkg
 # -- Compiling package body standard_driver_pkg
 # -- Loading package standard_driver_pkg
-# End time: 16:20:17 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:22:46 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:17 on Jun 14,2019
+# Start time: 19:22:47 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../support/user_driver_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -42,29 +42,29 @@ do ../compile.do
 # -- Compiling package user_driver_pkg
 # -- Compiling package body user_driver_pkg
 # -- Loading package user_driver_pkg
-# End time: 16:20:17 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:22:47 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:17 on Jun 14,2019
+# Start time: 19:22:47 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/reg_table_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package reg_table_pkg
-# End time: 16:20:17 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:22:47 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:18 on Jun 14,2019
+# Start time: 19:22:47 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_gen_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling package tone_gen_pkg
-# End time: 16:20:18 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:22:48 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:18 on Jun 14,2019
+# Start time: 19:22:48 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/BCLK_GEN.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -72,10 +72,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity BCLK_GEN
 # -- Compiling architecture rtl of BCLK_GEN
-# End time: 16:20:19 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:22:48 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:19 on Jun 14,2019
+# Start time: 19:22:48 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/bit_counter.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -83,10 +83,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity bit_counter
 # -- Compiling architecture rtl of bit_counter
-# End time: 16:20:19 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:22:48 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:19 on Jun 14,2019
+# Start time: 19:22:48 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/codec_controller.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -95,10 +95,10 @@ do ../compile.do
 # -- Loading package reg_table_pkg
 # -- Compiling entity codec_controller
 # -- Compiling architecture rtl of codec_controller
-# End time: 16:20:20 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:22:49 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:20 on Jun 14,2019
+# Start time: 19:22:50 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_master.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -106,10 +106,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity i2c_master
 # -- Compiling architecture rtl of i2c_master
-# End time: 16:20:20 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:22:50 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:20 on Jun 14,2019
+# Start time: 19:22:50 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_slave_bfm.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -117,10 +117,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity i2c_slave_bfm
 # -- Compiling architecture bfm of i2c_slave_bfm
-# End time: 16:20:20 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:22:50 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:21 on Jun 14,2019
+# Start time: 19:22:50 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_decoder.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -128,10 +128,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity i2s_decoder
 # -- Compiling architecture rtl of i2s_decoder
-# End time: 16:20:21 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:22:51 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:21 on Jun 14,2019
+# Start time: 19:22:51 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_master.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -139,10 +139,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity i2s_master
 # -- Compiling architecture rtl of i2s_master
-# End time: 16:20:21 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:22:51 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:21 on Jun 14,2019
+# Start time: 19:22:51 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/infrastructure.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -150,10 +150,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity infrastructure
 # -- Compiling architecture str of infrastructure
-# End time: 16:20:22 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:22:51 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:22 on Jun 14,2019
+# Start time: 19:22:51 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/modulo_divider.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -161,20 +161,20 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity modulo_divider
 # -- Compiling architecture rtl of modulo_divider
-# End time: 16:20:22 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:22:52 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:22 on Jun 14,2019
+# Start time: 19:22:53 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/path_control.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity path_control
 # -- Compiling architecture comb of path_control
-# End time: 16:20:23 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:22:53 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:23 on Jun 14,2019
+# Start time: 19:22:53 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_p2s.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -182,10 +182,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity shiftreg_p2s
 # -- Compiling architecture rtl of shiftreg_p2s
-# End time: 16:20:23 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:22:53 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:23 on Jun 14,2019
+# Start time: 19:22:53 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_s2p.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -193,20 +193,20 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity shiftreg_s2p
 # -- Compiling architecture rtl of shiftreg_s2p
-# End time: 16:20:24 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:22:54 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:24 on Jun 14,2019
+# Start time: 19:22:54 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synchronize.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity synchronize
 # -- Compiling architecture rtl of synchronize
-# End time: 16:20:24 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:22:54 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:24 on Jun 14,2019
+# Start time: 19:22:54 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/dds.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -215,10 +215,10 @@ do ../compile.do
 # -- Loading package tone_gen_pkg
 # -- Compiling entity DDS
 # -- Compiling architecture rtl of DDS
-# End time: 16:20:24 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:22:55 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:25 on Jun 14,2019
+# Start time: 19:22:55 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_generator.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -229,22 +229,25 @@ do ../compile.do
 # -- Loading package tone_gen_pkg
 # -- Compiling entity tone_generator
 # -- Compiling architecture struct of tone_generator
-# End time: 16:20:26 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:22:55 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:26 on Jun 14,2019
+# Start time: 19:22:55 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Loading package reg_table_pkg
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package tone_gen_pkg
 # -- Compiling entity synthi_top
 # -- Compiling architecture rtl of synthi_top
-# End time: 16:20:26 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:22:55 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:20:26 on Jun 14,2019
+# Start time: 19:22:55 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -255,10 +258,297 @@ do ../compile.do
 # -- Loading package standard_driver_pkg
 # -- Loading package user_driver_pkg
 # -- Loading package reg_table_pkg
+# -- Compiling entity synthi_top_tb
+# -- Compiling architecture struct of synthi_top_tb
+# End time: 19:22:56 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vsim -novopt -t 1ns -lib work work.synthi_top_tb 
+# Start time: 19:22:58 on Jun 14,2019
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.simulation_pkg(body)
+# Loading work.standard_driver_pkg(body)
+# Loading work.user_driver_pkg(body)
+# Loading work.reg_table_pkg
+# Loading work.synthi_top_tb(struct)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.tone_gen_pkg
+# Loading work.synthi_top(rtl)
+# ** Fatal: (vsim-3348) Port length (2) does not match actual length (4) for port "/synthi_top_tb/DUT/KEY".
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT File: ../../../source/synthi_top.vhd Line: 40
+# FATAL ERROR while loading design
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./../compile.do PAUSED at line 30
+do ../compile.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:25 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/simulation_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling package simulation_pkg
+# -- Compiling package body simulation_pkg
+# -- Loading package simulation_pkg
+# End time: 19:24:25 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:25 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/standard_driver_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Compiling package standard_driver_pkg
+# -- Compiling package body standard_driver_pkg
+# -- Loading package standard_driver_pkg
+# End time: 19:24:25 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:26 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/user_driver_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Compiling package user_driver_pkg
+# -- Compiling package body user_driver_pkg
+# -- Loading package user_driver_pkg
+# End time: 19:24:26 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:26 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/reg_table_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package reg_table_pkg
+# End time: 19:24:27 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:28 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_gen_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package tone_gen_pkg
+# End time: 19:24:28 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:28 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/BCLK_GEN.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity BCLK_GEN
+# -- Compiling architecture rtl of BCLK_GEN
+# End time: 19:24:28 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:28 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/bit_counter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity bit_counter
+# -- Compiling architecture rtl of bit_counter
+# End time: 19:24:29 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:29 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/codec_controller.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package reg_table_pkg
+# -- Compiling entity codec_controller
+# -- Compiling architecture rtl of codec_controller
+# End time: 19:24:29 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:29 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_master.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2c_master
+# -- Compiling architecture rtl of i2c_master
+# End time: 19:24:29 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:29 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_slave_bfm.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2c_slave_bfm
+# -- Compiling architecture bfm of i2c_slave_bfm
+# End time: 19:24:31 on Jun 14,2019, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:31 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_decoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2s_decoder
+# -- Compiling architecture rtl of i2s_decoder
+# End time: 19:24:31 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:31 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_master.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2s_master
+# -- Compiling architecture rtl of i2s_master
+# End time: 19:24:31 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:31 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/infrastructure.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity infrastructure
+# -- Compiling architecture str of infrastructure
+# End time: 19:24:32 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:32 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/modulo_divider.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity modulo_divider
+# -- Compiling architecture rtl of modulo_divider
+# End time: 19:24:32 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:33 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/path_control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity path_control
+# -- Compiling architecture comb of path_control
+# End time: 19:24:33 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:33 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_p2s.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shiftreg_p2s
+# -- Compiling architecture rtl of shiftreg_p2s
+# End time: 19:24:34 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:35 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_s2p.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shiftreg_s2p
+# -- Compiling architecture rtl of shiftreg_s2p
+# End time: 19:24:35 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:35 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synchronize.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity synchronize
+# -- Compiling architecture rtl of synchronize
+# End time: 19:24:35 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:36 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/dds.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
 # -- Loading package tone_gen_pkg
-# ** Error: ../../../source/synthi_top_tb.vhd(36): near "entity": (vcom-1576) expecting '[' or '.' or '(' or '\''.
-# End time: 16:20:26 on Jun 14,2019, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
+# -- Compiling entity DDS
+# -- Compiling architecture rtl of DDS
+# End time: 19:24:36 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:36 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_generator.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package tone_gen_pkg
+# -- Compiling entity tone_generator
+# -- Compiling architecture struct of tone_generator
+# End time: 19:24:36 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:36 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package reg_table_pkg
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package tone_gen_pkg
+# -- Compiling entity synthi_top
+# -- Compiling architecture rtl of synthi_top
+# End time: 19:24:37 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:24:37 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Loading package standard_driver_pkg
+# -- Loading package user_driver_pkg
+# -- Loading package reg_table_pkg
+# -- Compiling entity synthi_top_tb
+# -- Compiling architecture struct of synthi_top_tb
+# ** Error (suppressible): ../../../source/synthi_top_tb.vhd(113): (vcom-1272) Length of formal "KEY" is 2; length of actual is 4.
+# ** Error (suppressible): ../../../source/synthi_top_tb.vhd(263): (vcom-1272) Length of formal "KEY" is 2; length of actual is 4.
+# ** Error: ../../../source/synthi_top_tb.vhd(278): VHDL Compiler exiting
+# End time: 19:24:38 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 3, Warnings: 0
 # ** Error: C:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/vcom failed.
 # Error in macro ./../compile.do line 27
 # C:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/vcom failed.
@@ -267,7 +557,7 @@ do ../compile.do
 do ../compile.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:02 on Jun 14,2019
+# Start time: 19:25:10 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../support/simulation_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -277,10 +567,10 @@ do ../compile.do
 # -- Compiling package simulation_pkg
 # -- Compiling package body simulation_pkg
 # -- Loading package simulation_pkg
-# End time: 16:21:02 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:25:10 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:03 on Jun 14,2019
+# Start time: 19:25:10 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../support/standard_driver_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -291,10 +581,10 @@ do ../compile.do
 # -- Compiling package standard_driver_pkg
 # -- Compiling package body standard_driver_pkg
 # -- Loading package standard_driver_pkg
-# End time: 16:21:03 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:25:10 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:03 on Jun 14,2019
+# Start time: 19:25:11 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../support/user_driver_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -305,29 +595,29 @@ do ../compile.do
 # -- Compiling package user_driver_pkg
 # -- Compiling package body user_driver_pkg
 # -- Loading package user_driver_pkg
-# End time: 16:21:03 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:25:11 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:03 on Jun 14,2019
+# Start time: 19:25:12 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/reg_table_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package reg_table_pkg
-# End time: 16:21:04 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:25:12 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:04 on Jun 14,2019
+# Start time: 19:25:12 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_gen_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling package tone_gen_pkg
-# End time: 16:21:04 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:25:13 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:06 on Jun 14,2019
+# Start time: 19:25:13 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/BCLK_GEN.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -335,10 +625,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity BCLK_GEN
 # -- Compiling architecture rtl of BCLK_GEN
-# End time: 16:21:06 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:25:13 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:06 on Jun 14,2019
+# Start time: 19:25:13 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/bit_counter.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -346,10 +636,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity bit_counter
 # -- Compiling architecture rtl of bit_counter
-# End time: 16:21:06 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:25:13 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:07 on Jun 14,2019
+# Start time: 19:25:14 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/codec_controller.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -358,10 +648,10 @@ do ../compile.do
 # -- Loading package reg_table_pkg
 # -- Compiling entity codec_controller
 # -- Compiling architecture rtl of codec_controller
-# End time: 16:21:07 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:25:14 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:07 on Jun 14,2019
+# Start time: 19:25:14 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_master.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -369,10 +659,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity i2c_master
 # -- Compiling architecture rtl of i2c_master
-# End time: 16:21:08 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:25:14 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:09 on Jun 14,2019
+# Start time: 19:25:15 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_slave_bfm.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -380,10 +670,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity i2c_slave_bfm
 # -- Compiling architecture bfm of i2c_slave_bfm
-# End time: 16:21:09 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:25:15 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:09 on Jun 14,2019
+# Start time: 19:25:15 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_decoder.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -391,10 +681,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity i2s_decoder
 # -- Compiling architecture rtl of i2s_decoder
-# End time: 16:21:09 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:25:16 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:09 on Jun 14,2019
+# Start time: 19:25:16 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_master.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -402,10 +692,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity i2s_master
 # -- Compiling architecture rtl of i2s_master
-# End time: 16:21:10 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:25:16 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:10 on Jun 14,2019
+# Start time: 19:25:16 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/infrastructure.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -413,10 +703,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity infrastructure
 # -- Compiling architecture str of infrastructure
-# End time: 16:21:11 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:25:16 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:11 on Jun 14,2019
+# Start time: 19:25:16 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/modulo_divider.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -424,20 +714,20 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity modulo_divider
 # -- Compiling architecture rtl of modulo_divider
-# End time: 16:21:11 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:25:17 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:11 on Jun 14,2019
+# Start time: 19:25:17 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/path_control.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity path_control
 # -- Compiling architecture comb of path_control
-# End time: 16:21:12 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:25:17 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:13 on Jun 14,2019
+# Start time: 19:25:17 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_p2s.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -445,10 +735,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity shiftreg_p2s
 # -- Compiling architecture rtl of shiftreg_p2s
-# End time: 16:21:13 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:25:18 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:14 on Jun 14,2019
+# Start time: 19:25:19 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_s2p.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -456,20 +746,20 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity shiftreg_s2p
 # -- Compiling architecture rtl of shiftreg_s2p
-# End time: 16:21:15 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:25:19 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:15 on Jun 14,2019
+# Start time: 19:25:19 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synchronize.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity synchronize
 # -- Compiling architecture rtl of synchronize
-# End time: 16:21:16 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:25:19 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:16 on Jun 14,2019
+# Start time: 19:25:19 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/dds.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -478,10 +768,10 @@ do ../compile.do
 # -- Loading package tone_gen_pkg
 # -- Compiling entity DDS
 # -- Compiling architecture rtl of DDS
-# End time: 16:21:17 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:25:20 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:17 on Jun 14,2019
+# Start time: 19:25:20 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_generator.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -492,22 +782,25 @@ do ../compile.do
 # -- Loading package tone_gen_pkg
 # -- Compiling entity tone_generator
 # -- Compiling architecture struct of tone_generator
-# End time: 16:21:17 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:25:21 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:18 on Jun 14,2019
+# Start time: 19:25:21 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Loading package reg_table_pkg
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package tone_gen_pkg
 # -- Compiling entity synthi_top
 # -- Compiling architecture rtl of synthi_top
-# End time: 16:21:19 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:25:21 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:21:19 on Jun 14,2019
+# Start time: 19:25:21 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -518,13 +811,12 @@ do ../compile.do
 # -- Loading package standard_driver_pkg
 # -- Loading package user_driver_pkg
 # -- Loading package reg_table_pkg
-# -- Loading package tone_gen_pkg
 # -- Compiling entity synthi_top_tb
 # -- Compiling architecture struct of synthi_top_tb
-# End time: 16:21:20 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:25:21 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -novopt -t 1ns -lib work work.synthi_top_tb 
-# Start time: 16:21:20 on Jun 14,2019
+# Start time: 19:22:58 on Jun 14,2019
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -534,8 +826,10 @@ do ../compile.do
 # Loading work.standard_driver_pkg(body)
 # Loading work.user_driver_pkg(body)
 # Loading work.reg_table_pkg
-# Loading work.tone_gen_pkg
 # Loading work.synthi_top_tb(struct)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.tone_gen_pkg
 # Loading work.synthi_top(rtl)
 # Loading work.infrastructure(str)
 # Loading work.synchronize(rtl)
@@ -549,310 +843,34 @@ do ../compile.do
 # Loading work.i2s_decoder(rtl)
 # Loading work.shiftreg_p2s(rtl)
 # Loading work.shiftreg_s2p(rtl)
+# Loading work.tone_generator(struct)
+# Loading work.dds(rtl)
 # Loading work.i2c_slave_bfm(bfm)
 # WARNING: No extended dataflow license exists
-# LOGIC HAS BEEN RESET FOR 400 ns
-# LOGIC HAS BEEN RESET FOR 400 ns
-# ** Failure: Unknown Command
-#    Time: 800 ns  Iteration: 0  Process: /synthi_top_tb/readcmd File: ../../../source/synthi_top_tb.vhd
-# Break in Process readcmd at ../../../source/synthi_top_tb.vhd line 209
-do ../compile.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:49 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../support/simulation_pkg.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package ENV
-# -- Compiling package simulation_pkg
-# -- Compiling package body simulation_pkg
-# -- Loading package simulation_pkg
-# End time: 16:22:49 on Jun 14,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:49 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../support/standard_driver_pkg.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package ENV
-# -- Loading package simulation_pkg
-# -- Compiling package standard_driver_pkg
-# -- Compiling package body standard_driver_pkg
-# -- Loading package standard_driver_pkg
-# End time: 16:22:50 on Jun 14,2019, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:50 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../support/user_driver_pkg.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package ENV
-# -- Loading package simulation_pkg
-# -- Compiling package user_driver_pkg
-# -- Compiling package body user_driver_pkg
-# -- Loading package user_driver_pkg
-# End time: 16:22:50 on Jun 14,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:50 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/reg_table_pkg.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling package reg_table_pkg
-# End time: 16:22:51 on Jun 14,2019, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:51 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_gen_pkg.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling package tone_gen_pkg
-# End time: 16:22:51 on Jun 14,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:51 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/BCLK_GEN.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity BCLK_GEN
-# -- Compiling architecture rtl of BCLK_GEN
-# End time: 16:22:52 on Jun 14,2019, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:52 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/bit_counter.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity bit_counter
-# -- Compiling architecture rtl of bit_counter
-# End time: 16:22:52 on Jun 14,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:52 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/codec_controller.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package reg_table_pkg
-# -- Compiling entity codec_controller
-# -- Compiling architecture rtl of codec_controller
-# End time: 16:22:53 on Jun 14,2019, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:53 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_master.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity i2c_master
-# -- Compiling architecture rtl of i2c_master
-# End time: 16:22:53 on Jun 14,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:53 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_slave_bfm.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity i2c_slave_bfm
-# -- Compiling architecture bfm of i2c_slave_bfm
-# End time: 16:22:54 on Jun 14,2019, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:54 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_decoder.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity i2s_decoder
-# -- Compiling architecture rtl of i2s_decoder
-# End time: 16:22:54 on Jun 14,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:54 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_master.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity i2s_master
-# -- Compiling architecture rtl of i2s_master
-# End time: 16:22:54 on Jun 14,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:55 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/infrastructure.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity infrastructure
-# -- Compiling architecture str of infrastructure
-# End time: 16:22:55 on Jun 14,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:55 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/modulo_divider.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity modulo_divider
-# -- Compiling architecture rtl of modulo_divider
-# End time: 16:22:55 on Jun 14,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:55 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/path_control.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity path_control
-# -- Compiling architecture comb of path_control
-# End time: 16:22:56 on Jun 14,2019, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:56 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_p2s.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity shiftreg_p2s
-# -- Compiling architecture rtl of shiftreg_p2s
-# End time: 16:22:56 on Jun 14,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:56 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_s2p.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity shiftreg_s2p
-# -- Compiling architecture rtl of shiftreg_s2p
-# End time: 16:22:57 on Jun 14,2019, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:57 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synchronize.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity synchronize
-# -- Compiling architecture rtl of synchronize
-# End time: 16:22:57 on Jun 14,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:57 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/dds.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package tone_gen_pkg
-# -- Compiling entity DDS
-# -- Compiling architecture rtl of DDS
-# End time: 16:22:58 on Jun 14,2019, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:58 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_generator.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package std_logic_arith
-# -- Loading package STD_LOGIC_UNSIGNED
-# -- Loading package tone_gen_pkg
-# -- Compiling entity tone_generator
-# -- Compiling architecture struct of tone_generator
-# End time: 16:22:58 on Jun 14,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:58 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package reg_table_pkg
-# -- Compiling entity synthi_top
-# -- Compiling architecture rtl of synthi_top
-# End time: 16:22:59 on Jun 14,2019, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:22:59 on Jun 14,2019
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top_tb.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package ENV
-# -- Loading package simulation_pkg
-# -- Loading package standard_driver_pkg
-# -- Loading package user_driver_pkg
-# -- Loading package reg_table_pkg
-# -- Loading package tone_gen_pkg
-# -- Compiling entity synthi_top_tb
-# -- Compiling architecture struct of synthi_top_tb
-# End time: 16:23:00 on Jun 14,2019, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# End time: 16:23:10 on Jun 14,2019, Elapsed time: 0:01:50
-# Errors: 0, Warnings: 1
-# vsim -novopt -t 1ns -lib work work.synthi_top_tb 
-# Start time: 16:23:10 on Jun 14,2019
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading std.env(body)
-# Loading work.simulation_pkg(body)
-# Loading work.standard_driver_pkg(body)
-# Loading work.user_driver_pkg(body)
-# Loading work.reg_table_pkg
-# Loading work.tone_gen_pkg
-# Loading work.synthi_top_tb(struct)
-# Loading work.synthi_top(rtl)
-# Loading work.infrastructure(str)
-# Loading work.synchronize(rtl)
-# Loading work.modulo_divider(rtl)
-# Loading work.codec_controller(rtl)
-# Loading work.i2c_master(rtl)
-# Loading work.path_control(comb)
-# Loading work.i2s_master(rtl)
-# Loading work.bclk_gen(rtl)
-# Loading work.bit_counter(rtl)
-# Loading work.i2s_decoder(rtl)
-# Loading work.shiftreg_p2s(rtl)
-# Loading work.shiftreg_s2p(rtl)
-# Loading work.i2c_slave_bfm(bfm)
-# WARNING: No extended dataflow license exists
+# ** Error: (vish-4014) No objects found matching '/synthi_top_tb/dacdat_check'.
+# Executing ONERROR command at macro ././wave.do line 17
+# ** Error: (vish-4014) No objects found matching '/synthi_top_tb/switch'.
+# Executing ONERROR command at macro ././wave.do line 28
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/tone_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 6  Instance: /synthi_top_tb/DUT/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 6  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1/DDS_1
 # LOGIC HAS BEEN RESET FOR 400 ns
 # ** Failure: Unknown Command
 #    Time: 400 ns  Iteration: 0  Process: /synthi_top_tb/readcmd File: ../../../source/synthi_top_tb.vhd
-# Break in Process readcmd at ../../../source/synthi_top_tb.vhd line 209
+# Break in Process readcmd at ../../../source/synthi_top_tb.vhd line 215
 do ../compile.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:36 on Jun 14,2019
+# Start time: 19:27:42 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../support/simulation_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -862,10 +880,10 @@ do ../compile.do
 # -- Compiling package simulation_pkg
 # -- Compiling package body simulation_pkg
 # -- Loading package simulation_pkg
-# End time: 16:25:36 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:27:42 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:36 on Jun 14,2019
+# Start time: 19:27:42 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../support/standard_driver_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -876,10 +894,10 @@ do ../compile.do
 # -- Compiling package standard_driver_pkg
 # -- Compiling package body standard_driver_pkg
 # -- Loading package standard_driver_pkg
-# End time: 16:25:36 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:27:42 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:36 on Jun 14,2019
+# Start time: 19:27:42 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../support/user_driver_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -890,29 +908,29 @@ do ../compile.do
 # -- Compiling package user_driver_pkg
 # -- Compiling package body user_driver_pkg
 # -- Loading package user_driver_pkg
-# End time: 16:25:37 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:27:43 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:37 on Jun 14,2019
+# Start time: 19:27:43 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/reg_table_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package reg_table_pkg
-# End time: 16:25:37 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:27:43 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:37 on Jun 14,2019
+# Start time: 19:27:43 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_gen_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling package tone_gen_pkg
-# End time: 16:25:38 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:27:44 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:38 on Jun 14,2019
+# Start time: 19:27:44 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/BCLK_GEN.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -920,10 +938,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity BCLK_GEN
 # -- Compiling architecture rtl of BCLK_GEN
-# End time: 16:25:38 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:27:44 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:39 on Jun 14,2019
+# Start time: 19:27:44 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/bit_counter.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -931,10 +949,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity bit_counter
 # -- Compiling architecture rtl of bit_counter
-# End time: 16:25:39 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:27:45 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:39 on Jun 14,2019
+# Start time: 19:27:45 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/codec_controller.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -943,10 +961,10 @@ do ../compile.do
 # -- Loading package reg_table_pkg
 # -- Compiling entity codec_controller
 # -- Compiling architecture rtl of codec_controller
-# End time: 16:25:39 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:27:45 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:39 on Jun 14,2019
+# Start time: 19:27:45 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_master.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -954,10 +972,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity i2c_master
 # -- Compiling architecture rtl of i2c_master
-# End time: 16:25:40 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:27:46 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:40 on Jun 14,2019
+# Start time: 19:27:46 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_slave_bfm.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -965,10 +983,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity i2c_slave_bfm
 # -- Compiling architecture bfm of i2c_slave_bfm
-# End time: 16:25:40 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:27:47 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:40 on Jun 14,2019
+# Start time: 19:27:47 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_decoder.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -976,10 +994,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity i2s_decoder
 # -- Compiling architecture rtl of i2s_decoder
-# End time: 16:25:41 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:27:47 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:41 on Jun 14,2019
+# Start time: 19:27:48 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_master.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -987,10 +1005,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity i2s_master
 # -- Compiling architecture rtl of i2s_master
-# End time: 16:25:41 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:27:49 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:41 on Jun 14,2019
+# Start time: 19:27:49 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/infrastructure.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -998,10 +1016,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity infrastructure
 # -- Compiling architecture str of infrastructure
-# End time: 16:25:41 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:27:49 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:42 on Jun 14,2019
+# Start time: 19:27:49 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/modulo_divider.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1009,20 +1027,20 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity modulo_divider
 # -- Compiling architecture rtl of modulo_divider
-# End time: 16:25:42 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:27:49 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:42 on Jun 14,2019
+# Start time: 19:27:50 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/path_control.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity path_control
 # -- Compiling architecture comb of path_control
-# End time: 16:25:42 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:27:50 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:42 on Jun 14,2019
+# Start time: 19:27:51 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_p2s.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1030,10 +1048,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity shiftreg_p2s
 # -- Compiling architecture rtl of shiftreg_p2s
-# End time: 16:25:43 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:27:51 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:43 on Jun 14,2019
+# Start time: 19:27:52 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_s2p.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1041,20 +1059,20 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity shiftreg_s2p
 # -- Compiling architecture rtl of shiftreg_s2p
-# End time: 16:25:43 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:27:52 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:43 on Jun 14,2019
+# Start time: 19:27:52 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synchronize.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity synchronize
 # -- Compiling architecture rtl of synchronize
-# End time: 16:25:43 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:27:53 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:43 on Jun 14,2019
+# Start time: 19:27:53 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/dds.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1063,10 +1081,10 @@ do ../compile.do
 # -- Loading package tone_gen_pkg
 # -- Compiling entity DDS
 # -- Compiling architecture rtl of DDS
-# End time: 16:25:44 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:27:53 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:44 on Jun 14,2019
+# Start time: 19:27:55 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_generator.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1077,22 +1095,25 @@ do ../compile.do
 # -- Loading package tone_gen_pkg
 # -- Compiling entity tone_generator
 # -- Compiling architecture struct of tone_generator
-# End time: 16:25:44 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:27:55 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:44 on Jun 14,2019
+# Start time: 19:27:55 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Loading package reg_table_pkg
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package tone_gen_pkg
 # -- Compiling entity synthi_top
 # -- Compiling architecture rtl of synthi_top
-# End time: 16:25:45 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:27:55 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:25:45 on Jun 14,2019
+# Start time: 19:27:57 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1103,15 +1124,14 @@ do ../compile.do
 # -- Loading package standard_driver_pkg
 # -- Loading package user_driver_pkg
 # -- Loading package reg_table_pkg
-# -- Loading package tone_gen_pkg
 # -- Compiling entity synthi_top_tb
 # -- Compiling architecture struct of synthi_top_tb
-# End time: 16:25:45 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:27:57 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 16:25:57 on Jun 14,2019, Elapsed time: 0:02:47
-# Errors: 0, Warnings: 1
+# End time: 19:28:11 on Jun 14,2019, Elapsed time: 0:05:13
+# Errors: 7, Warnings: 7
 # vsim -novopt -t 1ns -lib work work.synthi_top_tb 
-# Start time: 16:25:57 on Jun 14,2019
+# Start time: 19:28:11 on Jun 14,2019
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -1121,8 +1141,10 @@ do ../compile.do
 # Loading work.standard_driver_pkg(body)
 # Loading work.user_driver_pkg(body)
 # Loading work.reg_table_pkg
-# Loading work.tone_gen_pkg
 # Loading work.synthi_top_tb(struct)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.tone_gen_pkg
 # Loading work.synthi_top(rtl)
 # Loading work.infrastructure(str)
 # Loading work.synchronize(rtl)
@@ -1136,18 +1158,30 @@ do ../compile.do
 # Loading work.i2s_decoder(rtl)
 # Loading work.shiftreg_p2s(rtl)
 # Loading work.shiftreg_s2p(rtl)
+# Loading work.tone_generator(struct)
+# Loading work.dds(rtl)
 # Loading work.i2c_slave_bfm(bfm)
 # WARNING: No extended dataflow license exists
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/tone_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 6  Instance: /synthi_top_tb/DUT/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 6  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1/DDS_1
 # LOGIC HAS BEEN RESET FOR 400 ns
 # ** Failure: Unknown Command
 #    Time: 400 ns  Iteration: 0  Process: /synthi_top_tb/readcmd File: ../../../source/synthi_top_tb.vhd
-# Break in Process readcmd at ../../../source/synthi_top_tb.vhd line 209
-pwd
-# D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/simulations/top_level_tb/modelsim
+# Break in Process readcmd at ../../../source/synthi_top_tb.vhd line 215
 do ../compile.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:05 on Jun 14,2019
+# Start time: 19:32:34 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../support/simulation_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1157,10 +1191,10 @@ do ../compile.do
 # -- Compiling package simulation_pkg
 # -- Compiling package body simulation_pkg
 # -- Loading package simulation_pkg
-# End time: 16:27:06 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:32:34 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:06 on Jun 14,2019
+# Start time: 19:32:35 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../support/standard_driver_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1171,10 +1205,10 @@ do ../compile.do
 # -- Compiling package standard_driver_pkg
 # -- Compiling package body standard_driver_pkg
 # -- Loading package standard_driver_pkg
-# End time: 16:27:06 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:32:35 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:06 on Jun 14,2019
+# Start time: 19:32:35 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../support/user_driver_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1185,29 +1219,29 @@ do ../compile.do
 # -- Compiling package user_driver_pkg
 # -- Compiling package body user_driver_pkg
 # -- Loading package user_driver_pkg
-# End time: 16:27:07 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:32:35 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:07 on Jun 14,2019
+# Start time: 19:32:36 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/reg_table_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package reg_table_pkg
-# End time: 16:27:07 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:32:36 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:08 on Jun 14,2019
+# Start time: 19:32:36 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_gen_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling package tone_gen_pkg
-# End time: 16:27:08 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:32:36 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:08 on Jun 14,2019
+# Start time: 19:32:36 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/BCLK_GEN.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1215,10 +1249,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity BCLK_GEN
 # -- Compiling architecture rtl of BCLK_GEN
-# End time: 16:27:08 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:32:37 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:09 on Jun 14,2019
+# Start time: 19:32:37 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/bit_counter.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1226,10 +1260,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity bit_counter
 # -- Compiling architecture rtl of bit_counter
-# End time: 16:27:09 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:32:37 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:09 on Jun 14,2019
+# Start time: 19:32:37 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/codec_controller.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1238,10 +1272,10 @@ do ../compile.do
 # -- Loading package reg_table_pkg
 # -- Compiling entity codec_controller
 # -- Compiling architecture rtl of codec_controller
-# End time: 16:27:09 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:32:37 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:09 on Jun 14,2019
+# Start time: 19:32:37 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_master.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1249,10 +1283,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity i2c_master
 # -- Compiling architecture rtl of i2c_master
-# End time: 16:27:10 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:32:38 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:10 on Jun 14,2019
+# Start time: 19:32:38 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_slave_bfm.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1260,10 +1294,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity i2c_slave_bfm
 # -- Compiling architecture bfm of i2c_slave_bfm
-# End time: 16:27:10 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:32:38 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:10 on Jun 14,2019
+# Start time: 19:32:38 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_decoder.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1271,10 +1305,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity i2s_decoder
 # -- Compiling architecture rtl of i2s_decoder
-# End time: 16:27:11 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:32:38 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:11 on Jun 14,2019
+# Start time: 19:32:38 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_master.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1282,10 +1316,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity i2s_master
 # -- Compiling architecture rtl of i2s_master
-# End time: 16:27:11 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:32:39 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:11 on Jun 14,2019
+# Start time: 19:32:39 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/infrastructure.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1293,10 +1327,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity infrastructure
 # -- Compiling architecture str of infrastructure
-# End time: 16:27:11 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:32:39 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:12 on Jun 14,2019
+# Start time: 19:32:39 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/modulo_divider.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1304,20 +1338,20 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity modulo_divider
 # -- Compiling architecture rtl of modulo_divider
-# End time: 16:27:12 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:32:39 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:12 on Jun 14,2019
+# Start time: 19:32:39 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/path_control.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity path_control
 # -- Compiling architecture comb of path_control
-# End time: 16:27:12 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:32:40 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:12 on Jun 14,2019
+# Start time: 19:32:40 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_p2s.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1325,10 +1359,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity shiftreg_p2s
 # -- Compiling architecture rtl of shiftreg_p2s
-# End time: 16:27:13 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:32:40 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:13 on Jun 14,2019
+# Start time: 19:32:40 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_s2p.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1336,20 +1370,20 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity shiftreg_s2p
 # -- Compiling architecture rtl of shiftreg_s2p
-# End time: 16:27:13 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:32:40 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:13 on Jun 14,2019
+# Start time: 19:32:40 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synchronize.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity synchronize
 # -- Compiling architecture rtl of synchronize
-# End time: 16:27:14 on Jun 14,2019, Elapsed time: 0:00:01
+# End time: 19:32:40 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:14 on Jun 14,2019
+# Start time: 19:32:41 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/dds.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1358,10 +1392,10 @@ do ../compile.do
 # -- Loading package tone_gen_pkg
 # -- Compiling entity DDS
 # -- Compiling architecture rtl of DDS
-# End time: 16:27:14 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:32:41 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:14 on Jun 14,2019
+# Start time: 19:32:41 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_generator.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1372,22 +1406,25 @@ do ../compile.do
 # -- Loading package tone_gen_pkg
 # -- Compiling entity tone_generator
 # -- Compiling architecture struct of tone_generator
-# End time: 16:27:14 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:32:41 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:15 on Jun 14,2019
+# Start time: 19:32:41 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Loading package reg_table_pkg
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package tone_gen_pkg
 # -- Compiling entity synthi_top
 # -- Compiling architecture rtl of synthi_top
-# End time: 16:27:15 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:32:42 on Jun 14,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:27:15 on Jun 14,2019
+# Start time: 19:32:42 on Jun 14,2019
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1398,15 +1435,14 @@ do ../compile.do
 # -- Loading package standard_driver_pkg
 # -- Loading package user_driver_pkg
 # -- Loading package reg_table_pkg
-# -- Loading package tone_gen_pkg
 # -- Compiling entity synthi_top_tb
 # -- Compiling architecture struct of synthi_top_tb
-# End time: 16:27:15 on Jun 14,2019, Elapsed time: 0:00:00
+# End time: 19:32:42 on Jun 14,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 16:27:26 on Jun 14,2019, Elapsed time: 0:01:29
-# Errors: 0, Warnings: 1
+# End time: 19:32:51 on Jun 14,2019, Elapsed time: 0:04:40
+# Errors: 0, Warnings: 7
 # vsim -novopt -t 1ns -lib work work.synthi_top_tb 
-# Start time: 16:27:27 on Jun 14,2019
+# Start time: 19:32:51 on Jun 14,2019
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -1416,8 +1452,10 @@ do ../compile.do
 # Loading work.standard_driver_pkg(body)
 # Loading work.user_driver_pkg(body)
 # Loading work.reg_table_pkg
-# Loading work.tone_gen_pkg
 # Loading work.synthi_top_tb(struct)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.tone_gen_pkg
 # Loading work.synthi_top(rtl)
 # Loading work.infrastructure(str)
 # Loading work.synchronize(rtl)
@@ -1431,42 +1469,1267 @@ do ../compile.do
 # Loading work.i2s_decoder(rtl)
 # Loading work.shiftreg_p2s(rtl)
 # Loading work.shiftreg_s2p(rtl)
+# Loading work.tone_generator(struct)
+# Loading work.dds(rtl)
 # Loading work.i2c_slave_bfm(bfm)
 # WARNING: No extended dataflow license exists
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/tone_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 6  Instance: /synthi_top_tb/DUT/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 6  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1/DDS_1
 # LOGIC HAS BEEN RESET FOR 400 ns
-# HEX VALUE 00000000 APPLIED to DUT
-# SIMULATED FOR 000000FF CLOCKS
-# HEX VALUE 00413040 APPLIED to DUT
-# SIMULATED FOR 0000BBCC CLOCKS
-# HEX VALUE 00FFF420 APPLIED to DUT
-add wave -position insertpoint  \
-sim:/synthi_top_tb/AUD_ADCDAT \
-sim:/synthi_top_tb/AUD_ADCLRCK \
-sim:/synthi_top_tb/AUD_BCLK \
-sim:/synthi_top_tb/AUD_DACDAT \
-sim:/synthi_top_tb/AUD_DACLRCK \
-sim:/synthi_top_tb/AUD_XCK \
-sim:/synthi_top_tb/CLOCK_50 \
-sim:/synthi_top_tb/GPIO_26 \
-sim:/synthi_top_tb/I2C_SCLK \
-sim:/synthi_top_tb/I2C_SDAT \
-sim:/synthi_top_tb/KEY \
-sim:/synthi_top_tb/KEY(1) \
-sim:/synthi_top_tb/KEY(0) \
-sim:/synthi_top_tb/SW \
-sim:/synthi_top_tb/clock_freq \
-sim:/synthi_top_tb/clock_period \
-sim:/synthi_top_tb/dacdat_check \
-sim:/synthi_top_tb/reg_data0 \
-sim:/synthi_top_tb/reg_data1 \
-sim:/synthi_top_tb/reg_data2 \
-sim:/synthi_top_tb/reg_data3 \
-sim:/synthi_top_tb/reg_data4 \
-sim:/synthi_top_tb/reg_data5 \
-sim:/synthi_top_tb/reg_data6 \
-sim:/synthi_top_tb/reg_data7 \
-sim:/synthi_top_tb/reg_data8 \
-sim:/synthi_top_tb/reg_data9 \
-sim:/synthi_top_tb/switch
-# End time: 16:32:21 on Jun 14,2019, Elapsed time: 0:04:54
-# Errors: 0, Warnings: 1
+# ** Failure: Unknown Command
+#    Time: 400 ns  Iteration: 0  Process: /synthi_top_tb/readcmd File: ../../../source/synthi_top_tb.vhd
+# Break in Process readcmd at ../../../source/synthi_top_tb.vhd line 215
+do ../compile.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:25 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/simulation_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling package simulation_pkg
+# -- Compiling package body simulation_pkg
+# -- Loading package simulation_pkg
+# End time: 19:34:26 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:26 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/standard_driver_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Compiling package standard_driver_pkg
+# -- Compiling package body standard_driver_pkg
+# -- Loading package standard_driver_pkg
+# End time: 19:34:26 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:26 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/user_driver_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Compiling package user_driver_pkg
+# -- Compiling package body user_driver_pkg
+# -- Loading package user_driver_pkg
+# End time: 19:34:27 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:27 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/reg_table_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package reg_table_pkg
+# End time: 19:34:27 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:27 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_gen_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package tone_gen_pkg
+# End time: 19:34:28 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:28 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/BCLK_GEN.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity BCLK_GEN
+# -- Compiling architecture rtl of BCLK_GEN
+# End time: 19:34:28 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:28 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/bit_counter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity bit_counter
+# -- Compiling architecture rtl of bit_counter
+# End time: 19:34:29 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:29 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/codec_controller.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package reg_table_pkg
+# -- Compiling entity codec_controller
+# -- Compiling architecture rtl of codec_controller
+# End time: 19:34:29 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:30 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_master.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2c_master
+# -- Compiling architecture rtl of i2c_master
+# End time: 19:34:30 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:30 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_slave_bfm.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2c_slave_bfm
+# -- Compiling architecture bfm of i2c_slave_bfm
+# End time: 19:34:30 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:31 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_decoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2s_decoder
+# -- Compiling architecture rtl of i2s_decoder
+# End time: 19:34:31 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:31 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_master.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2s_master
+# -- Compiling architecture rtl of i2s_master
+# End time: 19:34:31 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:31 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/infrastructure.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity infrastructure
+# -- Compiling architecture str of infrastructure
+# End time: 19:34:32 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:32 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/modulo_divider.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity modulo_divider
+# -- Compiling architecture rtl of modulo_divider
+# End time: 19:34:32 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:32 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/path_control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity path_control
+# -- Compiling architecture comb of path_control
+# End time: 19:34:32 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:33 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_p2s.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shiftreg_p2s
+# -- Compiling architecture rtl of shiftreg_p2s
+# End time: 19:34:33 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:33 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_s2p.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shiftreg_s2p
+# -- Compiling architecture rtl of shiftreg_s2p
+# End time: 19:34:33 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:33 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synchronize.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity synchronize
+# -- Compiling architecture rtl of synchronize
+# End time: 19:34:34 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:34 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/dds.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package tone_gen_pkg
+# -- Compiling entity DDS
+# -- Compiling architecture rtl of DDS
+# End time: 19:34:34 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:34 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_generator.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package tone_gen_pkg
+# -- Compiling entity tone_generator
+# -- Compiling architecture struct of tone_generator
+# End time: 19:34:34 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:35 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package reg_table_pkg
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package tone_gen_pkg
+# -- Compiling entity synthi_top
+# -- Compiling architecture rtl of synthi_top
+# End time: 19:34:35 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:34:35 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Loading package standard_driver_pkg
+# -- Loading package user_driver_pkg
+# -- Loading package reg_table_pkg
+# -- Compiling entity synthi_top_tb
+# -- Compiling architecture struct of synthi_top_tb
+# End time: 19:34:35 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 19:34:59 on Jun 14,2019, Elapsed time: 0:02:08
+# Errors: 0, Warnings: 7
+# vsim -novopt -t 1ns -lib work work.synthi_top_tb 
+# Start time: 19:34:59 on Jun 14,2019
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.simulation_pkg(body)
+# Loading work.standard_driver_pkg(body)
+# Loading work.user_driver_pkg(body)
+# Loading work.reg_table_pkg
+# Loading work.synthi_top_tb(struct)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.tone_gen_pkg
+# Loading work.synthi_top(rtl)
+# Loading work.infrastructure(str)
+# Loading work.synchronize(rtl)
+# Loading work.modulo_divider(rtl)
+# Loading work.codec_controller(rtl)
+# Loading work.i2c_master(rtl)
+# Loading work.path_control(comb)
+# Loading work.i2s_master(rtl)
+# Loading work.bclk_gen(rtl)
+# Loading work.bit_counter(rtl)
+# Loading work.i2s_decoder(rtl)
+# Loading work.shiftreg_p2s(rtl)
+# Loading work.shiftreg_s2p(rtl)
+# Loading work.tone_generator(struct)
+# Loading work.dds(rtl)
+# Loading work.i2c_slave_bfm(bfm)
+# WARNING: No extended dataflow license exists
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/tone_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 6  Instance: /synthi_top_tb/DUT/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 6  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1/DDS_1
+# LOGIC HAS BEEN RESET FOR 400 ns
+# ** Failure: Unknown Command
+#    Time: 400 ns  Iteration: 0  Process: /synthi_top_tb/readcmd File: ../../../source/synthi_top_tb.vhd
+# Break in Process readcmd at ../../../source/synthi_top_tb.vhd line 215
+do ../compile.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:25 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/simulation_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling package simulation_pkg
+# -- Compiling package body simulation_pkg
+# -- Loading package simulation_pkg
+# End time: 19:35:25 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:25 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/standard_driver_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Compiling package standard_driver_pkg
+# -- Compiling package body standard_driver_pkg
+# -- Loading package standard_driver_pkg
+# End time: 19:35:25 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:26 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/user_driver_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Compiling package user_driver_pkg
+# -- Compiling package body user_driver_pkg
+# -- Loading package user_driver_pkg
+# End time: 19:35:26 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:26 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/reg_table_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package reg_table_pkg
+# End time: 19:35:26 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:26 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_gen_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package tone_gen_pkg
+# End time: 19:35:27 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:27 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/BCLK_GEN.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity BCLK_GEN
+# -- Compiling architecture rtl of BCLK_GEN
+# End time: 19:35:27 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:27 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/bit_counter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity bit_counter
+# -- Compiling architecture rtl of bit_counter
+# End time: 19:35:28 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:28 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/codec_controller.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package reg_table_pkg
+# -- Compiling entity codec_controller
+# -- Compiling architecture rtl of codec_controller
+# End time: 19:35:28 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:28 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_master.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2c_master
+# -- Compiling architecture rtl of i2c_master
+# End time: 19:35:28 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:29 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_slave_bfm.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2c_slave_bfm
+# -- Compiling architecture bfm of i2c_slave_bfm
+# End time: 19:35:29 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:29 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_decoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2s_decoder
+# -- Compiling architecture rtl of i2s_decoder
+# End time: 19:35:29 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:29 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_master.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2s_master
+# -- Compiling architecture rtl of i2s_master
+# End time: 19:35:30 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:30 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/infrastructure.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity infrastructure
+# -- Compiling architecture str of infrastructure
+# End time: 19:35:30 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:30 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/modulo_divider.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity modulo_divider
+# -- Compiling architecture rtl of modulo_divider
+# End time: 19:35:30 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:30 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/path_control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity path_control
+# -- Compiling architecture comb of path_control
+# End time: 19:35:31 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:31 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_p2s.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shiftreg_p2s
+# -- Compiling architecture rtl of shiftreg_p2s
+# End time: 19:35:31 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:31 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_s2p.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shiftreg_s2p
+# -- Compiling architecture rtl of shiftreg_s2p
+# End time: 19:35:31 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:31 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synchronize.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity synchronize
+# -- Compiling architecture rtl of synchronize
+# End time: 19:35:31 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:32 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/dds.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package tone_gen_pkg
+# -- Compiling entity DDS
+# -- Compiling architecture rtl of DDS
+# End time: 19:35:32 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:32 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_generator.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package tone_gen_pkg
+# -- Compiling entity tone_generator
+# -- Compiling architecture struct of tone_generator
+# End time: 19:35:32 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:32 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package reg_table_pkg
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package tone_gen_pkg
+# -- Compiling entity synthi_top
+# -- Compiling architecture rtl of synthi_top
+# End time: 19:35:33 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:35:33 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Loading package standard_driver_pkg
+# -- Loading package user_driver_pkg
+# -- Loading package reg_table_pkg
+# -- Compiling entity synthi_top_tb
+# -- Compiling architecture struct of synthi_top_tb
+# End time: 19:35:33 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 19:35:43 on Jun 14,2019, Elapsed time: 0:00:44
+# Errors: 0, Warnings: 7
+# vsim -novopt -t 1ns -lib work work.synthi_top_tb 
+# Start time: 19:35:43 on Jun 14,2019
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.simulation_pkg(body)
+# Loading work.standard_driver_pkg(body)
+# Loading work.user_driver_pkg(body)
+# Loading work.reg_table_pkg
+# Loading work.synthi_top_tb(struct)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.tone_gen_pkg
+# Loading work.synthi_top(rtl)
+# Loading work.infrastructure(str)
+# Loading work.synchronize(rtl)
+# Loading work.modulo_divider(rtl)
+# Loading work.codec_controller(rtl)
+# Loading work.i2c_master(rtl)
+# Loading work.path_control(comb)
+# Loading work.i2s_master(rtl)
+# Loading work.bclk_gen(rtl)
+# Loading work.bit_counter(rtl)
+# Loading work.i2s_decoder(rtl)
+# Loading work.shiftreg_p2s(rtl)
+# Loading work.shiftreg_s2p(rtl)
+# Loading work.tone_generator(struct)
+# Loading work.dds(rtl)
+# Loading work.i2c_slave_bfm(bfm)
+# WARNING: No extended dataflow license exists
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/tone_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 6  Instance: /synthi_top_tb/DUT/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 6  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1/DDS_1
+# LOGIC HAS BEEN RESET FOR 400 ns
+# ** Failure: Unknown Command
+#    Time: 400 ns  Iteration: 0  Process: /synthi_top_tb/readcmd File: ../../../source/synthi_top_tb.vhd
+# Break in Process readcmd at ../../../source/synthi_top_tb.vhd line 215
+do ../compile.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:06 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/simulation_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling package simulation_pkg
+# -- Compiling package body simulation_pkg
+# -- Loading package simulation_pkg
+# End time: 19:39:06 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:06 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/standard_driver_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Compiling package standard_driver_pkg
+# -- Compiling package body standard_driver_pkg
+# -- Loading package standard_driver_pkg
+# End time: 19:39:07 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:07 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/user_driver_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Compiling package user_driver_pkg
+# -- Compiling package body user_driver_pkg
+# -- Loading package user_driver_pkg
+# End time: 19:39:07 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:07 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/reg_table_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package reg_table_pkg
+# End time: 19:39:08 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:08 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_gen_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package tone_gen_pkg
+# End time: 19:39:08 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:08 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/BCLK_GEN.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity BCLK_GEN
+# -- Compiling architecture rtl of BCLK_GEN
+# End time: 19:39:08 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:09 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/bit_counter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity bit_counter
+# -- Compiling architecture rtl of bit_counter
+# End time: 19:39:09 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:09 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/codec_controller.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package reg_table_pkg
+# -- Compiling entity codec_controller
+# -- Compiling architecture rtl of codec_controller
+# End time: 19:39:09 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:09 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_master.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2c_master
+# -- Compiling architecture rtl of i2c_master
+# End time: 19:39:09 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:10 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_slave_bfm.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2c_slave_bfm
+# -- Compiling architecture bfm of i2c_slave_bfm
+# End time: 19:39:10 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:10 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_decoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2s_decoder
+# -- Compiling architecture rtl of i2s_decoder
+# End time: 19:39:10 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:10 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_master.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2s_master
+# -- Compiling architecture rtl of i2s_master
+# End time: 19:39:10 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:10 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/infrastructure.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity infrastructure
+# -- Compiling architecture str of infrastructure
+# End time: 19:39:11 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:11 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/modulo_divider.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity modulo_divider
+# -- Compiling architecture rtl of modulo_divider
+# End time: 19:39:11 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:11 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/path_control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity path_control
+# -- Compiling architecture comb of path_control
+# End time: 19:39:11 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:11 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_p2s.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shiftreg_p2s
+# -- Compiling architecture rtl of shiftreg_p2s
+# End time: 19:39:12 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:12 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_s2p.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shiftreg_s2p
+# -- Compiling architecture rtl of shiftreg_s2p
+# End time: 19:39:12 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:12 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synchronize.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity synchronize
+# -- Compiling architecture rtl of synchronize
+# End time: 19:39:12 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:12 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/dds.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package tone_gen_pkg
+# -- Compiling entity DDS
+# -- Compiling architecture rtl of DDS
+# End time: 19:39:13 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:13 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_generator.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package tone_gen_pkg
+# -- Compiling entity tone_generator
+# -- Compiling architecture struct of tone_generator
+# End time: 19:39:13 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:13 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package reg_table_pkg
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package tone_gen_pkg
+# -- Compiling entity synthi_top
+# -- Compiling architecture rtl of synthi_top
+# End time: 19:39:13 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:39:13 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Loading package standard_driver_pkg
+# -- Loading package user_driver_pkg
+# -- Loading package reg_table_pkg
+# -- Compiling entity synthi_top_tb
+# -- Compiling architecture struct of synthi_top_tb
+# End time: 19:39:14 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 19:39:23 on Jun 14,2019, Elapsed time: 0:03:40
+# Errors: 0, Warnings: 7
+# vsim -novopt -t 1ns -lib work work.synthi_top_tb 
+# Start time: 19:39:23 on Jun 14,2019
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.simulation_pkg(body)
+# Loading work.standard_driver_pkg(body)
+# Loading work.user_driver_pkg(body)
+# Loading work.reg_table_pkg
+# Loading work.synthi_top_tb(struct)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.tone_gen_pkg
+# Loading work.synthi_top(rtl)
+# Loading work.infrastructure(str)
+# Loading work.synchronize(rtl)
+# Loading work.modulo_divider(rtl)
+# Loading work.codec_controller(rtl)
+# Loading work.i2c_master(rtl)
+# Loading work.path_control(comb)
+# Loading work.i2s_master(rtl)
+# Loading work.bclk_gen(rtl)
+# Loading work.bit_counter(rtl)
+# Loading work.i2s_decoder(rtl)
+# Loading work.shiftreg_p2s(rtl)
+# Loading work.shiftreg_s2p(rtl)
+# Loading work.tone_generator(struct)
+# Loading work.dds(rtl)
+# Loading work.i2c_slave_bfm(bfm)
+# WARNING: No extended dataflow license exists
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/tone_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 6  Instance: /synthi_top_tb/DUT/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 6  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1/DDS_1
+# LOGIC HAS BEEN RESET FOR 400 ns
+# ** Failure: Unknown Command
+#    Time: 400 ns  Iteration: 0  Process: /synthi_top_tb/readcmd File: ../../../source/synthi_top_tb.vhd
+# Break in Process readcmd at ../../../source/synthi_top_tb.vhd line 215
+do ../compile.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:43 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/simulation_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling package simulation_pkg
+# -- Compiling package body simulation_pkg
+# -- Loading package simulation_pkg
+# End time: 19:48:43 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:43 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/standard_driver_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Compiling package standard_driver_pkg
+# -- Compiling package body standard_driver_pkg
+# -- Loading package standard_driver_pkg
+# End time: 19:48:43 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:44 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/user_driver_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Compiling package user_driver_pkg
+# -- Compiling package body user_driver_pkg
+# -- Loading package user_driver_pkg
+# End time: 19:48:44 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:44 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/reg_table_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package reg_table_pkg
+# End time: 19:48:44 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:44 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_gen_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package tone_gen_pkg
+# End time: 19:48:45 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:45 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/BCLK_GEN.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity BCLK_GEN
+# -- Compiling architecture rtl of BCLK_GEN
+# End time: 19:48:45 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:45 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/bit_counter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity bit_counter
+# -- Compiling architecture rtl of bit_counter
+# End time: 19:48:46 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:46 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/codec_controller.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package reg_table_pkg
+# -- Compiling entity codec_controller
+# -- Compiling architecture rtl of codec_controller
+# End time: 19:48:46 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:46 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_master.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2c_master
+# -- Compiling architecture rtl of i2c_master
+# End time: 19:48:46 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:47 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_slave_bfm.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2c_slave_bfm
+# -- Compiling architecture bfm of i2c_slave_bfm
+# End time: 19:48:47 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:47 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_decoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2s_decoder
+# -- Compiling architecture rtl of i2s_decoder
+# End time: 19:48:47 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:47 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_master.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2s_master
+# -- Compiling architecture rtl of i2s_master
+# End time: 19:48:47 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:48 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/infrastructure.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity infrastructure
+# -- Compiling architecture str of infrastructure
+# End time: 19:48:48 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:48 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/modulo_divider.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity modulo_divider
+# -- Compiling architecture rtl of modulo_divider
+# End time: 19:48:48 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:48 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/path_control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity path_control
+# -- Compiling architecture comb of path_control
+# End time: 19:48:48 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:49 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_p2s.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shiftreg_p2s
+# -- Compiling architecture rtl of shiftreg_p2s
+# End time: 19:48:49 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:49 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_s2p.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shiftreg_s2p
+# -- Compiling architecture rtl of shiftreg_s2p
+# End time: 19:48:49 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:49 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synchronize.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity synchronize
+# -- Compiling architecture rtl of synchronize
+# End time: 19:48:50 on Jun 14,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:50 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/dds.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package tone_gen_pkg
+# -- Compiling entity DDS
+# -- Compiling architecture rtl of DDS
+# End time: 19:48:50 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:50 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/tone_generator.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package tone_gen_pkg
+# -- Compiling entity tone_generator
+# -- Compiling architecture struct of tone_generator
+# End time: 19:48:50 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:51 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package reg_table_pkg
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package tone_gen_pkg
+# -- Compiling entity synthi_top
+# -- Compiling architecture rtl of synthi_top
+# End time: 19:48:51 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:48:51 on Jun 14,2019
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Loading package standard_driver_pkg
+# -- Loading package user_driver_pkg
+# -- Loading package reg_table_pkg
+# -- Compiling entity synthi_top_tb
+# -- Compiling architecture struct of synthi_top_tb
+# End time: 19:48:51 on Jun 14,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 19:49:02 on Jun 14,2019, Elapsed time: 0:09:39
+# Errors: 0, Warnings: 7
+# vsim -novopt -t 1ns -lib work work.synthi_top_tb 
+# Start time: 19:49:02 on Jun 14,2019
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.simulation_pkg(body)
+# Loading work.standard_driver_pkg(body)
+# Loading work.user_driver_pkg(body)
+# Loading work.reg_table_pkg
+# Loading work.synthi_top_tb(struct)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.tone_gen_pkg
+# Loading work.synthi_top(rtl)
+# Loading work.infrastructure(str)
+# Loading work.synchronize(rtl)
+# Loading work.modulo_divider(rtl)
+# Loading work.codec_controller(rtl)
+# Loading work.i2c_master(rtl)
+# Loading work.path_control(comb)
+# Loading work.i2s_master(rtl)
+# Loading work.bclk_gen(rtl)
+# Loading work.bit_counter(rtl)
+# Loading work.i2s_decoder(rtl)
+# Loading work.shiftreg_p2s(rtl)
+# Loading work.shiftreg_s2p(rtl)
+# Loading work.tone_generator(struct)
+# Loading work.dds(rtl)
+# Loading work.i2c_slave_bfm(bfm)
+# WARNING: No extended dataflow license exists
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/tone_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 6  Instance: /synthi_top_tb/DUT/tone_generator_1/DDS_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 6  Instance: /synthi_top_tb/synthi_top_1/tone_generator_1/DDS_1
+# LOGIC HAS BEEN RESET FOR 400 ns
+# ** Failure: Unknown Command
+#    Time: 400 ns  Iteration: 0  Process: /synthi_top_tb/readcmd File: ../../../source/synthi_top_tb.vhd
+# Break in Process readcmd at ../../../source/synthi_top_tb.vhd line 215

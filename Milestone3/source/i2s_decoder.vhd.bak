@@ -18,10 +18,8 @@
 -- Date        Version  Author          Description
 -- 2019-03-23  1.0      Heinzen         created
 -- 2019-03-26  1.1      Heinzen         changed shift direction 
--- 2019-04-28  1.1      Heinzen         added comments
+-- 2019-06-28  1.1      Heinzen         added comments
 -- 18.05.2019  1.2      Rutishauser     Debugging
--- 2019-05-28  1.1      Heinzen         nomenclatura
-
 -------------------------------------------------------------------------------
 
 -------------------------------------------
@@ -36,8 +34,8 @@ use ieee.numeric_std.all;
 -------------------------------------------
 entity i2s_decoder is
 
-  port(bit_count_i               : in  integer range 0 to 127;
-       load_o, shift_l_o, shift_r_o, ws_o : out std_logic
+  port(bit_count                  : in  std_logic_vector (6 downto 0);
+       load, shift_l, shift_r, ws : out std_logic
        );
 end entity i2s_decoder;
 
@@ -47,6 +45,10 @@ end entity i2s_decoder;
 -------------------------------------------
 architecture rtl of i2s_decoder is
 
+-------------------------------------------
+-- Signals & Constants Declaration 
+-------------------------------------------
+
 begin
 --------------------------------------------------
 -- COMBINATORIAL LOGIC FOR OUTPUT
@@ -55,25 +57,26 @@ begin
   comb_out : process(all)
   begin
     -- default statements
-    load_o    <= '0';
-    shift_l_o <= '0';
-    shift_r_o <= '0';
+    load    <= '0';
+    shift_l <= '0';
+    shift_r <= '0';
 
     -- load condition when bit_count is zero
-    if (bit_count_i = 0) then
-      load_o <= '1';
-    elsif (bit_count_i < 17) then  -- when bit counter in range 0..16: shift left should be active
-      shift_l_o <= '1';
-    elsif (bit_count_i > 64) and (bit_count_i < 81) then  --when bit counter in range 65..80: shift right should be active
-      shift_r_o <= '1';
+    if (unsigned(bit_count) = 0) then
+      load <= '1';
+    elsif (unsigned(bit_count) < 17) then  -- when bit counter in range 0..16: shift left should be active
+      shift_l <= '1';
+    elsif (unsigned(bit_count) > 64) and (unsigned(bit_count) < 81) then  --when bit counter in range 65..80: shift right should be active
+      shift_r <= '1';
     end if;
 
-    -- generating ws signal 
-	 if bit_count_i < 64 then ws_o <= '0';
-	 else ws <= '1';
-	 end if;
+    ws <= bit_count(6);
+
+
+
   end process comb_out;
 
+
+
 end architecture;
--- end
-----------------------------------------
+
