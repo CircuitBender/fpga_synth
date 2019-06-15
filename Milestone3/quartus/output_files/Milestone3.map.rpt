@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Milestone3
-Fri Jun 14 19:20:28 2019
+Sat Jun 15 13:20:37 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -62,7 +62,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jun 14 19:20:27 2019       ;
+; Analysis & Synthesis Status        ; Successful - Sat Jun 15 13:20:36 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; Milestone3                                  ;
 ; Top-level Entity Name              ; synthi_top                                  ;
@@ -525,7 +525,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:08     ;
+; Top            ; 00:00:04     ;
 +----------------+--------------+
 
 
@@ -535,18 +535,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Jun 14 19:19:41 2019
+    Info: Processing started: Sat Jun 15 13:20:15 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Milestone3 -c Milestone3
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/tone_generator.vhd
-    Info (12022): Found design unit 1: tone_generator-struct File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/tone_generator.vhd Line: 55
+    Info (12022): Found design unit 1: tone_generator-struct File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/tone_generator.vhd Line: 53
     Info (12023): Found entity 1: tone_generator File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/tone_generator.vhd Line: 42
 Info (12021): Found 1 design units, including 0 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/tone_gen_pkg.vhd
     Info (12022): Found design unit 1: tone_gen_pkg File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/tone_gen_pkg.vhd Line: 26
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/synthi_top.vhd
-    Info (12022): Found design unit 1: synthi_top-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 58
-    Info (12023): Found entity 1: synthi_top File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 34
+    Info (12022): Found design unit 1: synthi_top-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 63
+    Info (12023): Found entity 1: synthi_top File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 39
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/synchronize.vhd
     Info (12022): Found design unit 1: synchronize-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synchronize.vhd Line: 42
     Info (12023): Found entity 1: synchronize File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synchronize.vhd Line: 27
@@ -577,7 +577,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file /digita
     Info (12022): Found design unit 1: i2c_master-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2c_master.vhd Line: 40
     Info (12023): Found entity 1: i2c_master File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2c_master.vhd Line: 22
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/dds.vhd
-    Info (12022): Found design unit 1: DDS-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/dds.vhd Line: 47
+    Info (12022): Found design unit 1: DDS-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/dds.vhd Line: 45
     Info (12023): Found entity 1: DDS File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/dds.vhd Line: 34
 Info (12021): Found 2 design units, including 1 entities, in source file /digitaltechnik_fpga/dtp2_fpga_synth/milestone3/source/codec_controller.vhd
     Info (12022): Found design unit 1: codec_controller-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/codec_controller.vhd Line: 54
@@ -589,46 +589,46 @@ Info (12021): Found 2 design units, including 1 entities, in source file /digita
     Info (12022): Found design unit 1: BCLK_GEN-rtl File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/BCLK_GEN.vhd Line: 43
     Info (12023): Found entity 1: BCLK_GEN File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/BCLK_GEN.vhd Line: 31
 Info (12127): Elaborating entity "synthi_top" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at synthi_top.vhd(79): object "mute_o" assigned a value but never read File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 79
-Info (12128): Elaborating entity "infrastructure" for hierarchy "infrastructure:infrastructure_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 173
+Warning (10036): Verilog HDL or VHDL warning at synthi_top.vhd(84): object "mute_o" assigned a value but never read File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 84
+Info (12128): Elaborating entity "infrastructure" for hierarchy "infrastructure:infrastructure_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 178
 Info (12128): Elaborating entity "synchronize" for hierarchy "infrastructure:infrastructure_1|synchronize:synchronize_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/infrastructure.vhd Line: 66
 Info (12128): Elaborating entity "synchronize" for hierarchy "infrastructure:infrastructure_1|synchronize:synchronize_2" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/infrastructure.vhd Line: 75
 Info (12128): Elaborating entity "synchronize" for hierarchy "infrastructure:infrastructure_1|synchronize:synchronize_3" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/infrastructure.vhd Line: 84
 Info (12128): Elaborating entity "modulo_divider" for hierarchy "infrastructure:infrastructure_1|modulo_divider:modulo_divider_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/infrastructure.vhd Line: 93
-Info (12128): Elaborating entity "codec_controller" for hierarchy "codec_controller:codec_controller_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 186
-Info (12128): Elaborating entity "i2c_master" for hierarchy "i2c_master:i2c_master_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 199
-Info (12128): Elaborating entity "path_control" for hierarchy "path_control:path_control_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 213
-Info (12128): Elaborating entity "i2s_master" for hierarchy "i2s_master:i2s_master_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 224
+Info (12128): Elaborating entity "codec_controller" for hierarchy "codec_controller:codec_controller_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 191
+Info (12128): Elaborating entity "i2c_master" for hierarchy "i2c_master:i2c_master_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 204
+Info (12128): Elaborating entity "path_control" for hierarchy "path_control:path_control_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 218
+Info (12128): Elaborating entity "i2s_master" for hierarchy "i2s_master:i2s_master_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 229
 Info (12128): Elaborating entity "BCLK_GEN" for hierarchy "i2s_master:i2s_master_1|BCLK_GEN:bckl_gen_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd Line: 119
 Info (12128): Elaborating entity "bit_counter" for hierarchy "i2s_master:i2s_master_1|bit_counter:bit_counter_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd Line: 126
 Info (12128): Elaborating entity "i2s_decoder" for hierarchy "i2s_master:i2s_master_1|i2s_decoder:i2s_decoder_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd Line: 135
 Info (12128): Elaborating entity "shiftreg_p2s" for hierarchy "i2s_master:i2s_master_1|shiftreg_p2s:shiftreg_p2s_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd Line: 144
 Info (12128): Elaborating entity "shiftreg_s2p" for hierarchy "i2s_master:i2s_master_1|shiftreg_s2p:shiftreg_s2p_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2s_master.vhd Line: 170
-Info (12128): Elaborating entity "tone_generator" for hierarchy "tone_generator:tone_generator_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 241
-Info (12128): Elaborating entity "DDS" for hierarchy "tone_generator:tone_generator_1|DDS:DDS_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/tone_generator.vhd Line: 71
+Info (12128): Elaborating entity "tone_generator" for hierarchy "tone_generator:tone_generator_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 246
+Info (12128): Elaborating entity "DDS" for hierarchy "tone_generator:tone_generator_1|DDS:DDS_1" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/tone_generator.vhd Line: 67
 Info (13000): Registers with preset signals will power-up high File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/i2c_master.vhd Line: 300
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 8 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "GPIO_26" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 39
-    Warning (15610): No output dependent on input pin "SW[11]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 41
-    Warning (15610): No output dependent on input pin "SW[12]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 41
-    Warning (15610): No output dependent on input pin "SW[13]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 41
-    Warning (15610): No output dependent on input pin "SW[14]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 41
-    Warning (15610): No output dependent on input pin "SW[15]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 41
-    Warning (15610): No output dependent on input pin "SW[16]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 41
-    Warning (15610): No output dependent on input pin "SW[17]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 41
+    Warning (15610): No output dependent on input pin "GPIO_26" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 44
+    Warning (15610): No output dependent on input pin "SW[11]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 46
+    Warning (15610): No output dependent on input pin "SW[12]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 46
+    Warning (15610): No output dependent on input pin "SW[13]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 46
+    Warning (15610): No output dependent on input pin "SW[14]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 46
+    Warning (15610): No output dependent on input pin "SW[15]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 46
+    Warning (15610): No output dependent on input pin "SW[16]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 46
+    Warning (15610): No output dependent on input pin "SW[17]" File: D:/DIGITALTECHNIK_FPGA/DTP2_fpga_synth/Milestone3/source/synthi_top.vhd Line: 46
 Info (21057): Implemented 666 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 6 output pins
     Info (21060): Implemented 1 bidirectional pins
     Info (21061): Implemented 636 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
-    Info: Peak virtual memory: 4843 megabytes
-    Info: Processing ended: Fri Jun 14 19:20:28 2019
-    Info: Elapsed time: 00:00:47
-    Info: Total CPU time (on all processors): 00:00:57
+    Info: Peak virtual memory: 4832 megabytes
+    Info: Processing ended: Sat Jun 15 13:20:37 2019
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:34
 
 
