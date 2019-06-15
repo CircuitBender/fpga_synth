@@ -1,19 +1,5 @@
 rst_sim
 
-gpi_sim 00 00 00 08 
-run_sim 00 00 00 01
-ini_cod 00 00 01 01
-
-gpi_stm 00 00 00 08
-i2s_stm 11 22 33 44
-i2s_chk 11 22 33 44
-
-i2s_stm 12 34 56 78
-i2s_chk 12 34 56 78
-
-i2s_stm ab cd ef 12
-i2s_chk ab cd ef 12
-
 gpi_stm 00 00 00 00
 dds_stm 
 

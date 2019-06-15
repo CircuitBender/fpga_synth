@@ -3,10 +3,10 @@
 -- Project    : 
 -------------------------------------------------------------------------------
 -- File       : synthi_top_tb.vhd
--- Author     :  Heinzen
+-- Author     :   <apontant@CLT-DSK-T-6432>
 -- Company    : 
--- Created    : 2019-06-09
--- Last update: 2019-06-13
+-- Created    : 2018-03-09
+-- Last update: 2018-03-16
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -16,8 +16,7 @@
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author  Description
--- 2019-06-09	1.0		Heinzen		created
--- 2019-06-13	1.1		Heinzen		features added
+-- 2018-03-09  1.0      apontant	Created
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -29,7 +28,7 @@ use work.simulation_pkg.all;
 use work.standard_driver_pkg.all;
 use work.user_driver_pkg.all;
 use work.reg_table_pkg.all;
-use work.tone_gen_pkg.all
+
 
 -------------------------------------------------------------------------------
 
@@ -58,30 +57,28 @@ architecture struct of synthi_top_tb is
   end component synthi_top;
 
   -- component ports
-  signal CLOCK_50     : std_logic;
-  signal KEY          : std_logic_vector(1 downto 0);
-  signal SW           : std_logic_vector(17 downto 0);
-  signal GPIO_26      : std_logic;
-  signal AUD_XCK      : std_logic;
-  signal AUD_DACDAT   : std_logic;
-  signal AUD_BCLK     : std_logic;
-  signal AUD_DACLRCK  : std_logic;
-  signal AUD_ADCLRCK  : std_logic;
-  signal AUD_ADCDAT   : std_logic;
-  signal I2C_SCLK     : std_logic;
-  signal I2C_SDAT     : std_logic;
-  signal reg_data0    : std_logic_vector(31 downto 0);
-  signal reg_data1    : std_logic_vector(31 downto 0);
-  signal reg_data2    : std_logic_vector(31 downto 0);
-  signal reg_data3    : std_logic_vector(31 downto 0);
-  signal reg_data4    : std_logic_vector(31 downto 0);
-  signal reg_data5    : std_logic_vector(31 downto 0);
-  signal reg_data6    : std_logic_vector(31 downto 0);
-  signal reg_data7    : std_logic_vector(31 downto 0);
-  signal reg_data8    : std_logic_vector(31 downto 0);
-  signal reg_data9    : std_logic_vector(31 downto 0);
-  signal switch       : std_logic_vector(31 downto 0);
-  signal dacdat_check : std_logic_vector(31 downto 0);
+  signal CLOCK_50    : std_logic;
+  signal KEY         : std_logic_vector(1 downto 0);
+  signal SW          : std_logic_vector(17 downto 0);
+  signal GPIO_26     : std_logic;
+  signal AUD_XCK     : std_logic;
+  signal AUD_DACDAT  : std_logic;
+  signal AUD_BCLK    : std_logic;
+  signal AUD_DACLRCK : std_logic;
+  signal AUD_ADCLRCK : std_logic;
+  signal AUD_ADCDAT  : std_logic;
+  signal I2C_SCLK    : std_logic;
+  signal I2C_SDAT    : std_logic;
+  signal reg_data0   : std_logic_vector(31 downto 0);
+  signal reg_data1   : std_logic_vector(31 downto 0);
+  signal reg_data2   : std_logic_vector(31 downto 0);
+  signal reg_data3   : std_logic_vector(31 downto 0);
+  signal reg_data4   : std_logic_vector(31 downto 0);
+  signal reg_data5   : std_logic_vector(31 downto 0);
+  signal reg_data6   : std_logic_vector(31 downto 0);
+  signal reg_data7   : std_logic_vector(31 downto 0);
+  signal reg_data8   : std_logic_vector(31 downto 0);
+  signal reg_data9   : std_logic_vector(31 downto 0);
 
   constant clock_freq   : natural := 50_000_000;
   constant clock_period : time    := 1000 ms/clock_freq;
@@ -110,7 +107,7 @@ architecture struct of synthi_top_tb is
 begin  -- architecture struct
 
   -- component instantiation
-  DUT : synthi_top
+  DUT: synthi_top
     port map (
       CLOCK_50    => CLOCK_50,
       KEY         => KEY,
@@ -133,10 +130,12 @@ begin  -- architecture struct
     -- expected result.
 
     variable cmd          : string(1 to 7);  --stores test command
-    variable line_in      : line;       --stores the to be processed line     
-    variable tv           : test_vect;  --stores arguments 1 to 4
+    variable line_in      : line; --stores the to be processed line     
+    variable tv           : test_vect; --stores arguments 1 to 4
     variable lincnt       : integer := 0;  --counts line number in testcase file
-    variable fail_counter : integer := 0;  --counts failed tests
+    variable fail_counter : integer := 0;--counts failed tests
+
+
 
   begin
     -------------------------------------
@@ -148,61 +147,90 @@ begin  -- architecture struct
     -------------------------------------
     -- Start the loop
     -------------------------------------
+
+
     loop
 
       --------------------------------------------------------------------------
       -- Check for end of test file and print out results at the end
       --------------------------------------------------------------------------
 
+
       if endfile(cmdfile) then          -- Check EOF
         end_simulation(fail_counter);
         exit;
       end if;
+
       --------------------------------------------------------------------------
       -- Read all the argumnents and commands
       --------------------------------------------------------------------------
+
       readline(cmdfile, line_in);       -- Read a line from the file
       lincnt := lincnt + 1;
+
+
       next when line_in'length = 0;     -- Skip empty lines
+
       read_arguments(tv, line_in, cmd);
       tv.clock_period := clock_period;  -- set clock period for driver calls
+
       -------------------------------------
+-------------------------------------
       -- Reset the circuit
       -------------------------------------
+
       if cmd = string'("rst_sim") then
-        rst_sim(tv, key(0));
-      elsif cmd = string'("ini_cod") then
-        ini_cod(tv, SW(2 downto 0), KEY(1));
-      elsif cmd = string'("i2c_ch0") then
-        gpo_chk(tv, reg_data0);
-      elsif cmd = string'("i2c_ch1") then
-        gpo_chk(tv, reg_data1);
-      elsif cmd = string'("i2c_ch2") then
-        gpo_chk(tv, reg_data2);
-      elsif cmd = string'("i2c_ch3") then
-        gpo_chk(tv, reg_data3);
-      elsif cmd = string'("i2c_ch4") then
-        gpo_chk(tv, reg_data4);
-      elsif cmd = string'("i2c_ch5") then
-        gpo_chk(tv, reg_data5);
-      elsif cmd = string'("i2c_ch6") then
-        gpo_chk(tv, reg_data6);
-      elsif cmd = string'("i2c_ch7") then
-        gpo_chk(tv, reg_data7);
-      elsif cmd = string'("i2c_ch8") then
-        gpo_chk(tv, reg_data8);
-      elsif cmd = string'("i2c_ch9") then
-        gpo_chk(tv, reg_data9);
-      elsif cmd = string'("i2s_chk") then
-        i2s_chk(tv, AUD_ADCLRCK, AUD_BCLK, AUD_DACDAT, dacdat_check);
-      elsif cmd = string'("i2s_stm") then
-        i2s_stm(tv, AUD_ADCLRCK, AUD_BCLK, AUD_ADCDAT);
-      elsif cmd = string'("gpi_stm") then
+        rst_sim(tv, KEY(0));
+     -------------------------------------
+      -- sends config to codec
+      -------------------------------------  
+	  elsif cmd = string'("ini_cod") then
+		ini_cod(tv, SW(2 downto 0), KEY(1));
+		
+     -------------------------------------
+      -- checks register of i2c receiver
+      -------------------------------------  
+	  elsif cmd = string'("chk_cd0") then
+		gpo_chk(tv, reg_data0);
+	  elsif cmd = string'("chk_cd1") then
+		gpo_chk(tv, reg_data1);		
+	  elsif cmd = string'("chk_cd2") then
+		gpo_chk(tv, reg_data2);		
+	  elsif cmd = string'("chk_cd3") then
+		gpo_chk(tv, reg_data3);		
+	  elsif cmd = string'("chk_cd4") then
+		gpo_chk(tv, reg_data4);		
+	  elsif cmd = string'("chk_cd5") then
+		gpo_chk(tv, reg_data5);		
+	  elsif cmd = string'("chk_cd6") then
+		gpo_chk(tv, reg_data6);		
+	  elsif cmd = string'("chk_cd7") then
+		gpo_chk(tv, reg_data7);		
+	  elsif cmd = string'("chk_cd8") then
+		gpo_chk(tv, reg_data8);		
+	  elsif cmd = string'("chk_cd9") then
+		gpo_chk(tv, reg_data9);				
+	
+	-------------------------------------
+		-- GPIO commands
+		-------------------------------------  
+	      elsif cmd = string'("gpi_stm") then
         gpi_stm(tv, switch);
+		
+-------------------------------------
+		-- DDS commands
+		-------------------------------------  	
 	  elsif cmd = string'("dds_stm") then
-	   run_sim(tv);
+	  --run_sim(tv);
        wait for 20 ms;
+-------------------------------------
+		-- Midi commands
+		-------------------------------------  
+		elsif cmd = string'("mid_stm") then
+			uar_stm(tv, GPIO_26);
+			
         -- add further test commands below here
+
 
       else
         assert false
@@ -210,18 +238,17 @@ begin  -- architecture struct
           severity failure;
       end if;
 
-      if tv.fail_flag = true then       --count failures in tests
+      if tv.fail_flag = true then --count failures in tests
         fail_counter := fail_counter + 1;
       else fail_counter := fail_counter;
       end if;
-      
-    end loop;  --finished processing command line
 
-    wait;  -- to avoid infinite loop simulator warning
+    end loop; --finished processing command line
+
+    wait; -- to avoid infinite loop simulator warning
 
   end process;
-  SW(17 downto 0) <= switch(17 downto 0);
-  
+
   clkgen : process
   begin
     clock_50 <= '0';
@@ -232,7 +259,7 @@ begin  -- architecture struct
   end process clkgen;
 
   -- instance "i2c_slave_bfm_1"
-  i2c_slave_bfm_1 : i2c_slave_bfm
+  i2c_slave_bfm_1: i2c_slave_bfm
     generic map (
       verbose => false)
     port map (
@@ -251,7 +278,7 @@ begin  -- architecture struct
       reg_data9 => reg_data9);
 
   -- instance "synthi_top_1"
-  synthi_top_1 : synthi_top
+  synthi_top_1: synthi_top
     port map (
       CLOCK_50    => CLOCK_50,
       GPIO_26     => GPIO_26,
@@ -267,7 +294,7 @@ begin  -- architecture struct
       AUD_ADCLRCK => AUD_ADCLRCK);
 
 
-
+ 
 
 
 end architecture struct;

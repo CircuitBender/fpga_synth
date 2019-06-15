@@ -17,7 +17,9 @@
 -- Revisions  :
 -- Date        Version  Author  Description
 -- 2018-03-09  1.0      apontant	Created
--------------------------------------------------------------------------------
+-- 2019-05-02	1.1		Heinzen		features added
+-- 2019-06-01	1.2		Heinzen		Ms2, Ms3, Ms4
+--------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -28,7 +30,7 @@ use work.simulation_pkg.all;
 use work.standard_driver_pkg.all;
 use work.user_driver_pkg.all;
 use work.reg_table_pkg.all;
-
+use work.tone_gen_pkg.all;
 
 -------------------------------------------------------------------------------
 
@@ -79,7 +81,9 @@ architecture struct of synthi_top_tb is
   signal reg_data7   : std_logic_vector(31 downto 0);
   signal reg_data8   : std_logic_vector(31 downto 0);
   signal reg_data9   : std_logic_vector(31 downto 0);
-
+ signal dacdat_check: std_logic_vector(31 downto 0);
+  signal switch 	 : std_logic_vector(31 downto 0);
+ signal tv_s             : test_vect; --stores arguments 1 to 4
   constant clock_freq   : natural := 50_000_000;
   constant clock_period : time    := 1000 ms/clock_freq;
 
@@ -175,38 +179,68 @@ begin  -- architecture struct
       tv.clock_period := clock_period;  -- set clock period for driver calls
 
       -------------------------------------
+-------------------------------------
       -- Reset the circuit
       -------------------------------------
 
       if cmd = string'("rst_sim") then
-        rst_sim(tv, key(0));
+        rst_sim(tv, KEY(0));
+     -------------------------------------
+      -- sends config to codec
+      -------------------------------------  
+	  elsif cmd = string'("ini_cod") then
+		ini_cod(tv, SW(2 downto 0), KEY(1));
+		
+     -------------------------------------
+      -- checks register of i2c receiver
+      -------------------------------------  
+	  elsif cmd = string'("chk_cd0") then
+		gpo_chk(tv, reg_data0);
+	  elsif cmd = string'("chk_cd1") then
+		gpo_chk(tv, reg_data1);		
+	  elsif cmd = string'("chk_cd2") then
+		gpo_chk(tv, reg_data2);		
+	  elsif cmd = string'("chk_cd3") then
+		gpo_chk(tv, reg_data3);		
+	  elsif cmd = string'("chk_cd4") then
+		gpo_chk(tv, reg_data4);		
+	  elsif cmd = string'("chk_cd5") then
+		gpo_chk(tv, reg_data5);		
+	  elsif cmd = string'("chk_cd6") then
+		gpo_chk(tv, reg_data6);		
+	  elsif cmd = string'("chk_cd7") then
+		gpo_chk(tv, reg_data7);		
+	  elsif cmd = string'("chk_cd8") then
+		gpo_chk(tv, reg_data8);		
+	  elsif cmd = string'("chk_cd9") then
+		gpo_chk(tv, reg_data9);	
 
-      elsif cmd = string'("ini_cod") then
-        ini_cod(tv, SW(2 downto 0), KEY(1));
-
-      elsif cmd = string'("i2c_ch0") then
-        gpo_chk(tv, reg_data0);
-      elsif cmd = string'("i2c_ch1") then
-        gpo_chk(tv, reg_data1);
-      elsif cmd = string'("i2c_ch2") then
-        gpo_chk(tv, reg_data2);
-      elsif cmd = string'("i2c_ch3") then
-        gpo_chk(tv, reg_data3);
-      elsif cmd = string'("i2c_ch4") then
-        gpo_chk(tv, reg_data4);
-      elsif cmd = string'("i2c_ch5") then
-        gpo_chk(tv, reg_data5);
-      elsif cmd = string'("i2c_ch6") then
-        gpo_chk(tv, reg_data6);
-      elsif cmd = string'("i2c_ch7") then
-        gpo_chk(tv, reg_data7);
-      elsif cmd = string'("i2c_ch8") then
-        gpo_chk(tv, reg_data8);
-      elsif cmd = string'("i2c_ch9") then
-        gpo_chk(tv, reg_data9);
-
-
-
+     -------------------------------------
+      -- I2S check
+      -------------------------------------  
+      elsif cmd = string'("i2s_chk") then
+        i2s_chk(tv, AUD_ADCLRCK, AUD_BCLK, AUD_DACDAT, dacdat_check);
+      elsif cmd = string'("i2s_stm") then
+        i2s_stm(tv, AUD_ADCLRCK, AUD_BCLK, AUD_ADCDAT);		
+	
+	-------------------------------------
+		-- GPIO commands
+		-------------------------------------  
+	      elsif cmd = string'("gpi_stm") then
+        gpi_stm(tv, switch);
+		
+-------------------------------------
+		-- DDS commands
+		-------------------------------------  	
+	  elsif cmd = string'("dds_stm") then
+	  --run_sim(tv);
+       wait for 20 ms;
+-------------------------------------
+		-- Midi commands
+		-------------------------------------  
+		elsif cmd = string'("mid_stm") then
+			uar_stm(tv, GPIO_26);
+			
         -- add further test commands below here
 
 
