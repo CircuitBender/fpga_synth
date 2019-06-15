@@ -18,6 +18,11 @@
 -- Date        Version  Author  Description
 -- 2019-03-08  1.0      Schawan   Created
 -- 2019-03-08  1.1      Heinzen   Debugged
+-- 2019-03-08  1.2      Heinzen   created ms2
+-- 2019-03-08  1.2      Heinzen   Implemented / Debugged
+-- 2019-03-08  1.3      Heinzen   created ms3
+-- 2019-03-08  1.3      Rutishauser   Debugged
+-- 2019-03-08  1.4      Rutishauser   Implemented /Debugged
 -------------------------------------------------------------------------------
 -- Libraries
 -------------------------------------------------------------------------------
