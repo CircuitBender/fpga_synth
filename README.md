@@ -12,8 +12,3 @@ Extra Features:
 Polyphony
 
 DTP2 Digitaltechnik Synthesizer Projekt
-
-authors
-Heinzen
-Rutishauser
-Strübi
