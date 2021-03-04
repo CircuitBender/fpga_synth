@@ -14,6 +14,6 @@ Polyphony
 DTP2 Digitaltechnik ZHAW Synthesizer Projekt
 
 authors
-Heinzen heinzma2@students.zhaw.ch
+Heinzen
 Rutishauser
 Strübi
