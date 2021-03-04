@@ -11,7 +11,7 @@ Program in VHDL + integrate and test the following blocks
 Extra Features:
 Polyphony
 
-DTP2 Digitaltechnik ZHAW Synthesizer Projekt
+DTP2 Digitaltechnik Synthesizer Projekt
 
 authors
 Heinzen
